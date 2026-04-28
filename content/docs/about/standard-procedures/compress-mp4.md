@@ -57,14 +57,14 @@ fps=40           # frames per a second .
 
 filters="fps=$fps,scale=$width:$height:flags=lanczos"
 
-ffmpeg -ss $start_time                             \
-    -i  "$vid"                                  \
-    -vf "$filters,palettegen"                   \
+ffmpeg -ss $start_time                             
+    -i  "$vid"                                  
+    -vf "$filters,palettegen"                   
     -y  palette.png                             &&
-ffmpeg -ss $start_time                             \
-    -i  "$vid"                                  \
-    -i  palette.png                                \
-    -lavfi "$filters [x]; [x][1:v] paletteuse"  \
+ffmpeg -ss $start_time                             
+    -i  "$vid"                                  
+    -i  palette.png                                
+    -lavfi "$filters [x]; [x][1:v] paletteuse"  
     -y  "$vid".gif                              &&
 rm palette.png
 ```

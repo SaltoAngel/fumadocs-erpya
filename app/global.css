@@ -183,3 +183,137 @@ button[aria-label="Search"] {
 .flip-card-back a:hover {
   color: #dbeafe;
 }
+
+/* Blogger Info Widget Styles */
+.vp-blog-info-wrapper {
+  background: var(--fd-background);
+  backdrop-filter: saturate(150%) blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  color: var(--fd-foreground);
+}
+
+.vp-blogger-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.vp-blogger-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  padding: 4px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vp-blogger-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.vp-blogger-description {
+  font-size: 0.8rem;
+  color: var(--fd-muted-foreground);
+  line-height: 1.4;
+}
+
+.vp-blog-counts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  width: 100%;
+  margin: 1.25rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.vp-blog-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.vp-blog-count:hover {
+  color: #3b82f6;
+}
+
+.vp-blog-count .count {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.vp-blog-count .label {
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.vp-social-medias {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.vp-social-media {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s;
+  color: var(--fd-muted-foreground);
+}
+
+.vp-social-media:hover {
+  transform: scale(1.2);
+  color: #3b82f6;
+}
+
+.vp-sticky-article-wrapper {
+  margin-top: 1.25rem;
+  text-align: left;
+}
+
+.vp-sticky-article-wrapper .title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.vp-sticky-articles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vp-sticky-article {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.05);
+}
+
+.vp-sticky-article a {
+  text-decoration: none;
+  color: var(--fd-muted-foreground);
+  font-size: 0.75rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+.vp-sticky-article a:hover {
+  color: #3b82f6;
+}

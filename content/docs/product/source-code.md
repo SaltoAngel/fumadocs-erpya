@@ -53,7 +53,7 @@ Clonar un repositorio en su computadora local es simple. Siga las instrucciones 
 <Callout type="info" title="-demo Clonar el proyecto por defecto">
 
 
-```Concha
+```shell
 # Navegue hasta el directorio principal donde se colocará el repositorio y escriba el siguiente comando
 clon de git https://github.com/adempiere/adempiere
 ```
@@ -64,7 +64,7 @@ Para cambiar el nombre del directorio de clonación use lo siguiente
 
 </Callout> vue-demo Clona el proyecto con Nombre Opcional
 
-```Concha
+```shell
 # Navegue hasta el directorio principal donde se colocará el repositorio y escriba el siguiente comando
 clon de git https://github.com/adempiere/adempiere <Nombre opcional>
 ```
@@ -78,7 +78,7 @@ Para clonar un repositorio a través de una conexión a Internet lenta o intermi
 <Callout type="info" title="-demo Para Linux">
 
 
-```Concha
+```shell
   # Ir a la carpeta predeterminada
   cd /opt/Development/repos
 

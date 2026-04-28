@@ -23,8 +23,7 @@ article: false
   
   Mantenimiento básico en Adempiere así como crear aplicaciones nuevas, ventanas y procesos.
 
-## Metodología  : Las clases son 100% prácticas; cada participante debe traer su laptop; \
-  
+## Metodología  : Las clases son 100% prácticas; cada participante debe traer su laptop; 
   Uso de medios audiovisuales, conexión a internet, asesoramiento permanente durante el curso.
 
 ## Material de Apoyo : PDF

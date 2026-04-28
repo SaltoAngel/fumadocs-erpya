@@ -1,0 +1,26 @@
+diff --git a/dist/mdx-plugins/remark-image.js b/dist/mdx-plugins/remark-image.js
+index 7284d4fdae3352884f4642fd0ce8756c832c7f66..616960bcf17d94fa8409f5ad0ec992d178f02d6b 100644
+--- a/dist/mdx-plugins/remark-image.js
++++ b/dist/mdx-plugins/remark-image.js
+@@ -67,7 +67,8 @@ function remarkImage({ placeholder = "none", external = true, useImport = true,
+ 				return out;
+ 			}
+ 			const size = await getImageSize(src, external).catch((e) => {
+-				throw new Error(`[Remark Image] Failed obtain image size for ${node.url} (public directory configured as ${publicDir})`, { cause: e });
++				console.warn(`[Remark Image] Ignored error for ${node.url}: ${e.message}`);
++				return { width: 0, height: 0 };
+ 			});
+ 			if (!size) return;
+ 			node.data ??= {};
+@@ -164,7 +165,10 @@ async function getImageSize(src, onExternal) {
+ 	if (onExternal === false) return;
+ 	const { timeout } = typeof onExternal === "object" ? onExternal : {};
+ 	const res = await fetch(src.url, { signal: typeof timeout === "number" ? AbortSignal.timeout(timeout) : void 0 });
+-	if (!res.ok) throw new Error(`[Remark Image] Failed to fetch ${src.url} (${res.status}): ${await res.text()}`);
++	if (!res.ok) {
++		console.warn(`[Remark Image] Failed to fetch ${src.url} (${res.status})`);
++		return { width: 0, height: 0 };
++	}
+ 	const { imageSize } = await import("../dist-Deq67Kq0.js");
+ 	return imageSize(new Uint8Array(await res.arrayBuffer()));
+ }
