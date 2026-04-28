@@ -50,7 +50,8 @@ La configuración es fácil. Sigue estos pasos:
 
 Clonar un repositorio en su computadora local es simple. Siga las instrucciones con el software de GitHub o su herramienta GUI, muchas de las cuales permiten clonar un repositorio de GitHub en una computadora local con unos pocos clics del mouse. Si quieres hacerlo desde la línea de comandos,
 
-::: vue-demo Clonar el proyecto por defecto
+<Callout type="info" title="-demo Clonar el proyecto por defecto">
+
 
 ```Concha
 # Navegue hasta el directorio principal donde se colocará el repositorio y escriba el siguiente comando
@@ -68,13 +69,14 @@ Para cambiar el nombre del directorio de clonación use lo siguiente
 clon de git https://github.com/adempiere/adempiere <Nombre opcional>
 ```
 
-:::
+</Callout>
 
 ### Clonación del repositorio con una conexión lenta
 
 Para clonar un repositorio a través de una conexión a Internet lenta o intermitente, intente usar git fetch en lugar de clonar de la siguiente manera:
 
-::: vue-demo Para Linux
+<Callout type="info" title="-demo Para Linux">
+
 
 ```Concha
   # Ir a la carpeta predeterminada
@@ -101,4 +103,4 @@ Para clonar un repositorio a través de una conexión a Internet lenta o intermi
   git reset --hard origin/master
 ```
 
-:::
+</Callout>

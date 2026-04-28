@@ -87,7 +87,7 @@ Peek es un grabador de pantalla simple con una interfaz fácil de usar.
 
 ### Instalando Peek
 
-```shel
+```shell
 apt install peek
 ```
 

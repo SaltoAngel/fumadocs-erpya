@@ -132,10 +132,11 @@ article: false
 
     Imagen 21. Opción OK
 
-    ::: info Nota
+    <Callout type="info" title="Nota">
+
 
         Cuando se ejecuta el proceso, ADempiere se regresa a la ventana **Orden de Flete** donde se debe seleccionar el icono **Refrescar** para actualizar el registro en la ventana. 
-    :::
+    </Callout>
 
 - Para verificar las líneas cargadas debe seleccionar la pestaña **Línea de la Orden de Flete**.
 

@@ -8,26 +8,29 @@ export default function HomePage() {
       desc: 'La versión 3.9.4 ya está disponible',
       link: 'https://github.com/adempiere/adempiere/releases/tag/3.9.4',
       icon: '/logo.png',
+      color: 'rgba(128, 0, 0, 0.4)',
     },
     {
       name: 'Nueva Interfaz para ADempiere',
       desc: 'Completamente desarrollada con Vue JS',
       link: 'https://github.com/adempiere/adempiere-vue',
       icon: '/assets/img/vue-logo.png',
+      color: 'rgba(128, 40, 0, 0.4)',
     },
     {
       name: 'Discord',
       desc: 'Estamos en Discord!',
       link: 'https://discord.gg/UWcyn7DEzV',
       icon: '/assets/img/discord-logo.png',
+      color: 'rgba(80, 60, 0, 0.4)',
     },
   ];
 
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen bg-[#0a0c10]">
       {/* Hero Section */}
       <div 
-        className="relative h-[60vh] flex flex-col items-center justify-center text-white overflow-hidden"
+        className="relative h-[70vh] flex flex-col items-center justify-center text-white overflow-hidden"
         style={{
           backgroundImage: 'url("/background.jpg")',
           backgroundPosition: 'center',
@@ -35,35 +38,12 @@ export default function HomePage() {
           backgroundAttachment: 'fixed',
         }}
       >
-        <div className="absolute inset-0 hero-background opacity-80" />
-        <div className="relative z-10 text-center px-4">
-          <Image
-            src="/logo.svg"
-            alt="Logo"
-            width={150}
-            height={150}
-            className="mx-auto mb-6 drop-shadow-2xl"
-          />
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 drop-shadow-lg">
-            ERPyA
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto opacity-90 drop-shadow-md">
-            Documentación Oficial de ERP Consultores y Asociados, CA
-          </p>
-          <div className="mt-10">
-            <Link
-              href="/docs"
-              className="bg-fd-primary text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
-            >
-              Comenzar lectura
-            </Link>
-          </div>
-        </div>
+        <div className="absolute inset-0 hero-background opacity-50" />
       </div>
 
       {/* Projects Section */}
-      <div className="max-w-7xl mx-auto px-4 py-16 w-full">
-        <h2 className="text-3xl font-bold mb-10 text-center">Novedades y Enlaces</h2>
+      <div className="max-w-7xl mx-auto px-4 py-20 w-full">
+        <h2 className="text-3xl font-bold mb-12 text-center tracking-tight text-white">Novedades y Enlaces</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project) => (
             <a
@@ -71,9 +51,10 @@ export default function HomePage() {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl border bg-fd-card hover:shadow-lg transition-shadow flex flex-col items-center text-center"
+              className="group p-8 rounded-2xl border border-white/5 transition-all hover:border-fd-primary/30 flex flex-col items-center text-center relative overflow-hidden"
+              style={{ backgroundColor: project.color }}
             >
-              <div className="mb-4 relative w-16 h-16">
+              <div className="mb-6 relative w-16 h-16 transition-transform group-hover:scale-110">
                 <Image
                   src={project.icon}
                   alt={project.name}
@@ -82,22 +63,23 @@ export default function HomePage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-              <p className="text-fd-muted-foreground">{project.desc}</p>
+              <h3 className="text-xl font-bold mb-3 text-white">{project.name}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{project.desc}</p>
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           ))}
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="mt-auto py-10 border-t bg-fd-muted/50">
-        <div className="max-w-7xl mx-auto px-4 text-center text-fd-muted-foreground">
-          <p>
-            <a href="https://erpya.com" className="hover:underline">ERP Consultores y Asociados, C.A.</a>
+      <footer className="mt-auto py-12 border-t border-white/5 bg-black/40">
+        <div className="max-w-7xl mx-auto px-4 text-center text-white/50">
+          <p className="text-lg">
+            <a href="https://erpya.com" className="hover:text-fd-primary transition-colors">ERP Consultores y Asociados, C.A.</a>
             {' | '}
-            <Link href="/docs/about" className="hover:underline">Nosotros</Link>
+            <Link href="/docs/about" className="hover:text-fd-primary transition-colors">Nosotros</Link>
           </p>
-          <p className="mt-2 text-sm">
+          <p className="mt-4 text-xs uppercase tracking-[0.2em]">
             Copyright © 2022-present ERP Consultores y Asociados, C.A.
           </p>
         </div>

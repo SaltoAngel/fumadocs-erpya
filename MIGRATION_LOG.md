@@ -7,22 +7,24 @@ This document tracks the migration process, decisions made, and corrections appl
 - **Target**: React (Fumadocs)
 - **Objective**: Modernize the tech stack while preserving the existing design and logic.
 
+## Reglas de Implementación (NUEVO)
+Para cada funcionalidad solicitada, el asistente debe:
+1. **Investigar**: Mostrar cómo estaba implementado en `docsVue`.
+2. **Opciones**: Presentar dos caminos:
+   - **Opción A**: Mantener la paridad exacta con el código original.
+   - **Opción B**: Proponer una mejora o alternativa moderna aprovechando React/Fumadocs.
+3. **Aprobación**: El usuario debe escoger una opción antes de proceder.
+
 ## Change History
 
-### 2026-04-28: Initialization & Discovery
-- [x] Analyzed existing VuePress project structure.
-- [x] Identified "resource" feature in `Releases.vue` (fetching from `adempiere/zk-ui`).
-- [x] Updated implementation plan based on user feedback: **No design changes allowed**.
-- [x] Initialized Fumadocs project using `create-fumadocs-app`.
-- [x] Migrated content from `docsVue/src` to `content/docs`.
-- [x] Renamed all `README.md` to `index.mdx`.
-- [x] Converted VuePress containers (`::: tip`, etc.) to Fumadocs `<Callout>` using a Python script.
-- [x] Replicated `Releases` component in React.
-- [x] Migrated public assets (logo, background, images).
-- [x] Configured home page to match `BlogHome` layout.
-- [x] Fixed Next.js image performance warnings (added `sizes` and fixed aspect ratio).
+### 2026-04-28: Initialization & Design Alignment
+- [x] Análisis inicial de `docsVue`.
+- [x] Migración de contenido y activos.
+- [x] Conversión automática de sintaxis `::: tip`.
+- [x] Replicación del componente `Releases` (Funcionalidad de Recursos).
+- [x] Alineación estética del Navbar (iconos, dropdowns verticales y logo).
+- [x] Corrección de advertencias de rendimiento de imágenes en Next.js.
 
 ## System Corrections & Improvements
-- **Constraint Applied**: Strictly maintaining the existing CSS/Design.
-- **Correction**: Automated conversion of VuePress custom containers to MDX-compatible components.
-- **Optimization**: Added `sizes` prop to landing page images to optimize LCP and removed aspect ratio warnings for the logo.
+- **Corrección**: Transformación de Mega-Menú a Dropdown vertical mediante CSS para igualar VuePress.
+- **Optimización**: Uso de `priority` y `height: auto` en logos para mejorar métricas LCP.

@@ -103,9 +103,8 @@ Imagen 12. Campo Cantidad Contada
 
 Debe ser ingresada la cantidad real que existe físicamente en el almacén seleccionado.
 
-:::
+<Callout type="info" title="el icono **Guardar Cambios**, ubicado en la barra de herramientas de ADempiere, para guardar el registro de los campos de la pestaña.">
 
-Seleccione el icono **Guardar Cambios**, ubicado en la barra de herramientas de ADempiere, para guardar el registro de los campos de la pestaña.
 
 ![Icono Guardar Cambios](/assets/img/docs/materials-management/mam-materials-image87.png)
 
