@@ -1,0 +1,25 @@
+{
+  "title": "Documentación",
+  "pages": [
+    "index",
+    "basic-rules",
+    "devices",
+    "data-importation",
+    "other-process",
+    "master-data",
+    "material-management",
+    "production-management",
+    "distribution-management",
+    "sales-management",
+    "customer-relationship-management",
+    "pdv-management",
+    "purchase-management",
+    "return-management",
+    "balance-management",
+    "human-management",
+    "asset-management",
+    "accounting-management",
+    "verticals",
+    "lve"
+  ]
+}

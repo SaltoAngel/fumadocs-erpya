@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@theme {
+  --color-fd-primary: #5c92d1;
+  --color-fd-primary-foreground: #ffffff;
+}
+
+:root {
+  --fd-primary: 213 59% 59%;
+  --fd-primary-foreground: 0 0% 100%;
+}
+
+.dark {
+  --fd-primary: 213 59% 59%;
+  --fd-primary-foreground: 0 0% 100%;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Replicating some styles from index.scss if needed */
+.vp-blog-hero {
+  margin-bottom: 1.25rem;
+}
+
+.hero-background {
+  background: radial-gradient(
+      900px circle at 20% 20%,
+      rgba(33, 150, 243, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(
+      700px circle at 80% 30%,
+      rgba(255, 255, 255, 0.18),
+      transparent 55%
+    ),
+    linear-gradient(180deg, rgba(10, 12, 16, 0.55), rgba(10, 12, 16, 0.25));
+}
