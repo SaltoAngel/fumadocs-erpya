@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useTheme } from 'next-themes';
 import { 
   FaHouse, 
   FaCircleInfo, 
@@ -32,6 +33,7 @@ import {
   FaChevronDown,
   FaMagnifyingGlass,
   FaMoon,
+  FaSun,
   FaIdCardClip,
   FaKey,
   FaDesktop,
@@ -252,6 +254,12 @@ export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleMouseEnter = (name: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -270,7 +278,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-white/10 shadow-2xl transition-all duration-300 flex items-center px-4 md:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-300 flex items-center px-4 md:px-8">
       {/* Logo Section */}
       <Link href="/" className="flex items-center gap-3 mr-8 group">
         <Image
@@ -301,7 +309,7 @@ export function Navbar() {
                 className={`relative flex items-center gap-1.5 px-3 h-full text-sm font-medium transition-all duration-200 ${
                   active 
                     ? 'text-[#3b82f6]' 
-                    : 'text-white/80 hover:text-[#3b82f6]'
+                    : 'text-fd-foreground/80 hover:text-[#3b82f6]'
                 }`}
               >
                 <link.Icon className={`text-[14px] ${active ? 'opacity-100' : 'opacity-80'}`} />
@@ -315,11 +323,11 @@ export function Navbar() {
 
               {/* Enhanced Dropdown Menu */}
               {(link.groups || link.children) && activeMenu === link.text && (
-                <div className="absolute top-[100%] left-0 min-w-[280px] max-h-[80vh] overflow-y-auto bg-[#0d1117]/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl py-2 animate-in fade-in slide-in-from-top-1 duration-200 custom-scrollbar">
+                <div className="absolute top-[100%] left-0 min-w-[280px] max-h-[80vh] overflow-y-auto bg-fd-background/95 backdrop-blur-xl border border-fd-foreground/10 rounded-lg shadow-2xl py-2 animate-in fade-in slide-in-from-top-1 duration-200 custom-scrollbar">
                   {link.groups ? (
                     link.groups.map((group, idx) => (
-                      <div key={group.text} className={idx > 0 ? 'mt-4 pt-4 border-t border-white/5' : ''}>
-                        <div className="px-4 py-1 text-[10px] font-bold text-white/40 tracking-widest uppercase">
+                      <div key={group.text} className={idx > 0 ? 'mt-4 pt-4 border-t border-fd-foreground/5' : ''}>
+                        <div className="px-4 py-1 text-[10px] font-bold text-fd-foreground/40 tracking-widest uppercase">
                           {group.text}
                         </div>
                         {group.children.map((child) => {
@@ -331,7 +339,7 @@ export function Navbar() {
                               className={`flex items-center gap-3 px-4 py-2 text-sm transition-all duration-200 ${
                                 childActive 
                                   ? 'bg-[#3b82f6]/10 text-[#3b82f6]' 
-                                  : 'text-white/80 hover:bg-[#3b82f6]/10 hover:text-[#3b82f6]'
+                                  : 'text-fd-foreground/80 hover:bg-[#3b82f6]/10 hover:text-[#3b82f6]'
                               }`}
                             >
                               {child.Icon && <child.Icon className="text-[#3b82f6] w-[14px]" />}
@@ -346,7 +354,7 @@ export function Navbar() {
                       <Link
                         key={child.text}
                         href={child.url}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-white/80 hover:bg-[#3b82f6]/10 hover:text-[#3b82f6] transition-all duration-200"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-fd-foreground/80 hover:bg-[#3b82f6]/10 hover:text-[#3b82f6] transition-all duration-200"
                       >
                         {child.Icon && <child.Icon className="text-[#3b82f6] w-[14px]" />}
                         {child.text}
@@ -365,15 +373,20 @@ export function Navbar() {
       {/* Right Side Tools */}
       <div className="flex items-center gap-4">
         <button 
-          className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-sm text-white/50 hover:bg-white/10 hover:text-white transition-all duration-200"
+          className="flex items-center gap-2 bg-white/5 border border-fd-foreground/10 rounded-full px-4 py-1.5 text-sm text-fd-foreground/50 hover:bg-white/10 hover:text-white transition-all duration-200"
         >
           <FaMagnifyingGlass className="text-[14px]" />
           <span>Buscar</span>
         </button>
 
-        <div className="hidden md:flex items-center gap-3 border-l border-white/10 pl-4 ml-2">
-          <button className="text-white/60 hover:text-[#3b82f6] transition-all duration-200">
-            <FaMoon className="text-[18px]" />
+        <div className="hidden md:flex items-center gap-3 border-l border-fd-foreground/10 pl-4 ml-2">
+          <button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="text-white/60 hover:text-[#3b82f6] transition-all duration-200"
+            aria-label="Cambiar tema"
+          >
+            {mounted && (theme === 'dark' ? <FaSun className="text-[18px]" /> : <FaMoon className="text-[18px]" />)}
+            {!mounted && <FaMoon className="text-[18px]" />}
           </button>
         </div>
       </div>

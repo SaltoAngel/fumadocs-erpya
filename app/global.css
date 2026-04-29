@@ -10,8 +10,11 @@
 :root {
   --fd-primary: 213 59% 59%;
   --fd-primary-foreground: 0 0% 100%;
-  --fd-background: 220 20% 10%;
-  --fd-foreground: 0 0% 98%;
+  --fd-background: 0 0% 100%;
+  --fd-foreground: 222 47% 11%;
+  --fd-muted: 210 40% 96%;
+  --fd-muted-foreground: 215 16% 47%;
+  --fd-border: 214 32% 91%;
 }
 
 .dark {
@@ -19,17 +22,20 @@
   --fd-primary-foreground: 0 0% 100%;
   --fd-background: 220 20% 5%;
   --fd-foreground: 0 0% 98%;
+  --fd-muted: 217 32% 17%;
+  --fd-muted-foreground: 215 20% 65%;
+  --fd-border: 217 32% 17%;
 }
 
 /* --- NUCLEAR OVERRIDE PARA NAVBAR VUEPRESS --- */
 
-/* Forzar fondo oscuro en todo el header */
+/* Forzar fondo adaptable en todo el header */
 header, nav, [data-radix-popper-content-wrapper] {
-  background-color: #0a0c10 !important;
+  background-color: var(--fd-background) !important;
+  color: var(--fd-foreground) !important;
 }
 
 /* 1. ELIMINAR LA REJILLA (GRID) POR COMPLETO */
-/* Atacamos cualquier contenedor de menú de Radix */
 [data-radix-popper-content-wrapper] > div,
 [role="menu"],
 .fd-navbar-menu-content {
@@ -41,8 +47,9 @@ header, nav, [data-radix-popper-content-wrapper] {
   max-width: 350px !important;
   padding: 8px !important;
   gap: 4px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid var(--fd-border) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+  background-color: var(--fd-background) !important;
 }
 
 /* 2. FORZAR ITEMS EN LÍNEA (FILAS) */
@@ -74,10 +81,10 @@ header, nav, [data-radix-popper-content-wrapper] {
 [data-radix-popper-content-wrapper] .font-medium,
 [data-radix-popper-content-wrapper] span {
   font-size: 0.9rem !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: var(--fd-foreground) !important;
 }
 
-/* Ocultar descripciones y otros elementos que ensucien la lista */
+/* Ocultar descripciones */
 [data-radix-popper-content-wrapper] p,
 [data-radix-popper-content-wrapper] .text-muted-foreground {
   display: none !important;
@@ -85,7 +92,7 @@ header, nav, [data-radix-popper-content-wrapper] {
 
 /* Hover effect */
 [data-radix-popper-content-wrapper] a:hover {
-  background-color: rgba(92, 146, 209, 0.15) !important;
+  background-color: rgba(92, 146, 209, 0.1) !important;
   color: #5c92d1 !important;
 }
 
@@ -100,8 +107,8 @@ header a[data-active="true"] {
 /* Buscador */
 button[aria-label="Search"] {
   border-radius: 20px !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: var(--fd-muted) !important;
+  border: 1px solid var(--fd-border) !important;
 }
 
 /* --- Flip Cards (About Page) --- */
@@ -118,14 +125,6 @@ button[aria-label="Search"] {
   width: 190px;
   height: 254px;
   perspective: 1000px;
-  font-family: sans-serif;
-}
-
-.title-card {
-  font-size: 1.1em;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
 }
 
 .flip-card-inner {
@@ -150,38 +149,20 @@ button[aria-label="Search"] {
   align-items: center;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid #3b82f6;
   border-radius: 1rem;
 }
 
 .flip-card-front {
-  background: linear-gradient(120deg, #0d1117 60%, #161b22 88%, #0d1117 40%, rgba(59, 130, 246, 0.4) 48%);
+  background: var(--fd-background);
   color: #3b82f6;
 }
 
 .flip-card-back {
-  background: linear-gradient(120deg, #2563eb 30%, #3b82f6 88%, #0d1117 40%, #1d4ed8 78%);
+  background: #2563eb;
   color: white;
   transform: rotateY(180deg);
-}
-
-.flip-card-back img {
-  width: 100px;
-  height: auto;
-  border-radius: 50%;
-  margin-top: 10px;
-}
-
-.flip-card-back a {
-  margin-top: 10px;
-  color: white;
-  font-size: 24px;
-}
-
-.flip-card-back a:hover {
-  color: #dbeafe;
 }
 
 /* Blogger Info Widget Styles */
@@ -189,131 +170,19 @@ button[aria-label="Search"] {
   background: var(--fd-background);
   backdrop-filter: saturate(150%) blur(12px);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--fd-border);
   transition: transform 0.3s ease;
   color: var(--fd-foreground);
 }
 
-.vp-blogger-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 .vp-blogger-avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  padding: 4px;
   background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.vp-blogger-name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.vp-blogger-description {
-  font-size: 0.8rem;
-  color: var(--fd-muted-foreground);
-  line-height: 1.4;
-}
-
-.vp-blog-counts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  width: 100%;
-  margin: 1.25rem 0;
-  padding: 0.75rem 0;
-  border-top: 1px solid rgba(128, 128, 128, 0.1);
-  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
-}
-
-.vp-blog-count {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s;
+  padding: 4px;
 }
 
 .vp-blog-count:hover {
-  color: #3b82f6;
-}
-
-.vp-blog-count .count {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.vp-blog-count .label {
-  font-size: 0.65rem;
-  opacity: 0.7;
-}
-
-.vp-social-medias {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.vp-social-media {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.2s;
-  color: var(--fd-muted-foreground);
-}
-
-.vp-social-media:hover {
-  transform: scale(1.2);
-  color: #3b82f6;
-}
-
-.vp-sticky-article-wrapper {
-  margin-top: 1.25rem;
-  text-align: left;
-}
-
-.vp-sticky-article-wrapper .title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.vp-sticky-articles {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.vp-sticky-article {
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.05);
-}
-
-.vp-sticky-article a {
-  text-decoration: none;
-  color: var(--fd-muted-foreground);
-  font-size: 0.75rem;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.2s;
-}
-
-.vp-sticky-article a:hover {
   color: #3b82f6;
 }

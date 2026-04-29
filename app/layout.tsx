@@ -10,7 +10,7 @@ const inter = Inter({
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={inter.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen bg-[#0a0c10] text-white selection:bg-[#5c92d1]/30">
+      <body className="flex flex-col min-h-screen">
         <RootProvider>
           <Navbar />
           <div className="flex-1">
