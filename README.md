@@ -1,35 +1,57 @@
-# ERPyA Documentation (React/Fumadocs)
+# ERPyA Documentation Site
 
-This is the modernized documentation site for ERP Consultores y Asociados, C.A., migrated from VuePress to React using the Fumadocs framework.
+Este es el sitio de documentación oficial de **ERPyA**, migrado de VuePress a **Fumadocs** (basado en Next.js). El sitio ofrece una experiencia moderna, rápida y con soporte nativo para modo oscuro/claro.
 
-## Project Structure
+## 🚀 Inicio Rápido
 
-- `content/docs`: Documentation source files (.md and .mdx).
-- `app/`: Next.js application routes.
-- `components/`: Custom React components (e.g., `Releases.tsx`).
-- `public/`: Static assets (images, logos, etc.).
-- `docsVue/`: Reference to the original VuePress project (to be removed after verification).
+### Requisitos Previos
 
-## Development
+Asegúrate de tener instalado:
+*   [Node.js](https://nodejs.org/) (Versión 18 o superior recomendada).
+*   [pnpm](https://pnpm.io/) (Gestor de paquetes recomendado).
 
-Run the development server:
+### Instalación
 
+1.  Clona el repositorio.
+2.  Instala las dependencias:
+    ```bash
+    pnpm install
+    ```
+
+### Desarrollo
+
+Para iniciar el servidor de desarrollo:
 ```bash
 pnpm dev
 ```
+El sitio estará disponible en `http://localhost:3000` (o `3001` si el puerto 3000 está ocupado).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Producción
 
-## Build
-
-To build the production bundle:
-
+Para generar el sitio estático optimizado:
 ```bash
 pnpm build
+pnpm start
 ```
 
-## Migration Notes
+## 📁 Estructura del Proyecto
 
-- **Design**: The design strictly follows the original VuePress theme colors and layout.
-- **Components**: Custom Vue components like `Releases` have been ported to React.
-- **MDX**: VuePress containers (`::: tip`) have been converted to Fumadocs `<Callout>`.
+*   `/content/docs`: Contiene todos los archivos Markdown (`.md`) y MDX (`.mdx`) de la documentación.
+*   `/public/assets`: Directorio de recursos estáticos (imágenes, logos, etc.).
+*   `/components`: Componentes React personalizados para el sitio.
+*   `/app`: Rutas y lógica de Next.js (App Router).
+
+## 🛠️ Solución de Problemas
+
+### Puerto ocupado (EADDRINUSE)
+Si ves un error indicando que el puerto 3000 ya está en uso, puedes forzar otro puerto usando:
+```bash
+PORT=3005 pnpm dev
+```
+
+### Imágenes rotas
+Si añades nuevas imágenes, asegúrate de que estén en la carpeta `/public` y usa rutas absolutas desde la raíz (ej: `/assets/img/mi-imagen.png`). El sistema está configurado para manejar objetos de imagen de Next.js automáticamente.
+
+---
+
+Desarrollado con ❤️ por el equipo de ERPyA.
