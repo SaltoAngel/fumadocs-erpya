@@ -1,86 +1,108 @@
-import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { FaGithub, FaDiscord, FaTwitter, FaEnvelope, FaFileAlt, FaFolder, FaTags, FaHistory } from 'react-icons/fa';
+import { source } from '@/lib/source';
+import { 
+  FaGithub, 
+  FaTwitter, 
+  FaDiscord, 
+  FaExternalLinkAlt,
+  FaBookOpen,
+  FaFolder,
+  FaHashtag,
+  FaHistory
+} from 'react-icons/fa';
 
-export const BloggerInfo: React.FC = () => {
+export function BloggerInfo() {
+  // Obtener artículos dinámicamente para la sidebar
+  const allPages = source.getPages();
+  
+  // Tomamos los 5 más recientes (puedes ajustar el número)
+  // Nota: Si no hay fecha, se toma el orden alfabético/estructura de Fumadocs
+  const featuredArticles = allPages
+    .slice(0, 5)
+    .map(page => ({
+      title: page.data.title,
+      url: page.url
+    }));
+
   const stats = [
-    { label: 'Artículos', count: 289, href: '/article/', icon: <FaFileAlt /> },
-    { label: 'Categoría', count: 7, href: '/category/', icon: <FaFolder /> },
-    { label: 'Etiquetas', count: 441, href: '/tag/', icon: <FaTags /> },
-    { label: 'Línea de tiempo', count: 289, href: '/timeline/', icon: <FaHistory /> },
-  ];
-
-  const socialLinks = [
-    { name: 'Gmail', href: 'mailto:info@erpya.com', icon: <FaEnvelope />, color: '#DB4437' },
-    { name: 'GitHub', href: 'https://github.com/erpcya', icon: <FaGithub />, color: '#171515' },
-    { name: 'Discord', href: 'https://discord.gg/UWcyn7DEzV', icon: <FaDiscord />, color: '#2DAAE1' },
-    { name: 'Twitter', href: 'https://twitter.com/erpcya', icon: <FaTwitter />, color: '#3397db' },
-  ];
-
-  const stickyArticles = [
-    { title: 'erpya-3.9.4-001-4.1.7', href: '/downloads/updates/adempiere-3.9.4/erpya-3.9.4-001-4.1.x/erpya-3.9.4-001-4.1.7.html' },
-    { title: 'erpya-3.9.4-001-3.4.3', href: '/downloads/updates/adempiere-3.9.4/erpya-3.9.4-001-3.x.x/erpya-3.9.4-001-3.4.x/erpya-3.9.4-001-3.4.3.html' },
-    { title: 'erpya-3.9.4-001-3.4.4', href: '/downloads/updates/adempiere-3.9.4/erpya-3.9.4-001-3.x.x/erpya-3.9.4-001-3.4.x/erpya-3.9.4-001-3.4.4.html' },
-    { title: 'Acerca de ERP Consultores y Asociados', href: '/about/' },
-    { title: 'Mejoras de seguridad en ADempiere Cloud', href: '/about/news/security-improvements-in-adempiere-cloud.html' },
+    { label: 'Artículos', count: allPages.length, link: '/article/', icon: <FaBookOpen /> },
+    { label: 'Categoría', count: 7, link: '/category/', icon: <FaFolder /> },
+    { label: 'Etiquetas', count: 441, link: '/tag/', icon: <FaHashtag /> },
+    { label: 'Línea de tiempo', count: 2, link: '/timeline/', icon: <FaHistory /> },
   ];
 
   return (
-    <aside className="vp-blog-info-wrapper">
-      <div className="vp-blogger-info">
-        <img 
-          className="vp-blogger-avatar" 
-          src="/logo.svg" 
-          alt="Blogger Avatar" 
-          loading="lazy" 
-        />
-        <div className="vp-blogger-name">ERP Consultores y Asociados, C.A.</div>
-        <div className="vp-blogger-description">
-          Documentación Oficial de ERP Consultores y Asociados, CA
+    <aside className="vp-blog-info-wrapper space-y-6">
+      {/* Perfil del Blogger */}
+      <div className="vp-blogger-info p-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-md">
+        <div className="flex flex-col items-center text-center group cursor-pointer">
+          <div className="relative w-20 h-20 mb-4 rounded-full overflow-hidden border-2 border-fd-primary/20 group-hover:border-fd-primary transition-all">
+            <Image 
+              src="/logo.png" 
+              alt="Blogger Avatar" 
+              fill 
+              className="object-contain p-2 bg-white/5"
+            />
+          </div>
+          <h3 className="text-lg font-bold text-white group-hover:text-fd-primary transition-colors">
+            ERP Consultores y Asociados, C.A.
+          </h3>
+          <p className="text-white/50 text-xs mt-2 leading-relaxed">
+            Documentación Oficial de ERP Consultores y Asociados, CA
+          </p>
         </div>
-      </div>
 
-      <div className="vp-blog-counts">
-        {stats.map((stat) => (
-          <Link key={stat.label} href={stat.href} className="vp-blog-count">
-            <div className="count">{stat.count}</div>
-            <div className="label">{stat.label}</div>
-          </Link>
-        ))}
-      </div>
-
-      <div className="vp-social-medias">
-        {socialLinks.map((social) => (
-          <a
-            key={social.name}
-            href={social.href}
-            className="vp-social-media"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.name}
-            style={{ color: social.color }}
-          >
-            {social.icon}
-          </a>
-        ))}
-      </div>
-
-      <div className="vp-sticky-article-wrapper">
-        <div className="title">
-          <FaFileAlt />
-          <span>Artículos Destacados</span>
-          <span className="num">{stickyArticles.length}</span>
-        </div>
-        <ul className="vp-sticky-articles">
-          {stickyArticles.map((article, index) => (
-            <li key={index} className="vp-sticky-article">
-              <Link href={article.href} title={article.title}>
-                {article.title}
-              </Link>
-            </li>
+        {/* Estadísticas */}
+        <div className="grid grid-cols-4 gap-2 mt-8 border-t border-white/5 pt-6">
+          {stats.map((stat) => (
+            <Link key={stat.label} href={stat.link} className="flex flex-col items-center group">
+              <span className="text-fd-primary text-sm mb-1 group-hover:scale-110 transition-transform">
+                {stat.icon}
+              </span>
+              <span className="text-white font-bold text-sm">{stat.count}</span>
+              <span className="text-[10px] text-white/40 uppercase tracking-tighter">{stat.label}</span>
+            </Link>
           ))}
-        </ul>
+        </div>
+
+        <Link 
+          href="https://github.com/adempiere" 
+          target="_blank"
+          className="mt-6 flex items-center justify-center gap-2 w-full py-2 rounded-xl bg-fd-primary text-white font-bold text-sm hover:bg-fd-primary/80 transition-all shadow-lg shadow-fd-primary/20"
+        >
+          <FaGithub /> Seguir
+        </Link>
+
+        {/* Social Links */}
+        <div className="flex justify-center gap-4 mt-6 text-white/40">
+          <a href="#" className="hover:text-fd-primary transition-colors"><FaGithub size={18} /></a>
+          <a href="#" className="hover:text-fd-primary transition-colors"><FaTwitter size={18} /></a>
+          <a href="https://discord.gg/UWcyn7DEzV" className="hover:text-fd-primary transition-colors"><FaDiscord size={18} /></a>
+        </div>
+      </div>
+
+      {/* Artículos Destacados Dinámicos */}
+      <div className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-md">
+        <h4 className="text-white font-bold mb-6 flex items-center gap-2 text-sm uppercase tracking-widest border-b border-white/5 pb-3">
+          <span className="w-2 h-2 bg-fd-primary rounded-full animate-pulse"></span>
+          Artículos Destacados
+        </h4>
+        <div className="space-y-4">
+          {featuredArticles.map((article, idx) => (
+            <Link 
+              key={idx} 
+              href={article.url} 
+              className="flex items-start gap-3 group"
+            >
+              <div className="mt-1.5 w-1 h-1 rounded-full bg-white/20 group-hover:bg-fd-primary transition-all shrink-0"></div>
+              <span className="text-sm text-white/60 group-hover:text-white transition-colors line-clamp-2 leading-tight">
+                {article.title}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </aside>
   );
-};
+}

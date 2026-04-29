@@ -14,18 +14,16 @@ const withMDX = createMDX({
   mdxOptions: {
     remarkPlugins: [remarkNativeImages],
   },
-  // Intentamos anular el plugin pasando parámetros que lo dejen inoperante
   remarkImageOptions: {
     enabled: false,
     external: false,
-    publicDir: 'non-existent-folder'
+    useImport: false, // <-- Crucial: evita que Next.js intente procesar los archivos PNG
   }
 });
 
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  // CORRECCIÓN: allowedDevOrigins va en la raíz, no en experimental
   allowedDevOrigins: ['192.168.5.227', 'localhost:3001'],
   images: {
     unoptimized: true,
