@@ -30,11 +30,11 @@ Y y reportes de ley. Todo esto con el valioso apoyo de un gran ERP.
 
 ## ¿Qué contiene la vertical?
 
-- [Ventas](../products/quote-to-invoice.md)
-- [Compras](../products/requisition-to-invoice.md)
-- [Gestión Administrativa](../products/business-administration-management.md)
-- [Gestión de Tesorería](../products/open-items-management.md)
-- [Tributos](../products/tributes.md)
+- [Ventas](../products/quote-to-invoice)
+- [Compras](../products/requisition-to-invoice)
+- [Gestión Administrativa](../products/business-administration-management)
+- [Gestión de Tesorería](../products/open-items-management)
+- [Tributos](../products/tributes)
 
 ## Productos relacionados
 
