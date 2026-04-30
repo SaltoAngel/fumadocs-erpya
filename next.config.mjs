@@ -14,11 +14,11 @@ const config = {
     unoptimized: true,
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
-  experimental: {
-    // Aumenta el número de procesos para la generación estática
-    cpus: 5, 
-    workerThreads: true,
-  },
+  // experimental: {
+  //   // Aumenta el número de procesos para la generación estática
+  //   cpus: 5, 
+  //   workerThreads: true,
+  // },
 };
 
 export default withMDX(config);

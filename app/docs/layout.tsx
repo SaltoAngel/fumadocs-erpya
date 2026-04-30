@@ -17,28 +17,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         enabled: false // Mantenemos desactivado el nav original
       }}
       sidebar={{
-        className: 'pt-[60px]' // Bajamos la sidebar para que no choque con el nuevo Navbar
+        enabled: true
       }}
     >
-      <div className="flex-1 pt-[60px]">
-        <AISearch>
-          <AISearchPanel />
-          <AISearchTrigger
-            position="float"
-            className={cn(
-              buttonVariants({
-                variant: 'secondary',
-                className: 'z-50 text-fd-muted-foreground rounded-2xl border border-white/10 shadow-xl',
-              }),
-            )}
-          >
-            <MessageCircleIcon className="size-4.5" />
-            Ask AI
-          </AISearchTrigger>
-        </AISearch>
+      <AISearch>
+        <AISearchPanel />
+        <AISearchTrigger
+          position="float"
+          className={cn(
+            buttonVariants({
+              variant: 'secondary',
+              className: 'z-50 text-fd-muted-foreground rounded-2xl border border-white/10 shadow-xl',
+            }),
+          )}
+        >
+          <MessageCircleIcon className="size-4.5" />
+          Ask AI
+        </AISearchTrigger>
+      </AISearch>
 
-        {children}
-      </div>
+      {children}
     </DocsLayout>
   );
 }

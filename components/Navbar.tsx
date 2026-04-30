@@ -264,10 +264,32 @@ export function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  
+  // Lógica para ocultar/mostrar navbar al hacer scroll
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        const currentScrollY = window.scrollY;
+        
+        // Solo mostrar si estamos cerca del tope (ej: menos de 100px)
+        if (currentScrollY < 100) {
+          setShowNavbar(true);
+        } else {
+          setShowNavbar(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
 
   const handleMouseEnter = (name: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -286,7 +308,9 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-300 flex items-center px-4 md:px-8">
+    <nav className={`fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-500 flex items-center px-4 md:px-8 ${
+      showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+    }`}>
       {/* Logo Section */}
       <Link href="/" className="flex items-center gap-3 mr-8 group">
         <Image
