@@ -87,7 +87,7 @@ Al ejecutar el proceso de selección de pago de la nómina quincenal "**NQ-19**"
 - Socio del Negocio "**Empleado Estándar Tres**", con cédula de identidad "**V000000003**", perteneciente a la nómina "**Quincenal**".
 - Socio del Negocio "**Empleado Estándar Cuatro**", con cédula de identidad "**V000000004**", perteneciente a la nómina "**Quincenal**".
 
-Se obtiene como resultado del proceso "**Imprimir /Exportar**", un documento en formato "**.txt**" con los detalles de los pagos a ser realizados desde el banco nacional de crédito a terceros en el mismo banco, así como también a terceros en otros bancos. El mismo se puede descargar en el enlace [Archivo de Pago de Nómina del BNC](Banco_Nacional_de_Crdito_C.A_1000040.txt) y visualizar de la siguiente manera:
+Se obtiene como resultado del proceso "**Imprimir /Exportar**", un documento en formato "**.txt**" con los detalles de los pagos a ser realizados desde el banco nacional de crédito a terceros en el mismo banco, así como también a terceros en otros bancos. El mismo se puede descargar en el enlace [Archivo de Pago de Nómina del BNC](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/Banco_Nacional_de_Crdito_C.A_1000040.txt/) y visualizar de la siguiente manera:
 
 ~~~
     ND 019100000000000000000000172537848J000000000

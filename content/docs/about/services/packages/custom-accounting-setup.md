@@ -34,4 +34,4 @@ Se requiere importar nuevo plan de cuentas para cumplir con una norma específic
 
 ## Paquetes Relacionados
 
-[Análisis de Cuentas](accounting-analysis.md)
+[Análisis de Cuentas](/docs/about/services/packages/accounting-analysis)

@@ -91,22 +91,22 @@ El archivo en formato "**.txt**" generado por ADempiere, debe ser cargado al ban
 
 [ERPyA](http://erpya.com) pretende ofrecer una explicación eficiente a nuestros clientes del estándar de extracto bancario a través de una guía fácil y sencilla para así obtener resultados exitosos en la versión 3.9.2 de ADempiere en la localización Venezuela. A continuación se explica el estándar que se debe tener por banco para generar un extracto bancario desde ADempiere y poder cargar el mismo al banco requerido por el usuario.
 
-- [Bancaribe](bancaribe.md)
+- [Bancaribe](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/bancaribe/)
 
-- [Banesco](banesco.md)
+- [Banesco](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/banesco/)
 
-- [Banplus](banplus.md)
+- [Banplus](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/banplus/)
 
-- [BFC](bfc.md)
+- [BFC](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/bfc/)
 
-- [BOD](bod.md)
+- [BOD](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/bod/)
 
-- [Exterior](exterior.md)
+- [Exterior](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/exterior/)
 
-- [Venezuela](venezuela.md)
+- [Venezuela](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/venezuela/)
 
-- [BNC](bnc.md)
+- [BNC](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/bnc/)
 
-- [Mercantil](mercantil.md)
+- [Mercantil](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/mercantil/)
 
-- [Provincial](provincial.md)
+- [Provincial](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/provincial/)

@@ -19,7 +19,7 @@ article: true
 
 ### Envío de Retenciones
 
-Se corrige proceso de envio de retenciones para que no muestre un preview de la retencion Generada, el error se introdujo en el release [2.4.4](erpya-3.9.4-001-2.4.4.md)
+Se corrige proceso de envio de retenciones para que no muestre un preview de la retencion Generada, el error se introdujo en el release [2.4.4](/docs/downloads/updates/adempiere-3.9.4/erpya-3.9.4-001-2.x.x/erpya-3.9.4-001-2.4.x/erpya-3.9.4-001-2.4.4/)
 
 ## Contexto
 

@@ -37,4 +37,4 @@ Adempiere le permite generar diarios para: Alocaciones, Revalúos y Reconciliaci
 
 ## Paquetes Relacionados
 
-[Análisis de Cuentas](../packages/accounting-analysis.md)
+[Análisis de Cuentas](/docs/about/services/packages/accounting-analysis)

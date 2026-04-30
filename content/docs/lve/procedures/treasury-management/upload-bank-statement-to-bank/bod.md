@@ -160,7 +160,7 @@ La descripción del archivo anteriormente generado por el pago, se encuentra exp
 
 **BOD NÓNIMA**
 
-[ERPyA]((http://erpya.com)) agrega soporte al siguiente formato de nómina facilitado por el banco, dicha actualización fue liberada en la versión [23.7](https://docs.erpya.com/downloads/updates/rs-2.x/rs-23.x/rs-23.7.html) de ADempiere. Para mayor información de la misma, puede consultar la nota de liberación indicada anteriormente.
+[ERPyA](/docs/lve/procedures/treasury-management/upload-bank-statement-to-bank/(http:/erpya.com/)) agrega soporte al siguiente formato de nómina facilitado por el banco, dicha actualización fue liberada en la versión [23.7](https://docs.erpya.com/downloads/updates/rs-2.x/rs-23.x/rs-23.7.html) de ADempiere. Para mayor información de la misma, puede consultar la nota de liberación indicada anteriormente.
 
 **Formato Archivo Beneficiarios de Pago (Del Cliente al Banco)**
 

@@ -15,13 +15,13 @@ tag:
 Para instalar el cliente de impresión se debe tener como mínimo lo siguiente:
 
 - Windows 10 64 bits o superior
-- Instalador de [cliente de impresión](../../../downloads/updates/devices/printers)
+- Instalador de [cliente de impresión](/docs/../downloads/updates/devices/printers/)
 
 ## Pasos de Instalación
 
 ### Descarga del Instalador
 
-Para descargar el **Archivo** a instalar, puedes usar el siguiente [link](../../../downloads/updates/devices/printers)
+Para descargar el **Archivo** a instalar, puedes usar el siguiente [link](/docs/../downloads/updates/devices/printers/)
 
 ![Página de Descarga](/assets/img/docs/fiscal-printer/download-page.png)
 

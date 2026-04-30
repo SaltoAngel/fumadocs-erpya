@@ -30,13 +30,13 @@ Y y reportes de ley. Todo esto con el valioso apoyo de un gran ERP.
 
 ## ¿Qué contiene la vertical?
 
-- [Ventas](../products/quote-to-invoice)
-- [Compras](../products/requisition-to-invoice)
-- [Gestión Administrativa](../products/business-administration-management)
-- [Gestión de Tesorería](../products/open-items-management)
-- [Tributos](../products/tributes)
+- [Ventas](/docs/about/services/products/quote-to-invoice)
+- [Compras](/docs/about/services/products/requisition-to-invoice)
+- [Gestión Administrativa](/docs/about/services/products/business-administration-management)
+- [Gestión de Tesorería](/docs/about/services/products/open-items-management)
+- [Tributos](/docs/about/services/products/tributes)
 
 ## Productos relacionados
 
 - [Nómina](https://docs.erpya.com/docs/lve/procedures/payroll/)
-- [Contabilidad](../products/performance-analysis.md)
+- [Contabilidad](/docs/about/services/products/performance-analysis)

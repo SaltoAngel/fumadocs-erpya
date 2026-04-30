@@ -45,6 +45,6 @@ Gestiona las entradas y salidas de materia prima, este producto es ideal para em
 ## Alcance del Servicio
 
 - Instalación de la aplicación
-- [Sesión general de capacitación sobre la aplicación incluído en la instalación](../learning/training-session.md)
-- [Sesión de 2 horas de capacitación para el manejo operativo](../learning/training-session.md)
-- [Sesión de 2 horas de capacitación para el manejo administrativo](../learning/training-session.md)
+- [Sesión general de capacitación sobre la aplicación incluído en la instalación](/docs/about/services/learning/training-session)
+- [Sesión de 2 horas de capacitación para el manejo operativo](/docs/about/services/learning/training-session)
+- [Sesión de 2 horas de capacitación para el manejo administrativo](/docs/about/services/learning/training-session)

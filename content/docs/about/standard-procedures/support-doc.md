@@ -148,6 +148,6 @@ Al momento de crear una tarea o error se debe tomar en cuenta que es obligatorio
 
 **Tome en cuenta que como mínimo debe existir un vídeo en formato .gif explicando o mostrando cómo reproducir el error, mientras mas información coloque será mas sencillo reproducir y solucionar el comportamiento.**
 
-Si desea ver cómo generar un archivo gif vaya a [Generar Videos Comprimidos como GIF](compress-mp4.md).
+Si desea ver cómo generar un archivo gif vaya a [Generar Videos Comprimidos como GIF](/docs/about/standard-procedures/compress-mp4).
 
 A continuación se encuentra un ejemplo proveniente de [Open Project](http://project.erpya.com/projects/soporte-sos/work_packages/2905/activity).

@@ -51,7 +51,7 @@ Ubique y seleccione en el menú de ADempiere, la carpeta "**Gestión de Compras*
 
 Imagen 5. Documento por Pagar
 
-Verifique la configuración de retención y modifique la misma de ser necesario. Las configuraciones de las retenciones se encuentran explicadas en los documentos [Retención de Iva](withholding-iva.md/), [Retención Islr](withholding-islr.md/) y [Retención Municipal](withholding-municipality.md/).
+Verifique la configuración de retención y modifique la misma de ser necesario. Las configuraciones de las retenciones se encuentran explicadas en los documentos [Retención de Iva](/docs/lve/procedures/withholding-management/withholding-iva/), [Retención Islr](/docs/lve/procedures/withholding-management/withholding-islr/) y [Retención Municipal](/docs/lve/procedures/withholding-management/withholding-municipality/).
 
 Seleccione el icono "**Proceso**", ubicado en la barra de herramientas de ADempiere.
 

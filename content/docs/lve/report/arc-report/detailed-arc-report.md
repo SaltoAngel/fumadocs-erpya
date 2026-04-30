@@ -19,7 +19,7 @@ Ubique y seleccione en el menú de ADempiere, la carpeta "**Localización Venezu
 
 Imagen 1. Menú de ADempiere
 
-Realice el procedimiento explicado en el documento [Reporte Arc](arc-report.md) para generar el reporte detallado del mismo, quedando la ventana "**ARC Detallado**" de la siguiente manera.
+Realice el procedimiento explicado en el documento [Reporte Arc](/docs/lve/report/arc-report/arc-report/) para generar el reporte detallado del mismo, quedando la ventana "**ARC Detallado**" de la siguiente manera.
 
 ![Ventana ARC con Datos Cargados](/assets/img/docs/lve/report/arc-report/resources/vent-arc2.png)
 

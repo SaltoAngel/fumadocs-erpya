@@ -24,7 +24,7 @@ Gestiona las peticiones realizadas por una empresa o un particular, dirigida a u
 
 ### Operaciones de Requisición
 
-Controle sus requisiciones de compra a través del [proceso de requisición a compras](requisition-process.md)
+Controle sus requisiciones de compra a través del [proceso de requisición a compras](/docs/about/services/products/requisition-process)
 
 ## Órdenes de Compra
 
@@ -45,6 +45,6 @@ Crea directamente (y controla) las facturas a partir de la Órdenes de Compra o 
 ## Alcance del Servicio
 
 - Instalación de la aplicación
-- [Sesión general de capacitación sobre la aplicación incluído en la instalación](../learning/training-session.md)
-- [Sesión de 3 horas de capacitación para el manejo operativo](../learning/training-session.md)
-- [Sesión de 2 horas de capacitación para el manejo administrativo](../learning/training-session.md)
+- [Sesión general de capacitación sobre la aplicación incluído en la instalación](/docs/about/services/learning/training-session)
+- [Sesión de 3 horas de capacitación para el manejo operativo](/docs/about/services/learning/training-session)
+- [Sesión de 2 horas de capacitación para el manejo administrativo](/docs/about/services/learning/training-session)

@@ -80,11 +80,11 @@ Haga click en [**Empresas**](https://www.mercantilbanco.com/mercprod/content/emp
 
 ### Extracto Bancario Bancaribe
 
-Para poder hacer la descarga del extracto bancario del [**Bancaribe**](https://www.bancaribe.com.ve/) debe iniciar sesión en el banco, una vez ingrese al banco siga las instrucciones indicadas bajo la plataforma Web en el apartado [**Mi Estado de Cuenta Digital**](broken) donde se describe el paso a paso de como realizar la descarga de archivos o movimientos bancarios; el estado de cuenta bancario a descargar de este banco debe estar bajo el formato **Separados por coma**, el cual es el formato que aceptará ADempiere al momento de realizar la importación del extracto bancario.
+Para poder hacer la descarga del extracto bancario del [**Bancaribe**](https://www.bancaribe.com.ve/) debe iniciar sesión en el banco, una vez ingrese al banco siga las instrucciones indicadas bajo la plataforma Web en el apartado [**Mi Estado de Cuenta Digital**](/docs/balance-management/open-items/broken/) donde se describe el paso a paso de como realizar la descarga de archivos o movimientos bancarios; el estado de cuenta bancario a descargar de este banco debe estar bajo el formato **Separados por coma**, el cual es el formato que aceptará ADempiere al momento de realizar la importación del extracto bancario.
 
 <Callout type="info">
 
-Haga click en [**Mi Estado de Cuenta Digital**](broken) para poder visualizar el paso a paso para las descargas de archivos, al dar click a la opción anteriormente comentada este lo redireccionará a la plataforma web del banco.
+Haga click en [**Mi Estado de Cuenta Digital**](/docs/balance-management/open-items/broken/) para poder visualizar el paso a paso para las descargas de archivos, al dar click a la opción anteriormente comentada este lo redireccionará a la plataforma web del banco.
 
 </Callout>
 
@@ -102,7 +102,7 @@ Para poder hacer la descarga del extracto bancario del [**Banco Nacional de Cré
 
 Para poder hacer la descarga del extracto bancario del [**Banplus**](https://www.banplus.com/site/p_contenido.php) debe iniciar sesión en el banco, una vez ingrese al banco siga las siguientes instrucciones indicadas bajo la plataforma Web del banco [**Banplus**](https://www.banplus.com/site/p_contenido.php), el estado de cuenta bancario a descargar de este banco debe ser bajo el formato **.txt**, el cual es el formato que aceptará ADempiere al momento de realizar la importación del extracto bancario.
 
-[ERPyA](http://erpya.com/) ofrece a nuestros clientes el ejemplo de extracto bancario [**Banplus 2017**](Banplus_Estado_de_cuenta.txt), con la finalidad de que sea descargado y utilizado para realizar el proceso de conciliación automática en ADempiere.
+[ERPyA](http://erpya.com/) ofrece a nuestros clientes el ejemplo de extracto bancario [**Banplus 2017**](/docs/balance-management/open-items/Banplus_Estado_de_cuenta.txt/), con la finalidad de que sea descargado y utilizado para realizar el proceso de conciliación automática en ADempiere.
 
 De la misma manera, los bancos que no han sido mencionados bajo este material pueden ser descargados e importados en ADempiere bajo los formatos **QIF**, **MT940** y **OFX / OFC**.
 
