@@ -58,4 +58,4 @@ De esta manera se modifica una página para Reporte en ADempiere.
 
 ### Referencias
 
-[Reportes de Gestión de Material](https://docs.erpya.com/docs/material-management/material-management-reports.html)
+[Reportes de Gestión de Material](/docs/docs/material-management/material-management-reports.html)

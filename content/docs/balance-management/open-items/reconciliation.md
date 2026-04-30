@@ -19,9 +19,9 @@ Una conciliación automática es un proceso que se realiza con la finalidad de g
 - [Descarga de Extracto Bancario desde Banco](/docs/balance-management/open-items/download/)
 
 - [Registro de Conciliación Automática](/docs/balance-management/open-items/automatic-conciliations/)
-  - [Importación de Extracto Bancario](https://docs.erpya.com/docs/balance-management/open-items/automatic-conciliations.html#importacion-de-extracto-bancario)
-  - [Conciliación Automática](https://docs.erpya.com/docs/balance-management/open-items/automatic-conciliations.html#importacion-de-extracto-bancario)
-  - [Coincidencia Bancarias](https://docs.erpya.com/docs/balance-management/open-items/automatic-conciliations.html#coincidencia-bancarias)
+  - [Importación de Extracto Bancario](/docs/docs/balance-management/open-items/automatic-conciliations.html#importacion-de-extracto-bancario)
+  - [Conciliación Automática](/docs/docs/balance-management/open-items/automatic-conciliations.html#importacion-de-extracto-bancario)
+  - [Coincidencia Bancarias](/docs/docs/balance-management/open-items/automatic-conciliations.html#coincidencia-bancarias)
   - [Revisión de Conciliaciones](http://docs.erpya.com/docs/balance-management/open-items/automatic-conciliations.html#revision-de-conciliaciones)
   - [Crear Pagos Desde Línea de Estado de Cuenta](http://docs.erpya.com/docs/balance-management/open-items/automatic-conciliations.html#crear-pagos-desde-linea-de-estado-de-cuenta)
 

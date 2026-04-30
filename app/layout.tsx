@@ -7,6 +7,15 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
+export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://docs.erpya.com'),
+  title: {
+    template: '%s | ERPyA Docs',
+    default: 'ERPyA Documentation',
+  },
+  description: 'Documentación oficial de ERPyA y ADempiere ERP.',
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={inter.className} suppressHydrationWarning>

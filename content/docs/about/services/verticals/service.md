@@ -39,5 +39,5 @@ La vertical de servicio enfoca su entregable en las herramientas que permiten ll
 
 ## Productos relacionados
 
-- [Nómina](https://docs.erpya.com/docs/lve/procedures/payroll/)
+- [Nómina](/docs/docs/lve/procedures/payroll/)
 - [Contabilidad](/docs/about/services/products/performance-analysis)

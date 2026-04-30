@@ -16,7 +16,7 @@ article: false
 
 ## Artículo Relacionado
 
-- https://docs.erpya.com/about/news/security-improvements-in-adempiere-cloud.html#conclusion
+- /docs/about/news/security-improvements-in-adempiere-cloud.html#conclusion
 
 ## Novedades
 

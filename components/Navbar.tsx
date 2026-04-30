@@ -62,8 +62,10 @@ import {
   FaCity,
   FaHandHoldingDollar,
   FaFlag,
-  FaCircleExclamation
+  FaCircleExclamation,
+  FaLaptopCode
 } from 'react-icons/fa6';
+import { text } from 'stream/consumers';
 
 interface NavChild {
   text: string;
@@ -236,14 +238,20 @@ const navLinks: NavItem[] = [
         text: 'BINARIOS',
         children: [
           { text: 'Docker', url: '/docs/downloads/docker', Icon: FaBoxArchive },
-          { text: 'Binarios', url: '/docs/downloads/binary', Icon: FaFileZipper },
+          { text: 'Descarga Binaria', url: '/docs/downloads/binary', Icon: FaFileZipper },
         ]
       },
       {
         text: 'ACTUALIZACIONES',
         children: [
-          { text: 'Actualizaciones', url: '/docs/downloads/updates', Icon: FaArrowsRotate },
-          { text: 'ADempiere 3.9.4', url: '/docs/downloads/updates/adempiere-3.9.4', Icon: FaNewspaper },
+          { text: 'Versiones de Aplicaciones', url: '/docs/downloads/updates', Icon: FaArrowsRotate },
+          { text: 'ADempiere 3.9.4', url: '/docs/downloads/updates/adempiere-3.9.4', Icon: FaLaptopCode },
+          { text: 'Rs-5.x', url: '/docs/downloads/updates/rs-5.x', Icon: FaLaptopCode },
+          { text: 'Rs-4.x', url: '/docs/downloads/updates/rs-4.x', Icon: FaLaptopCode },
+          { text: 'Rs-3.x', url: '/docs/downloads/updates/rs-3.x', Icon: FaLaptopCode },
+          { text: 'Rs-2.x', url: '/docs/downloads/updates/rs-2.x', Icon: FaLaptopCode },
+          { text: 'Rs-1.x', url: '/docs/downloads/updates/rs-1.x', Icon: FaLaptopCode },
+          { text: 'Dispositvos', url: '/docs/downloads/updates/devices', Icon: FaLaptopCode },
         ]
       }
     ]
