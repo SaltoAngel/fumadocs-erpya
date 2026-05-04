@@ -28,13 +28,6 @@ export function RestrictedAccess({ requiredRole }: RestrictedAccessProps) {
       <h1 className="text-4xl font-black mb-4 tracking-tight text-fd-foreground">
         Acceso Restringido
       </h1>
-      
-      <p className="text-fd-muted-foreground max-w-md mx-auto mb-10 text-lg leading-relaxed">
-        Esta sección es confidencial y requiere el rol de seguridad:
-        <span className="block mt-4 font-mono bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-red-400 font-bold tracking-wider">
-          {requiredRole}
-        </span>
-      </p>
 
       <div className="flex flex-col sm:flex-row gap-4 items-center">
         <Link 
