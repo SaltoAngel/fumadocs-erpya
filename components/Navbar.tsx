@@ -319,8 +319,8 @@ export function Navbar() {
           width={36}
           height={36}
           priority
-          style={{ width: 'auto', height: '36px' }}
-          className="group-hover:scale-110 transition-transform duration-300"
+          style={{ width: 'auto', height: '28px' }}
+          className="group-hover:scale-110 transition-transform duration-300 h-[28px] w-auto block"
         />
       </Link>
 
