@@ -7,6 +7,7 @@ export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
     schema: pageSchema.extend({
+      role: z.string().optional(),
       category: z.string().optional(),
       star: z.number().optional(),
       sticky: z.number().optional(),
@@ -19,7 +20,9 @@ export const docs = defineDocs({
     },
   },
   meta: {
-    schema: metaSchema,
+    schema: metaSchema.extend({
+      role: z.string().optional(),
+    }),
   },
 });
 

@@ -12,11 +12,26 @@ import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { gitConfig } from '@/lib/shared';
+import { getServerSession } from 'next-auth';
+import { RestrictedAccess } from '@/components/docs/RestrictedAccess';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
+
+  // Verificación de seguridad
+  const session = await getServerSession();
+  const userRoles = (session?.user as any)?.roles || [];
+  const requiredRole = (page.data as any).role;
+
+  if (requiredRole && !userRoles.includes(requiredRole)) {
+    return (
+      <DocsPage full={page.data.full}>
+        <RestrictedAccess requiredRole={requiredRole} />
+      </DocsPage>
+    );
+  }
 
   const MDX = page.data.body;
   const markdownUrl = getPageMarkdownUrl(page).url;

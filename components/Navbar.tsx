@@ -63,9 +63,11 @@ import {
   FaHandHoldingDollar,
   FaFlag,
   FaCircleExclamation,
-  FaLaptopCode
+  FaLaptopCode,
+  FaRightToBracket,
+  FaRightFromBracket
 } from 'react-icons/fa6';
-import { text } from 'stream/consumers';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 interface NavChild {
   text: string;
@@ -263,6 +265,7 @@ export function Navbar() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const { data: session } = useSession();
   const [mounted, setMounted] = useState(false);
   
   // Lógica para ocultar/mostrar navbar al hacer scroll
@@ -420,6 +423,45 @@ export function Navbar() {
             {mounted && (theme === 'dark' ? <FaSun className="text-[18px]" /> : <FaMoon className="text-[18px]" />)}
             {!mounted && <FaMoon className="text-[18px]" />}
           </button>
+        </div>
+
+        {/* Auth Section */}
+        <div className="flex items-center gap-3 border-l border-fd-foreground/10 pl-4">
+          {session ? (
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col items-end hidden sm:flex">
+                <span className="text-[11px] font-bold text-white/90 leading-tight">
+                  {session.user?.name}
+                </span>
+                <span className="text-[9px] text-white/40 leading-tight uppercase tracking-tighter mb-1">
+                  {session.user?.email}
+                </span>
+                {/* Roles Display */}
+                <div className="flex gap-1">
+                  {((session.user as any).roles || []).map((role: string) => (
+                    <span key={role} className="text-[8px] bg-[#3b82f6]/20 text-[#3b82f6] px-1.5 py-0.5 rounded-md font-mono border border-[#3b82f6]/10">
+                      {role}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <button 
+                onClick={() => signOut()}
+                className="group flex items-center justify-center w-9 h-9 bg-red-500/10 text-red-500 hover:bg-red-500/20 border border-red-500/20 rounded-full transition-all duration-300"
+                title="Cerrar sesión"
+              >
+                <FaRightFromBracket className="text-[14px] group-hover:scale-110 transition-transform" />
+              </button>
+            </div>
+          ) : (
+            <button 
+              onClick={() => signIn('keycloak')}
+              className="flex items-center gap-2 bg-[#3b82f6]/10 text-[#3b82f6] hover:bg-[#3b82f6]/20 border border-[#3b82f6]/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300"
+            >
+              <FaRightToBracket className="text-[12px]" />
+              <span className="hidden sm:inline">Acceder</span>
+            </button>
+          )}
         </div>
       </div>
       

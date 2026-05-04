@@ -90,3 +90,47 @@ export function getPageMarkdownUrl(page: (typeof source)['$inferPage']) {
     url: `${docsContentRoute}/${segments.join('/')}`,
   };
 }
+
+export function filterPageTree(tree: any[], roles: string[]): any[] {
+  if (!Array.isArray(tree)) return [];
+
+  return tree
+    .map((node) => {
+      if (!node || typeof node !== 'object') return null;
+
+      // 1. Verificar rol en el nodo actual (página o carpeta)
+      const requiredRole = node.data?.role || node.data?.frontmatter?.role;
+      if (requiredRole && !roles.includes(requiredRole)) {
+        return null;
+      }
+
+      // 2. Si es una carpeta, filtrar hijos y la página de índice
+      if (node.type === 'folder') {
+        const children = Array.isArray(node.children) ? node.children : [];
+        const filteredChildren = filterPageTree(children, roles);
+        
+        // También verificar la página de índice de la carpeta si existe
+        let filteredIndex = node.index;
+        if (node.index) {
+          const indexRole = node.index.data?.role || node.index.data?.frontmatter?.role;
+          if (indexRole && !roles.includes(indexRole)) {
+            filteredIndex = undefined;
+          }
+        }
+
+        // Si la carpeta queda vacía y no tiene índice accesible, la ocultamos
+        if (filteredChildren.length === 0 && !filteredIndex) {
+          return null;
+        }
+
+        return { 
+          ...node, 
+          children: filteredChildren,
+          index: filteredIndex 
+        };
+      }
+
+      return { ...node };
+    })
+    .filter((node): node is any => node !== null);
+}
