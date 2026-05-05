@@ -156,9 +156,41 @@ KEYCLOAK_ISSUER=http://localhost:8080/realms/Prueba
     ---
     ```
 
+## 🐳 Despliegue con Docker
+
+El proyecto está preparado para ser ejecutado en contenedores usando el modo `standalone` de Next.js.
+
+### 1. Construir la imagen manualmente
+```bash
+docker build -t fumadocs-erpya .
+```
+
+### 2. Ejecutar con Docker Compose (Recomendado)
+Asegúrate de tener tu archivo `.env.local` configurado y luego ejecuta:
+```bash
+docker compose up -d
+```
+
+### 3. Ejecutar con Docker Run (Pasando variables por comando)
+Si prefieres no usar un archivo de entorno, puedes pasar las variables directamente con el flag `-e`:
+
+```bash
+docker run -p 3001:3000 \
+  -e NEXTAUTH_URL=http://localhost:3001 \
+  -e NEXTAUTH_SECRET=tu_clave_secreta \
+  -e KEYCLOAK_ID=fumadocs \
+  -e KEYCLOAK_SECRET=tu_keycloak_secret \
+  -e KEYCLOAK_ISSUER=http://tu-servidor:8080/realms/Prueba \
+  fumadocs-erpya
+```
+
+El sitio estará disponible en `http://localhost:3001`.
+
+---
+
 ## Producción
 
-Para generar el sitio estático optimizado:
+Para generar el sitio estático optimizado localmente (sin Docker):
 ```bash
 pnpm build
 pnpm start

@@ -1,0 +1,11 @@
+services:
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fumadocs-erpya
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env.local
+    restart: always
