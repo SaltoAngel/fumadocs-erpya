@@ -188,6 +188,30 @@ El sitio estará disponible en `http://localhost:3001`.
 
 ---
 
+## 🗄️ Persistencia y Producción (PostgreSQL)
+
+Por defecto, los ejemplos anteriores de Keycloak usan una base de datos interna volátil (H2). **Para producción, es obligatorio usar PostgreSQL** para no perder usuarios ni roles.
+
+### Uso de la plantilla completa
+He preparado un archivo `docker-compose.full.yml` que levanta todo el stack (App + Keycloak + Postgres) con persistencia:
+
+```bash
+docker compose -f docker-compose.full.yml up -d
+```
+
+### Configuración manual de Keycloak con Postgres
+Si ya tienes un Postgres y quieres conectar Keycloak, debes pasar estas variables al contenedor de Keycloak:
+
+*   **`KC_DB`**: `postgres`
+*   **`KC_DB_URL`**: `jdbc:postgresql://<HOST>:<PUERTO>/<DB_NAME>`
+*   **`KC_DB_USERNAME`**: El usuario de tu BD.
+*   **`KC_DB_PASSWORD`**: La contraseña de tu BD.
+
+> [!TIP]
+> En el archivo `docker-compose.full.yml`, verás que usamos un **Volume** de Docker (`postgres_data`) para la base de datos. **Keycloak no necesita un volumen propio para los datos** ya que guarda todo (usuarios, roles, configuraciones) dentro de PostgreSQL. Solo necesitarías volúmenes en Keycloak si planeas usar temas personalizados (`/opt/keycloak/themes`) o plugins externos (`/opt/keycloak/providers`).
+
+---
+
 ## Producción
 
 Para generar el sitio estático optimizado localmente (sin Docker):
