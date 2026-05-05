@@ -1,4 +1,5 @@
 ---
+role: public
 title: Ajuste de Costo
 category: Paquete de Servicio
 star: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Módulo II Mantenimiento de diccionario de aplicación de Adempiere (Creación de Reportes/Informes)
 category: Educación
 star: 9

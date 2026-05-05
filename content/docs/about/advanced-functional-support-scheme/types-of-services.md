@@ -1,5 +1,6 @@
 ---
 title: Tipos de Servicios
+role: public
 category: Nosotros
 star: 9
 sticky: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Sesión de Consultoría General
 category: Paquete de Servicio
 star: 9

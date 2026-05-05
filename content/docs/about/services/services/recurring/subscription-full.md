@@ -1,4 +1,5 @@
 ---
+role: public
 title: Suscripción Completa
 category: Recurrentes
 star: 9

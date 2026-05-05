@@ -1,4 +1,5 @@
 ---
+role: public
 title: Security Policies - ERP+ Mobile App
 category: Producto
 star: 9

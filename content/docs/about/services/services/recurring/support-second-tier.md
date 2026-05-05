@@ -1,4 +1,5 @@
 ---
+role: public
 title: Soporte de Segundo Nivel (Atención al equipo de informática)
 category: Recurrentes
 star: 9

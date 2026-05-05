@@ -1,5 +1,6 @@
 ---
 title: Contrato de Soporte y Mantenimiento de Software
+role: public
 category: Condiciones Generales
 star: 9
 sticky: 9

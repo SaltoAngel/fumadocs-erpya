@@ -1,4 +1,5 @@
 ---
+role: public
 title: Adecuación de Ventanas
 category: Paquete de Servicio
 star: 9

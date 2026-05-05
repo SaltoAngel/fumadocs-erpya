@@ -1,5 +1,6 @@
 ---
 title: Gestión de Inventario
+role: public
 category: Producto
 star: 9
 sticky: 9

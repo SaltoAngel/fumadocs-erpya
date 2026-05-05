@@ -1,5 +1,6 @@
 ---
 title: Requerimientos de Soporte
+role: public
 category: Nosotros
 star: 9
 sticky: 9

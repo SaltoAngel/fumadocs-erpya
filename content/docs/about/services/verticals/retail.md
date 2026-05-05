@@ -1,5 +1,6 @@
 ---
 title: Retail
+role: public
 category: Verticales
 star: 9
 sticky: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Cadena de Abastecimiento
 category: Productos
 star: 9

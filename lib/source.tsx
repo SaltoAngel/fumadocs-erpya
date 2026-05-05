@@ -91,6 +91,30 @@ export function getPageMarkdownUrl(page: (typeof source)['$inferPage']) {
   };
 }
 
+// Función auxiliar: obtiene los roles jerárquicos para una URL
+function getRolesForUrl(url: string): string[] {
+  const pathParts = url.split('/').filter(Boolean).slice(1); // Omitimos "docs"
+  const roles: string[] = [];
+  let currentPath = "docs";
+  for (const part of pathParts) {
+    currentPath += `:${part}`;
+    roles.push(currentPath);
+  }
+  return roles;
+}
+
+// Función auxiliar: verifica si un usuario tiene acceso a una URL
+function hasAccessToUrl(url: string, userRoles: string[], explicitRole?: string): boolean {
+  if (explicitRole === 'public') return true; // Acceso total para todos
+  if (userRoles.includes('admin')) return true;
+  if (url === '/docs') return true;
+  if (explicitRole && userRoles.includes(explicitRole)) return true;
+  
+  const requiredRoles = getRolesForUrl(url);
+  if (requiredRoles.length === 0) return true; // Sin ruta, no se puede evaluar
+  return requiredRoles.some((r: string) => userRoles.includes(r));
+}
+
 export function filterPageTree(tree: any[], roles: string[]): any[] {
   if (!Array.isArray(tree)) return [];
 
@@ -98,38 +122,55 @@ export function filterPageTree(tree: any[], roles: string[]): any[] {
     .map((node) => {
       if (!node || typeof node !== 'object') return null;
 
-      // 1. Verificar rol en el nodo actual (página o carpeta)
-      const requiredRole = node.data?.role || node.data?.frontmatter?.role;
-      if (requiredRole && !roles.includes(requiredRole)) {
-        return null;
+      // --- PÁGINAS (type: 'page') ---
+      if (node.type === 'page') {
+        const url = node.url || "";
+        if (!url) return node; // Sin URL, no filtramos
+        
+        const explicitRole = node.data?.role || node.data?.frontmatter?.role;
+        return hasAccessToUrl(url, roles, explicitRole) ? { ...node } : null;
       }
 
-      // 2. Si es una carpeta, filtrar hijos y la página de índice
+      // --- CARPETAS (type: 'folder') ---
       if (node.type === 'folder') {
+        // Derivar la ruta de la carpeta desde su página índice
+        const folderUrl = node.index?.url || "";
+        
+        // Si la carpeta tiene una URL derivable, verificar permisos de carpeta
+        if (folderUrl) {
+          const folderRoles = getRolesForUrl(folderUrl);
+          const explicitRole = node.index?.data?.role || node.index?.data?.frontmatter?.role;
+          const hasFolderAccess = hasAccessToUrl(folderUrl, roles, explicitRole);
+          
+          // Si el usuario no tiene acceso a la carpeta, ocultarla entera
+          if (!hasFolderAccess) {
+            return null;
+          }
+        }
+
+        // Filtrar los hijos recursivamente
         const children = Array.isArray(node.children) ? node.children : [];
         const filteredChildren = filterPageTree(children, roles);
-        
-        // También verificar la página de índice de la carpeta si existe
+
+        // Verificar el índice
         let filteredIndex = node.index;
         if (node.index) {
-          const indexRole = node.index.data?.role || node.index.data?.frontmatter?.role;
-          if (indexRole && !roles.includes(indexRole)) {
+          const indexUrl = node.index.url || "";
+          const indexExplicitRole = node.index.data?.role || node.index.data?.frontmatter?.role;
+          if (indexUrl && !hasAccessToUrl(indexUrl, roles, indexExplicitRole)) {
             filteredIndex = undefined;
           }
         }
 
-        // Si la carpeta queda vacía y no tiene índice accesible, la ocultamos
+        // REGLA DE ORO: La carpeta solo es visible si tiene contenido accesible
         if (filteredChildren.length === 0 && !filteredIndex) {
           return null;
         }
 
-        return { 
-          ...node, 
-          children: filteredChildren,
-          index: filteredIndex 
-        };
+        return { ...node, children: filteredChildren, index: filteredIndex };
       }
 
+      // --- SEPARADORES y otros tipos ---
       return { ...node };
     })
     .filter((node): node is any => node !== null);

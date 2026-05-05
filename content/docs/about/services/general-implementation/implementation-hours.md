@@ -1,4 +1,5 @@
 ---
+role: public
 title: Horas de Implementación 
 category: Implementación General
 icon: time 

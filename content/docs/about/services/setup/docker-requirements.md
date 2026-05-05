@@ -1,5 +1,6 @@
 ---
 title: Requerimientos de Instalación con Docker
+role: public
 category: Configuración
 star: 9
 sticky: 9

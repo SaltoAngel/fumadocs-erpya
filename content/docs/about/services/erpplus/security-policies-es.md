@@ -1,4 +1,5 @@
 ---
+role: public
 title: Políticas de Seguridad - ERP+ Mobile App
 category: Producto
 star: 9

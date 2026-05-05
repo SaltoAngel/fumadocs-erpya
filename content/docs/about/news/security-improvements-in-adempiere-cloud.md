@@ -1,5 +1,6 @@
 ---
 title: Mejoras de seguridad en ADempiere Cloud
+role: public
 category: Noticias
 icon: user-lock
 star: 9

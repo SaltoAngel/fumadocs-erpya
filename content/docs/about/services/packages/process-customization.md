@@ -1,4 +1,5 @@
 ---
+role: public
 title: Configuración, Adiestramiento de Procesos Existentes no incluidos en la propuesta
 category: Paquete de Servicio
 star: 9

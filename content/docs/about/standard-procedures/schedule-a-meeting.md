@@ -1,4 +1,5 @@
 ---
+role: public
 title: Acordar una Reunión
 category: Procedimientos Estándares
 star: 9

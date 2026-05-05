@@ -1,4 +1,5 @@
 ---
+role: public
 title: Soporte en Bot
 category: Otros Servicios
 star: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Consultoría de Procesos
 category: Servicios
 star: 9

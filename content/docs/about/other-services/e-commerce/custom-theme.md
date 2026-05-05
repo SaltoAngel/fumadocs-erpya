@@ -1,4 +1,5 @@
 ---
+role: public
 title: Tema Personalizado
 icon: decorate
 category: Otros Servicios

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Generar Videos Comprimidos como GIF
 category: Procedimientos Estándares
 star: 9

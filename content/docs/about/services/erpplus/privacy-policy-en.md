@@ -1,4 +1,5 @@
 ---
+role: public
 title: Privacy Policy - ERP+ Mobile App
 category: Product
 star: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Consultar Tareas Específicas
 category: Otros Servicios
 star: 9

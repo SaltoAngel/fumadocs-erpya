@@ -1,4 +1,5 @@
 ---
+role: public
 title: Diccionario de Aplicación de ADempiere
 category: Aplicaciones
 star: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Configuración Contable Personalizada
 category: Paquete de Servicio
 star: 9

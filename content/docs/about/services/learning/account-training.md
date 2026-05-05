@@ -1,4 +1,5 @@
 ---
+role: public
 title: Entrenamiento Contable
 category: Educación
 star: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Privacy Policy
 ---
 

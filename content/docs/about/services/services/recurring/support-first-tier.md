@@ -1,4 +1,5 @@
 ---
+role: public
 title: Soporte de Primer Nivel (Atención al usuario final)
 category: Recurrentes
 star: 9

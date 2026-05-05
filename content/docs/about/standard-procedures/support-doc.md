@@ -1,4 +1,5 @@
 ---
+role: public
 title: Documentar una Tarea / Error
 category: Procedimientos Estándares
 star: 9

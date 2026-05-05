@@ -1,4 +1,5 @@
 ---
+role: public
 title: Terms of Service - ERP+ Mobile App
 category: Producto
 star: 9

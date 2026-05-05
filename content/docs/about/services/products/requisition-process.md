@@ -1,5 +1,6 @@
 ---
 title: Requisición de Compras
+role: public
 category: Productos
 star: 9
 sticky: 9

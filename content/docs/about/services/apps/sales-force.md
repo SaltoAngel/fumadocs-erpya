@@ -1,4 +1,5 @@
 ---
+role: public
 title: Fuerza de Ventas
 category: Aplicaciones
 star: 9

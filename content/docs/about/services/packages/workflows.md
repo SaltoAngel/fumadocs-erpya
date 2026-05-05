@@ -1,4 +1,5 @@
 ---
+role: public
 title: Flujos de Trabajo
 category: Paquete de Servicio
 star: 9

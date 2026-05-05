@@ -1,4 +1,5 @@
 ---
+role: public
 title: Requerimientos para Ecommerce
 icon: decorate
 category: Otros Servicios

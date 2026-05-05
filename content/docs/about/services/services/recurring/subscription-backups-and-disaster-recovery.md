@@ -1,4 +1,5 @@
 ---
+role: public
 title: Backups y Recuperación en Caso de Desastre
 category: Recurrentes
 star: 9

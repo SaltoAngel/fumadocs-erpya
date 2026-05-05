@@ -1,5 +1,6 @@
 ---
 title: Alcance General del Soporte Funcional Avanzado
+role: public
 category: Nosotros
 star: 9
 sticky: 9

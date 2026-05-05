@@ -1,4 +1,5 @@
 ---
+role: public
 title: Consultoría bajo solicitud
 category: Paquete de Servicio
 star: 9

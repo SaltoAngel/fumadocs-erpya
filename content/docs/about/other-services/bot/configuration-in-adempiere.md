@@ -1,4 +1,5 @@
 ---
+role: public
 title: Configuración de ADempiere
 category: Otros Servicios
 star: 9

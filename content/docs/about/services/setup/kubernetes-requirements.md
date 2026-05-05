@@ -1,5 +1,6 @@
 ---
 title: Definición de Cluster
+role: public
 category: Configuración
 star: 9
 sticky: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Uso del Bot
 category: Otros Servicios
 star: 9

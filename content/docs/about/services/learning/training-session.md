@@ -1,4 +1,5 @@
 ---
+role: public
 title: Sesión de Capacitación
 category: Productos
 star: 9

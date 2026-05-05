@@ -13,6 +13,7 @@ import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { gitConfig } from '@/lib/shared';
 import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
 import { RestrictedAccess } from '@/components/docs/RestrictedAccess';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
@@ -20,15 +21,40 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
-  // Verificación de seguridad
-  const session = await getServerSession();
+  // Verificación de seguridad jerárquica unificada
+  const session = await getServerSession(authOptions);
   const userRoles = (session?.user as any)?.roles || [];
-  const requiredRole = (page.data as any).role;
+  
+  // Usamos la URL oficial de la página para generar los roles
+  // Ejemplo: /docs/about -> ["docs:about"]
+  const pageUrl = page.url || "";
+  const pathParts = pageUrl.split('/').filter(Boolean).slice(1);
+  const possibleRoles: string[] = [];
+  let currentPath = "docs";
+  for (const part of pathParts) {
+    currentPath += `:${part}`;
+    possibleRoles.push(currentPath);
+  }
 
-  if (requiredRole && !userRoles.includes(requiredRole)) {
+  const explicitRole = (page.data as any).role;
+
+  const hasAccess = 
+    explicitRole === 'public' || // Acceso público explícito
+    userRoles.includes('admin') || 
+    (explicitRole && userRoles.includes(explicitRole)) ||
+    possibleRoles.some((pathRole: string) => userRoles.includes(pathRole)) ||
+    (!explicitRole && possibleRoles.length === 0);
+
+  // Debug en consola del servidor (puedes verlo en tu terminal)
+  console.log(`Verificando acceso para: ${pageUrl}`, {
+    rolesDelUsuario: userRoles,
+    rolesNecesarios: [...possibleRoles, explicitRole].filter(Boolean)
+  });
+
+  if (!hasAccess) {
     return (
       <DocsPage full={page.data.full}>
-        <RestrictedAccess requiredRole={requiredRole} />
+        <RestrictedAccess requiredRole={explicitRole || possibleRoles[possibleRoles.length - 1] || 'admin'} />
       </DocsPage>
     );
   }

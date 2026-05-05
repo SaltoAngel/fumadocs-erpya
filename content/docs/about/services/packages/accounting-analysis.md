@@ -1,4 +1,5 @@
 ---
+role: public
 title: Análisis de Cuentas
 category: Paquete de Servicio
 star: 9

@@ -310,6 +310,52 @@ export function Navbar() {
     return pathname.startsWith(url);
   };
 
+  const userRoles = (session?.user as any)?.roles || [];
+
+  // Función para verificar acceso jerárquico
+  const checkAccess = (url: string) => {
+    if (userRoles.includes('admin')) return true;
+    if (!url.startsWith('/docs')) return true; // Enlaces fuera de docs son públicos por defecto
+
+    const pathParts = url.split('/').filter(Boolean).slice(1);
+    const possibleRoles: string[] = [];
+    let currentPath = "docs";
+    for (const part of pathParts) {
+      currentPath += `:${part}`;
+      possibleRoles.push(currentPath);
+    }
+
+    if (possibleRoles.length === 0) return true; // Raíz /docs
+    return possibleRoles.some(role => userRoles.includes(role) || role === 'public');
+  };
+
+  // Filtrar los enlaces del Navbar
+  const filteredNavLinks = navLinks.map(link => {
+    // Si el link principal no tiene acceso, lo marcamos para eliminar
+    if (!checkAccess(link.url)) return null;
+
+    // Filtrar grupos si existen
+    if (link.groups) {
+      const filteredGroups = link.groups.map(group => {
+        const filteredChildren = group.children.filter(child => checkAccess(child.url));
+        if (filteredChildren.length === 0) return null;
+        return { ...group, children: filteredChildren };
+      }).filter(Boolean) as NavGroup[];
+
+      if (filteredGroups.length === 0) return null;
+      return { ...link, groups: filteredGroups };
+    }
+
+    // Filtrar hijos directos si existen
+    if (link.children) {
+      const filteredChildren = link.children.filter(child => checkAccess(child.url));
+      if (filteredChildren.length === 0) return null;
+      return { ...link, children: filteredChildren };
+    }
+
+    return link;
+  }).filter(Boolean) as NavItem[];
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-500 flex items-center px-4 md:px-8 ${
       showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
@@ -329,7 +375,7 @@ export function Navbar() {
 
       {/* Navigation Links */}
       <div className="hidden lg:flex items-center gap-1 h-full">
-        {navLinks.map((link) => {
+        {filteredNavLinks.map((link) => {
           const active = isLinkActive(link.url);
           
           return (

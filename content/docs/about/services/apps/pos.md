@@ -1,4 +1,5 @@
 ---
+role: public
 title: Punto de Venta (P.O.S.)
 category: Aplicaciones
 star: 9

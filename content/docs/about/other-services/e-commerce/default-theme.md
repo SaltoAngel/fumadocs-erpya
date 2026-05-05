@@ -1,4 +1,5 @@
 ---
+role: public
 title: Tema por defecto
 icon: decorate
 category: Otros Servicios

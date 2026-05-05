@@ -1,5 +1,6 @@
 ---
 title: Activos Fijos
+role: public
 category: Productos
 star: 9
 sticky: 9

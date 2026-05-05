@@ -1,4 +1,5 @@
 ---
+role: public
 title: Módulo I Mantenimiento de diccionario de aplicación de Adempiere (Creación de Ventanas)
 category: Educación
 star: 9

@@ -1,4 +1,5 @@
 ---
+role: public
 title: Suscripción de Actualizaciones
 category: Recurrentes
 star: 9
