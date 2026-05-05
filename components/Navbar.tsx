@@ -260,12 +260,15 @@ const navLinks: NavItem[] = [
   },
 ];
 
-export function Navbar() {
+
+export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
+  const { data: session } = useSession();
+  const userRoles = (session?.user as any)?.roles || [];
+  
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
-  const { data: session } = useSession();
   const [mounted, setMounted] = useState(false);
   
   // Lógica para ocultar/mostrar navbar al hacer scroll
@@ -310,12 +313,14 @@ export function Navbar() {
     return pathname.startsWith(url);
   };
 
-  const userRoles = (session?.user as any)?.roles || [];
-
-  // Función para verificar acceso jerárquico
+  // Función para verificar acceso a un enlace basado en roles de Keycloak
   const checkAccess = (url: string) => {
     if (userRoles.includes('admin')) return true;
-    if (!url.startsWith('/docs')) return true; // Enlaces fuera de docs son públicos por defecto
+    
+    // Si la ruta está en la lista de rutas públicas, permitimos el acceso
+    if (publicPaths.includes(url)) return true;
+
+    if (!url.startsWith('/docs')) return true;
 
     const pathParts = url.split('/').filter(Boolean).slice(1);
     const possibleRoles: string[] = [];
