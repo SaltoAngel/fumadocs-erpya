@@ -8,8 +8,10 @@ WORKDIR /app
 # Instalar pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Copiar archivos de dependencias
+# Copiar archivos de dependencias, parches y configuración
 COPY package.json pnpm-lock.yaml* ./
+COPY patches ./patches
+COPY source.config.ts ./
 RUN pnpm install --frozen-lockfile
 
 # 2. Reconstruir el código fuente solo cuando sea necesario

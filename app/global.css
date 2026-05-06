@@ -15,7 +15,9 @@
   --fd-muted: 210 40% 96%;
   --fd-muted-foreground: 215 16% 47%;
   --fd-border: 214 32% 91%;
-  --fd-header-height: 80px;
+  /* Altura del Navbar personalizado - valor único para todo el sistema */
+  --navbar-height: 30px;
+  --fd-header-height: var(--navbar-height);
 }
 
 .dark {
@@ -51,26 +53,21 @@ header, nav, [data-radix-popper-content-wrapper] {
   background-color: var(--fd-background) !important;
 }
 
-/* --- FIX DE LAYOUT (Puerto 3001) --- */
+/* --- FIX DE LAYOUT --- */
 
-/* Definir la altura del Header en el sistema de Fumadocs */
+/* Sincronizar Fumadocs con nuestro Navbar de 60px */
 #nd-docs-layout, .fd-docs-layout {
-  --fd-header-height: 80px !important;
+  --fd-header-height: var(--navbar-height) !important;
 }
 
-/* Ajustar posición de Sidebars y TOC */
+/* Sidebar y TOC arrancan justo debajo del Navbar */
 .fd-sidebar, 
 .fd-toc, 
 aside.fd-toc, 
 nav.fd-toc,
 [data-toc="true"] {
-  top: 80px !important;
-  height: calc(100vh - 80px) !important;
-}
-
-/* Espacio para el contenido principal */
-main, .fd-docs-content, article {
-  padding-top: 40px !important; /* Un poco menos de padding porque el layout ya tiene su offset */
+  top: var(--navbar-height) !important;
+  height: calc(100vh - var(--navbar-height)) !important;
 }
 
 .fd-breadcrumb {

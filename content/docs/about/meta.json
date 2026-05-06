@@ -1,5 +1,6 @@
 {
   "title": "Nosotros",
+  "role": "public",
   "pages": [
     "index",  
     "news",

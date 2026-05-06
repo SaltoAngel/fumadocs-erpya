@@ -1,5 +1,6 @@
 ---
 title: Código fuente
+role: public
 category: Código fuente
 star: 9
 sticky: 9

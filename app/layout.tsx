@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <AuthProvider>
           <RootProvider>
             <Navbar publicPaths={publicPaths} />
-            <div className="flex-1">
+            <div className="flex-1 pt-[60px]">
               {children}
             </div>
           </RootProvider>

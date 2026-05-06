@@ -1,5 +1,6 @@
 ---
 title: Código de Conducta
+role: public
 category: Comunidad
 star: 9
 sticky: 9

@@ -29,7 +29,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   // Ejemplo: /docs/about -> ["docs:about"]
   const pageUrl = page.url || "";
   const pathParts = pageUrl.split('/').filter(Boolean).slice(1);
-  const possibleRoles: string[] = [];
+  const possibleRoles: string[] = ["docs"];
   let currentPath = "docs";
   for (const part of pathParts) {
     currentPath += `:${part}`;
@@ -42,8 +42,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
     explicitRole === 'public' || // Acceso público explícito
     userRoles.includes('admin') || 
     (explicitRole && userRoles.includes(explicitRole)) ||
-    possibleRoles.some((pathRole: string) => userRoles.includes(pathRole)) ||
-    (!explicitRole && possibleRoles.length === 0);
+    possibleRoles.some((pathRole: string) => userRoles.includes(pathRole));
 
   // Debug en consola del servidor (puedes verlo en tu terminal)
   console.log(`Verificando acceso para: ${pageUrl}`, {

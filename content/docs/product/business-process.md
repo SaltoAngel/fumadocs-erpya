@@ -1,5 +1,6 @@
 ---
 title: Proceso de negocio de ADempiere
+role: public
 category: Producto
 star: 9
 sticky: 9

@@ -1,4 +1,39 @@
 services:
+  db:
+    image: postgres:18-alpine
+    container_name: keycloak-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123
+    restart: always
+
+  # Servidor de Autenticación
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.6.1
+    container_name: keycloak-server
+    command: start-dev
+    environment:
+      # Configuración de BD
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://db:5432/keycloak
+      KC_DB_USERNAME: admin
+      KC_DB_PASSWORD: 123
+      # Admin Inicial
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: 123
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+    restart: always
+
   docs:
     build:
       context: .
@@ -8,4 +43,10 @@ services:
       - "3001:3000"
     env_file:
       - .env.local
+    extra_hosts:
+      - "localhost:host-gateway"
     restart: always
+
+volumes:
+  postgres_data:
+  keycloak_data:

@@ -1,5 +1,6 @@
 ---
 title: Reglas Basicas
+role: public
 category: Comunidad
 star: 9
 sticky: 9

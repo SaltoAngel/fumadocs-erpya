@@ -183,7 +183,7 @@ const navLinks: NavItem[] = [
         text: 'INICIO DE SESIÓN CON KEYCLOAK',
         children: [
           { text: 'Acceso Seguro con Keycloak', url: '/docs/basic-rules/login-keycloak', Icon: FaShieldHalved },
-          { text: 'Keycloak con Autenticación 2FA', url: '/docs/basic-rules/login-2fa', Icon: FaFingerprint },
+          { text: 'Keycloak con Autenticación 2FA', url: '/docs/b asic-rules/login-2fa', Icon: FaFingerprint },
         ]
       },
       {
@@ -323,14 +323,13 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
     if (!url.startsWith('/docs')) return true;
 
     const pathParts = url.split('/').filter(Boolean).slice(1);
-    const possibleRoles: string[] = [];
+    const possibleRoles: string[] = ["docs"];
     let currentPath = "docs";
     for (const part of pathParts) {
       currentPath += `:${part}`;
       possibleRoles.push(currentPath);
     }
 
-    if (possibleRoles.length === 0) return true; // Raíz /docs
     return possibleRoles.some(role => userRoles.includes(role) || role === 'public');
   };
 

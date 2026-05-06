@@ -1,5 +1,6 @@
 ---
 title: Beneficios
+role: public
 category: Producto
 star: 9
 sticky: 9

@@ -178,29 +178,16 @@ export function filterPageTree(tree: any[], roles: string[]): any[] {
 
 // Nueva función para obtener todas las rutas públicas
 export function getPublicPaths(): string[] {
-  const tree = source.getPageTree();
+  const pages = source.getPages();
   const publicPaths: string[] = [];
 
-  function traverse(nodes: any[]) {
-    for (const node of nodes) {
-      if (node.type === 'page') {
-        const explicitRole = node.data?.role || node.data?.frontmatter?.role;
-        if (explicitRole === 'public' && node.url) {
-          publicPaths.push(node.url);
-        }
-      } else if (node.type === 'folder') {
-        // Si el índice es público, la carpeta es pública
-        if (node.index) {
-          const explicitRole = node.index.data?.role || node.index.data?.frontmatter?.role;
-          if (explicitRole === 'public' && node.index.url) {
-            publicPaths.push(node.index.url);
-          }
-        }
-        if (node.children) traverse(node.children);
-      }
+  for (const page of pages) {
+    const explicitRole = (page.data as any).role || (page.data as any).frontmatter?.role;
+    if (explicitRole === 'public') {
+      publicPaths.push(page.url);
     }
   }
 
-  traverse(Array.isArray(tree) ? tree : (tree as any).children || []);
+  console.log("Rutas públicas detectadas:", publicPaths);
   return publicPaths;
 }
