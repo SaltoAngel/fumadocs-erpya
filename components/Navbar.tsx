@@ -486,14 +486,6 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
                 <span className="text-[9px] text-white/40 leading-tight uppercase tracking-tighter mb-1">
                   {session.user?.email}
                 </span>
-                {/* Roles Display */}
-                <div className="flex gap-1">
-                  {((session.user as any).roles || []).map((role: string) => (
-                    <span key={role} className="text-[8px] bg-[#3b82f6]/20 text-[#3b82f6] px-1.5 py-0.5 rounded-md font-mono border border-[#3b82f6]/10">
-                      {role}
-                    </span>
-                  ))}
-                </div>
               </div>
               <button 
                 onClick={() => signOut()}

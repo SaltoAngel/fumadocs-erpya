@@ -12,14 +12,26 @@ export const authOptions: NextAuthOptions = {
         const clientRoles = Object.values(profile.resource_access || {})
           .flatMap((r: any) => r.roles || []);
         
-        const allRoles = Array.from(new Set([...realmRoles, ...clientRoles]));
+        const rawRoles = Array.from(new Set([...realmRoles, ...clientRoles]));
         
+        // OPTIMIZACIÓN: Si es admin, no necesitamos guardar nada más
+        if (rawRoles.includes('admin')) {
+          return {
+            id: profile.sub,
+            name: profile.name ?? profile.preferred_username,
+            email: profile.email,
+            roles: ['admin'],
+          };
+        }
+
+        // Filtrar solo roles que nos interesan: "docs" exacto O que empiecen por "docs:"
+        const cleanRoles = rawRoles.filter(role => role === 'docs' || role.startsWith('docs:'));
+
         return {
           id: profile.sub,
           name: profile.name ?? profile.preferred_username,
           email: profile.email,
-          image: profile.picture,
-          roles: allRoles,
+          roles: cleanRoles,
         };
       },
     }),

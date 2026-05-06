@@ -36,18 +36,6 @@ export function RestrictedAccess({ requiredRole }: RestrictedAccessProps) {
         >
           Volver al Inicio
         </Link>
-        <button 
-          onClick={() => window.location.reload()}
-          className="text-fd-muted-foreground hover:text-fd-foreground px-8 py-3 rounded-2xl font-medium transition-all"
-        >
-          Ya tengo permisos, reintentar
-        </button>
-      </div>
-
-      <div className="mt-12 pt-8 border-t border-fd-foreground/5 w-full max-w-xs">
-        <p className="text-xs text-fd-muted-foreground/60 uppercase tracking-[0.2em] font-semibold">
-          Seguridad Gestionada por Keycloak
-        </p>
       </div>
     </motion.div>
   );
