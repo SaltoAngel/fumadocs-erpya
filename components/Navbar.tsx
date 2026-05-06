@@ -488,7 +488,14 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
                 </span>
               </div>
               <button 
-                onClick={() => signOut()}
+                onClick={() => {
+                  const clientId = 'nextjs-app';
+                  const postLogoutRedirect = window.location.origin;
+                  const issuer = 'http://localhost:8080/realms/ERP%20Docs';
+                  const logoutUrl = `${issuer}/protocol/openid-connect/logout?client_id=${clientId}&post_logout_redirect_uri=${encodeURIComponent(postLogoutRedirect)}`;
+                  
+                  signOut({ callbackUrl: logoutUrl });
+                }}
                 className="group flex items-center justify-center w-9 h-9 bg-red-500/10 text-red-500 hover:bg-red-500/20 border border-red-500/20 rounded-full transition-all duration-300"
                 title="Cerrar sesión"
               >
