@@ -458,7 +458,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
       {/* Right Side Tools */}
       <div className="flex items-center gap-4">
         <button 
-          className="flex items-center gap-2 bg-white/5 border border-fd-foreground/10 rounded-full px-4 py-1.5 text-sm text-fd-foreground/50 hover:bg-white/10 hover:text-white transition-all duration-200"
+          className="flex items-center gap-2 bg-fd-muted border border-fd-border rounded-full px-4 py-1.5 text-sm text-fd-muted-foreground hover:bg-fd-accent hover:text-fd-foreground transition-all duration-200"
         >
           <FaMagnifyingGlass className="text-[14px]" />
           <span>Buscar</span>
@@ -467,7 +467,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         <div className="hidden md:flex items-center gap-3 border-l border-fd-foreground/10 pl-4 ml-2">
           <button 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="text-white/60 hover:text-[#3b82f6] transition-all duration-200"
+            className="text-fd-muted-foreground hover:text-fd-primary transition-all duration-200"
             aria-label="Cambiar tema"
           >
             {mounted && (theme === 'dark' ? <FaSun className="text-[18px]" /> : <FaMoon className="text-[18px]" />)}
@@ -480,10 +480,10 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
           {session ? (
             <div className="flex items-center gap-3">
               <div className="flex flex-col items-end hidden sm:flex">
-                <span className="text-[11px] font-bold text-white/90 leading-tight">
+                <span className="text-[11px] font-bold text-fd-foreground leading-tight">
                   {session.user?.name}
                 </span>
-                <span className="text-[9px] text-white/40 leading-tight uppercase tracking-tighter mb-1">
+                <span className="text-[9px] text-fd-muted-foreground leading-tight uppercase tracking-tighter mb-1">
                   {session.user?.email}
                 </span>
               </div>

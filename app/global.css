@@ -86,3 +86,15 @@ button[aria-label="Search"] {
   background: var(--fd-muted) !important;
   border: 1px solid var(--fd-border) !important;
 }
+
+/* --- CATEGORY TAGS (Home page) --- */
+.category-tag {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.5);
+}
+.category-tag:hover {
+  background: rgba(192,193,255,0.15);
+  color: #c0c1ff;
+  border-color: rgba(192,193,255,0.25);
+}
