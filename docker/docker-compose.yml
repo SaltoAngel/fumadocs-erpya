@@ -1,3 +1,4 @@
+name: fumadocs-erpya
 services:
   db:
     image: postgres:18-alpine
@@ -6,6 +7,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+      - ./keycloak_backup.sql:/docker-entrypoint-initdb.d/backup.sql
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: admin
@@ -16,7 +18,7 @@ services:
   keycloak:
     image: quay.io/keycloak/keycloak:26.6.1
     container_name: keycloak-server
-    command: start-dev
+    command: start-dev --import-realm
     environment:
       # Configuración de BD
       KC_DB: postgres
@@ -32,17 +34,18 @@ services:
       - db
     volumes:
       - keycloak_data:/opt/keycloak/data
+      - ./realm-export.json:/opt/keycloak/data/import/realm.json
     restart: always
 
   docs:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: fumadocs-erpya
     ports:
       - "3001:3000"
     env_file:
-      - .env.local
+      - ../.env.local
     extra_hosts:
       - "localhost:host-gateway"
     restart: always
