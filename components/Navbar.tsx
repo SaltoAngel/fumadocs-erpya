@@ -377,8 +377,8 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         />
       </Link>
 
-      {/* Navigation Links */}
-      <div className="hidden lg:flex items-center gap-1 h-full">
+      {/* Navigation Links - CENTRADO ABSOLUTO */}
+      <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 h-full">
         {filteredNavLinks.map((link) => {
           const active = isLinkActive(link.url);
           
@@ -408,7 +408,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
 
               {/* Enhanced Dropdown Menu */}
               {(link.groups || link.children) && activeMenu === link.text && (
-                <div className="absolute top-[100%] left-0 min-w-[280px] max-h-[80vh] overflow-y-auto bg-fd-background/95 backdrop-blur-xl border border-fd-foreground/10 rounded-lg shadow-2xl py-2 animate-in fade-in slide-in-from-top-1 duration-200 custom-scrollbar">
+                <div className="absolute top-[100%] left-1/2 -translate-x-1/2 min-w-[280px] max-h-[80vh] overflow-y-auto bg-fd-background/95 backdrop-blur-xl border border-fd-foreground/10 rounded-lg shadow-2xl py-2 animate-in fade-in slide-in-from-top-1 duration-200 custom-scrollbar">
                   {link.groups ? (
                     link.groups.map((group, idx) => (
                       <div key={group.text} className={idx > 0 ? 'mt-4 pt-4 border-t border-fd-foreground/5' : ''}>

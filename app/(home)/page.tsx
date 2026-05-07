@@ -46,7 +46,13 @@ const categories = [
   'RRHH', 'E-Commerce', 'Open Source', 'Vue Interface',
 ];
 
-export default function HomePage() {
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+
+export default async function HomePage() {
+  const session = await getServerSession(authOptions);
+  const userRoles = (session?.user as any)?.roles || [];
+
   const allPages = source.getPages();
   const dynamicArticles = allPages
     .filter(page => !page.url.endsWith('index'))
@@ -58,24 +64,49 @@ export default function HomePage() {
     })
     .slice(0, 6);
 
+  // --- Lógica para encontrar la ÚLTIMA VERSIÓN ---
+  const updatePages = allPages.filter(p => p.url.includes('/downloads/updates/'));
+  let latestUpdate = null;
+
+  if (updatePages.length > 0) {
+    const candidate = updatePages.reduce((prev, curr) => {
+      const getVer = (url: string) => {
+        const matches = url.match(/(\d+\.\d+\.\d+)/g);
+        if (!matches) return [0, 0, 0];
+        return matches[matches.length - 1].split('.').map(Number);
+      };
+      const vPrev = getVer(prev.url);
+      const vCurr = getVer(curr.url);
+      for (let i = 0; i < 3; i++) {
+        if (vCurr[i] > vPrev[i]) return curr;
+        if (vCurr[i] < vPrev[i]) return prev;
+      }
+      return prev;
+    });
+
+    // VERIFICAR PERMISOS para este candidato
+    // El rol esperado es algo como "docs:downloads:updates"
+    const pathParts = candidate.url.split('/').filter(Boolean); // ["docs", "downloads", "updates", ...]
+    const requiredRole = pathParts.slice(0, 3).join(':'); // "docs:downloads:updates"
+    
+    const hasPermission = userRoles.includes(requiredRole) || userRoles.includes('docs');
+    
+    if (hasPermission) {
+      latestUpdate = candidate;
+    }
+  }
+
   return (
     <main className="flex flex-col min-h-screen bg-fd-background text-fd-foreground">
-
-      {/* ── Hero ──────────────────────────────────────────────── */}
+      {/* Hero */}
       <section className="relative w-full h-[480px] flex items-center justify-center overflow-hidden">
-        {/* BG Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: 'url("/background.jpg")' }}
         />
-        {/* Overlay - Se ajusta según el tema */}
         <div className="absolute inset-0 bg-fd-background/60 dark:bg-black/65 backdrop-blur-[2px]" />
-
-        {/* Content */}
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <span
-            className="inline-block mb-4 text-xs font-bold tracking-[0.25em] uppercase text-fd-primary"
-          >
+          <span className="inline-block mb-4 text-xs font-bold tracking-[0.25em] uppercase text-fd-primary">
             SOLUCIONES ERP DE NIVEL EMPRESARIAL
           </span>
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tight text-fd-foreground">
@@ -97,13 +128,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Body ──────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto w-full px-6 py-16 flex flex-col md:flex-row gap-12">
-
-        {/* ── Main Column ───────────────────────────────────────── */}
         <div className="flex-1 space-y-16">
-
-          {/* Proyectos Destacados */}
+          {/* Proyectos */}
           <section>
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-3xl font-black tracking-tight">
@@ -131,9 +158,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-lg font-bold mb-2">{project.name}</h3>
                   <p className="text-sm text-fd-muted-foreground leading-relaxed flex-1">{project.desc}</p>
-                  <div
-                    className="mt-4 flex items-center gap-1 text-xs font-bold text-fd-primary"
-                  >
+                  <div className="mt-4 flex items-center gap-1 text-xs font-bold text-fd-primary">
                     Ver proyecto <FaArrowUpRightFromSquare className="text-[10px]" />
                   </div>
                 </a>
@@ -141,7 +166,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Artículos Recientes */}
+          {/* Artículos */}
           <section>
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-3xl font-black tracking-tight">
@@ -161,9 +186,7 @@ export default function HomePage() {
                     <Link href={page.url} className="flex flex-col sm:flex-row gap-5">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-3">
-                          <span
-                            className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-fd-primary/10 text-fd-primary"
-                          >
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-fd-primary/10 text-fd-primary">
                             {section.replace(/-/g, ' ')}
                           </span>
                           <div className="flex items-center gap-1.5 text-fd-muted-foreground text-xs">
@@ -198,67 +221,47 @@ export default function HomePage() {
           </section>
         </div>
 
-        {/* ── Sidebar ───────────────────────────────────────────── */}
+        {/* Sidebar */}
         <aside className="w-full md:w-80 shrink-0 space-y-6">
           <div className="sticky top-20 space-y-6">
-
             <BloggerInfo />
 
-            {/* Categories */}
-            <div
-              className="p-6 rounded-xl bg-fd-card border border-fd-border"
-            >
-              <h4
-                className="text-xs font-bold uppercase tracking-[0.2em] mb-5 pb-3 text-fd-muted-foreground border-b border-fd-border"
-              >
-                CATEGORÍAS
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {categories.map((cat) => (
-                  <span
-                    key={cat}
-                    className="category-tag px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer transition-all"
-                  >
-                    {cat}
-                  </span>
-                ))}
+            {/* Dynamic Latest Update Widget */}
+            {latestUpdate && (
+              <div className="p-6 rounded-xl bg-fd-primary/5 border border-fd-primary/20">
+                <div className="flex items-center gap-2 mb-4 text-fd-primary">
+                  <FaRocket className="text-sm" />
+                  <span className="text-xs font-bold uppercase tracking-[0.15em]">ÚLTIMA NOVEDAD</span>
+                </div>
+                <p className="font-bold text-sm mb-2 leading-snug">
+                  {(() => {
+                    const matches = latestUpdate.url.match(/(\d+\.\d+\.\d+)/g);
+                    if (!matches) return '¡Nueva actualización disponible!';
+                    const baseVer = matches[0];
+                    const patchVer = matches[matches.length - 1];
+                    return `La actualización ${patchVer} de ADempiere ${baseVer} ya está disponible`;
+                  })()}
+                </p>
+                <p className="text-fd-muted-foreground text-xs leading-relaxed mb-4 line-clamp-3">
+                  {latestUpdate.data.title}: {latestUpdate.data.description || 'Descubre las mejoras en esta nueva versión de ADempiere.'}
+                </p>
+                <Link
+                  href={latestUpdate.url}
+                  className="block w-full py-2 rounded-lg text-center text-xs font-bold uppercase tracking-wider transition-all hover:opacity-90 bg-fd-primary text-fd-primary-foreground"
+                >
+                  VER NOTAS DE VERSIÓN
+                </Link>
               </div>
-            </div>
-
-            {/* Latest Update Widget */}
-            <div
-              className="p-6 rounded-xl bg-fd-primary/5 border border-fd-primary/20"
-            >
-              <div className="flex items-center gap-2 mb-4 text-fd-primary">
-                <FaRocket className="text-sm" />
-                <span className="text-xs font-bold uppercase tracking-[0.15em]">ÚLTIMA NOVEDAD</span>
-              </div>
-              <p className="font-bold text-sm mb-2 leading-snug">
-                ¡ADempiere 3.9.4 ya está disponible en producción!
-              </p>
-              <p className="text-fd-muted-foreground text-xs leading-relaxed mb-4">
-                Descarga la última versión y disfruta del rendimiento mejorado en el motor financiero principal.
-              </p>
-              <a
-                href="https://github.com/adempiere/adempiere/releases/tag/3.9.4"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full py-2 rounded-lg text-center text-xs font-bold uppercase tracking-wider transition-all hover:opacity-90 bg-fd-primary text-fd-primary-foreground"
-              >
-                VER NOTAS DE VERSIÓN
-              </a>
-            </div>
-
+            )}
           </div>
         </aside>
       </div>
-
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer
         className="mt-auto py-12 px-6 border-t border-fd-border bg-fd-muted/30"
       >
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-5 text-center">
-          <h2 className="text-xl font-black tracking-tight">ERPyA Hub</h2>
+          <h2 className="text-xl font-black tracking-tight">ERPyA</h2>
           <div className="flex flex-wrap justify-center gap-8">
             {[
               { label: 'Política de Privacidad', href: '/docs/about/services/erpplus/privacy-policy-es' },
@@ -277,7 +280,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="text-xs uppercase tracking-[0.25em] text-fd-muted-foreground/50">
-            © 2022-present ERP Consultores y Asociados, C.A. Todos los derechos reservados.
+            © 2026 ERP Consultores y Asociados, C.A. Todos los derechos reservados.
           </p>
         </div>
       </footer>

@@ -79,7 +79,7 @@ export function BloggerInfo() {
       </div>
 
       {/* Artículos Destacados */}
-      <div className="p-6 rounded-2xl border border-fd-border bg-fd-card backdrop-blur-md">
+      {/* <div className="p-6 rounded-2xl border border-fd-border bg-fd-card backdrop-blur-md">
         <h4 className="text-fd-foreground font-bold mb-6 flex items-center gap-2 text-sm uppercase tracking-widest border-b border-fd-border pb-3">
           <span className="w-2 h-2 bg-fd-primary rounded-full animate-pulse"></span>
           Artículos Destacados
@@ -98,7 +98,7 @@ export function BloggerInfo() {
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
     </aside>
   );
 }
