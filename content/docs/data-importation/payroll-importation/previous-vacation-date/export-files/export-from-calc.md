@@ -11,19 +11,19 @@ Una vez dentro de LibreOffice Calc, para cambiar el formato de fecha:
 
 - Seleccionar la **columna**
 
-![image.png](https://i.imgur.com/VPIeqWh.png)
+![image.png](/docs-assets/imgur-VPIeqWh.png)
 
 Seleccionar **Formato como Fecha**
 
-![image](https://i.imgur.com/oqzsOIO.png)
+![image](/docs-assets/imgur-oqzsOIO.png)
 
 **Click Derecho** sobre la columna y click en **Formato de Celdas**
 
-![image](https://i.imgur.com/Efyt1Gq.png)
+![image](/docs-assets/imgur-Efyt1Gq.png)
 
 Seleccionar **Fecha** y el formato **año, mes y día** con guiones como **separador**. No olvide guardar los cambios haciendo click en **OK**.
 
-![image](https://i.imgur.com/ceLdUf6.png)
+![image](/docs-assets/imgur-ceLdUf6.png)
 
 Luego de haber completado su formato de nómina para Días Totales de la Nómina, cumpliendo las siguientes características:
 

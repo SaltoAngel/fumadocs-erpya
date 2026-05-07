@@ -3,6 +3,9 @@ import { createMDX } from 'fumadocs-mdx/next';
 const withMDX = createMDX({
   mdxOptions: {
     remarkPlugins: [],
+    remarkImageOptions: {
+      onError: "ignore",
+    },
   }
 });
 
