@@ -156,6 +156,28 @@ KEYCLOAK_ISSUER=http://localhost:8080/realms/Prueba
     ---
     ```
 
+---
+
+## 🛠️ Automatización de Roles (Keycloak)
+
+Para evitar tener que crear manualmente cada rol en Keycloak, el proyecto incluye un script de gestión automatizada.
+
+### ¿Qué hace el script?
+1.  **Sincronización**: Escanea tus carpetas en `content/docs` y crea los roles necesarios (ej: `docs:mi-seccion`) si no existen.
+2.  **Limpieza**: Elimina roles obsoletos o de archivos individuales (para mantener el Token JWT ligero y eficiente).
+
+### Cómo usarlo
+Asegúrate de tener el entorno de desarrollo o los contenedores encendidos y ejecuta:
+
+```bash
+node scripts/manage-roles.mjs
+```
+
+> [!IMPORTANT]
+> El script utiliza las credenciales definidas en tu `.env.local`. Por defecto, solo crea roles para **carpetas**. Los archivos dentro de esas carpetas heredan automáticamente el permiso, lo que optimiza el rendimiento de Keycloak.
+
+---
+
 ## 🐳 Despliegue con Docker
 
 El proyecto está preparado para ser ejecutado en contenedores usando el modo `standalone` de Next.js.
