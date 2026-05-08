@@ -68,6 +68,7 @@ import {
   FaRightFromBracket
 } from 'react-icons/fa6';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSearchContext } from 'fumadocs-ui/contexts/search';
 
 interface NavChild {
   text: string;
@@ -269,6 +270,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const { setOpenSearch } = useSearchContext();
   const [mounted, setMounted] = useState(false);
   
   // Lógica para ocultar/mostrar navbar al hacer scroll
@@ -458,6 +460,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
       {/* Right Side Tools */}
       <div className="flex items-center gap-4">
         <button 
+          onClick={() => setOpenSearch(true)}
           className="flex items-center gap-2 bg-fd-muted border border-fd-border rounded-full px-4 py-1.5 text-sm text-fd-muted-foreground hover:bg-fd-accent hover:text-fd-foreground transition-all duration-200"
         >
           <FaMagnifyingGlass className="text-[14px]" />
