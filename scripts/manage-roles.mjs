@@ -10,7 +10,9 @@ dotenv.config({ path: '.env.local' });
 const KEYCLOAK_URL = process.env.KEYCLOAK_URL || 'http://localhost:8080';
 const ADMIN_USER = process.env.KC_BOOTSTRAP_ADMIN_USERNAME || 'admin';
 const ADMIN_PASS = process.env.KC_BOOTSTRAP_ADMIN_PASSWORD || '123';
-const REALM_NAME = 'ERP Docs'; // Nombre del realm definido en realm-export.json
+// Extraer el nombre del Realm desde el ISSUER (ej: http://.../realms/Prueba -> Prueba)
+const issuer = process.env.KEYCLOAK_ISSUER || '';
+const REALM_NAME = issuer.split('/').pop() || 'ERP-Docs';
 const DOCS_PATH = 'content/docs';
 
 // Roles del sistema que NUNCA debemos borrar
