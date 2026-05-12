@@ -25,7 +25,7 @@ En la ventana Ordenes de Producción Planeadas se debe crear la orden de producc
 
 **Lista de Materiales de Ejemplo Desglosada**
 
-<img width="916" height="441" alt="image" src="https://github.com/user-attachments/assets/9cda3358-e2c6-4a02-9f94-17085d67705f" />
+<img width="916" height="441" alt="image" src="/docs-assets/ext-e89997de.png" />
 
 Imagen 1. Lista de Materiales de Ejemplo Desglosada
 
@@ -33,7 +33,7 @@ Imagen 1. Lista de Materiales de Ejemplo Desglosada
 
 Para el ejemplo nos genera como orden de producción planeada (producto terminado) la **OPP-3239**
 
-<img width="1883" height="549" alt="image" src="https://github.com/user-attachments/assets/2e547c4f-a577-4056-ac9f-c781b59b5161" />
+<img width="1883" height="549" alt="image" src="/docs-assets/ext-053987f0.png" />
 
 Imagen 2. Orden de Producción Planeada (Producto Terminado)
 
@@ -41,7 +41,7 @@ Imagen 2. Orden de Producción Planeada (Producto Terminado)
 
 Estando en la orden de producción planeada (producto terminado), se debe seleccionar el icono **Proceso** que se encuentra en la barra de herramientas y posteriormente el proceso **Reporte de Explosión LDM**. Esto levantara una ventana de verificación que al seleccionar la opción **OK**, se genera el reporte de explosión de listas de materiales del producto a producir que se encuentra en la orden de producción.
 
-<img width="1691" height="477" alt="image" src="https://github.com/user-attachments/assets/8eff5152-10fe-4f0b-9620-f68ca4a8e0c9" />
+<img width="1691" height="477" alt="image" src="/docs-assets/ext-611bdaca.png" />
 
 Imagen 3. Reporte de Explosión de Lista de Materiales
 
@@ -49,13 +49,13 @@ Imagen 3. Reporte de Explosión de Lista de Materiales
 
 Luego se deben generar las ordenes de producciones planeadas (subproductos o semielaborados), para ello debemos estar posicionados en la orden de producción planeada (producto terminado), seleccionar el icono **Proceso** y luego el proceso **Generar Ordenes de Producción desde LDM (Browser)**
 
-<img width="1883" height="549" alt="image" src="https://github.com/user-attachments/assets/8674d2a7-6f10-4cfb-8bb4-915c1515829c" />
+<img width="1883" height="549" alt="image" src="/docs-assets/ext-b0f49afe.png" />
 
 Imagen 4. Proceso Generar Ordenes de Producción desde LDM (Browser)
 
 Estando allí, se selecciona la opción **Comenzar Búsqueda** para visualizar todas las ordenes de producción (subproductos o semielaborados) que se deben mandar a producir para poder producir el producto terminado. Es decir, todos los semielaborados que se deben producir para poder producir el producto terminado.
 
-<img width="1883" height="549" alt="image" src="https://github.com/user-attachments/assets/f8cb3bee-2882-497b-8da5-52ddbe8e1a51" />
+<img width="1883" height="549" alt="image" src="/docs-assets/ext-e4e375d7.png" />
 
 Imagen 5. Parámetros del Proceso Generar Ordenes de Producción desde LDM (Browser)
 
@@ -69,7 +69,7 @@ Se debe seleccionar las líneas de los productos que se quieren mandar a produci
 
 Para el ejemplo se selecciona el producto **SM1200002_SM CREMA DE MANZANA** con la lista de materiales **SM1200002-C1_SM CREMA DE MANZANA C1_SM1200002-C1**. 
 
-<img width="1893" height="908" alt="image" src="https://github.com/user-attachments/assets/eb2eebd7-4882-4e04-8358-188b4d9f67f1" />
+<img width="1893" height="908" alt="image" src="/docs-assets/ext-cafd3e45.png" />
 
 Imagen 6. Líneas del Proceso Generar Ordenes de Producción desde LDM (Browser)
 
@@ -77,7 +77,7 @@ Imagen 6. Líneas del Proceso Generar Ordenes de Producción desde LDM (Browser)
 
 La ejecución del proceso anterior genera las ordenes de producción planeadas de los subproductos o semielaborados. Para el ejemplo fue generada la orden de producción planeada (subproducto o semielaborado) **OPP-3239.10.SM1200002** con dicho producto, asociada a dicha lista de materiales. 
 
-<img width="1893" height="552" alt="image" src="https://github.com/user-attachments/assets/9270c41e-d09d-437a-978e-e5231f1b9c2a" />
+<img width="1893" height="552" alt="image" src="/docs-assets/ext-33c2aed5.png" />
 
 Imagen 7. Orden de Producción Planeada (Producto Hijo)
 
@@ -91,7 +91,7 @@ El smart browser se ubica en el menú de ADempiere como **Surtir Orden de Produc
 - Campo **Ubicación**: Se debe colocar la ubicación especifica donde se encuentra almacenado el producto que requiere surtir.
 - Campo **Orden de Producción Origen**: En el campo se debe colocar la orden de producción planeada (producto terminado), este campo es para los casos en los que no se requiere surtir una sola orden de producción de subproducto o semielaborado, sino todas las ordenes de producción de subproductos o semielaborados asociadas a una orden de producción de producto terminado.
 
-<img width="1893" height="901" alt="image" src="https://github.com/user-attachments/assets/5c1a1775-2880-4976-85c3-d53e0ba87099" />
+<img width="1893" height="901" alt="image" src="/docs-assets/ext-93eacd76.png" />
 
 Imagen 8. Surtir Orden de Producción
 
@@ -101,13 +101,13 @@ Se debe seleccionar la línea del producto a surtir, con su respectiva instancia
 
 En el campo **Tipo de Documento Destino** se debe seleccionar el tipo de documento con el que se desea generar el movimiento de inventario desde la ubicación seleccionada, hasta la ubicación establecida en la orden de producción a surtir. 
 
-<img width="1893" height="901" alt="image" src="https://github.com/user-attachments/assets/e2fbf0a7-4923-425a-9f3f-d975f01c0a40" />
+<img width="1893" height="901" alt="image" src="/docs-assets/ext-62e1141d.png" />
 
 Imagen 9. Surtir Orden de Producción con Movimiento de Inventario
 
 En los casos en los que se requiera generar una orden de distribución para que posterior sean generados los movimientos de inventario, se debe tildar el check **Crear Orden de Distribución** y establecer el tipo de documento de orden de distribución a generar en el campo **Tipo de Documento de Distribución**.
 
-<img width="1893" height="901" alt="image" src="https://github.com/user-attachments/assets/e8b001ca-af82-42c9-b540-07f358e5ec24" />
+<img width="1893" height="901" alt="image" src="/docs-assets/ext-bb59d35a.png" />
 
 Imagen 10. Surtir Orden de Producción con Orden de Distribución
 
@@ -139,25 +139,25 @@ Guarde el registro para que se establezcan los valores que provienen de la orden
 Las especificaciones u observaciones de la producción que esta reportando se pueden agregar en el campo **Descripción**.
 La cantidad producida que requiere reportar la debe establecer en el campo **Cantidad a Producir**. Luego de ello, debe guardar nuevamente el registro.
 
-<img width="1893" height="513" alt="image" src="https://github.com/user-attachments/assets/70c4ad10-f353-483f-aace-29c6dea6ebc0" />
+<img width="1893" height="513" alt="image" src="/docs-assets/ext-3a94fb6e.png" />
 
 Imagen 11. Pestaña Producción
 
 Para cargar las líneas de la producción debe seleccionar el proceso **Re-Cargar Producción y Establecer Atributos** que se encuentra en el icono **Proceso**. Este proceso permite cargar a la línea de la producción todos los componentes necesarios (incluidos en la lista de materiales), sin necesidad de procesar el documento y asociando de manera automática la instancia con existencia de cada uno de los productos (instancia seleccionada en el surtir).
 
-<img width="1893" height="513" alt="image" src="https://github.com/user-attachments/assets/bf44bf46-a483-4b73-9bcd-129a9f953e6a" />
+<img width="1893" height="513" alt="image" src="/docs-assets/ext-f8964e38.png" />
 
 En los casos en los que la cantidad utilizada es menor a la que se encuentra configurada en la lista de materiales, se debe colocar en el campo **Cantidad Utilizada**, la cantidad que realmente se utilizó del componente, esta cantidad será establecida en el campo **Cantidad del Movimiento** de manera automática al guardar el registro. Esta información se establece en el campo **Cantidad Utilizada** en la pestaña **Línea de Producción**.
 
-<img width="1893" height="513" alt="image" src="https://github.com/user-attachments/assets/d123c612-8a9c-480e-99b3-f72375fbc776" />
+<img width="1893" height="513" alt="image" src="/docs-assets/ext-0cba29a0.png" />
 
 En la línea del producto producido se debe establecer una instancia de conjunto de atributos (lote) para asociar a dicho producto. Esta información se establece en el campo **Instancia Conjunto de Atributos** en la pestaña **Línea de Producción**.
 
-<img width="1893" height="513" alt="image" src="https://github.com/user-attachments/assets/2c159b70-4e53-4ec7-bcd0-372e4e02140a" />
+<img width="1893" height="513" alt="image" src="/docs-assets/ext-e0d0ef6b.png" />
 
 Al completar la producción, de manera automática se descuentan los componentes y se ingresa el producto producido al inventario. Esta verificación se puede realizar mediante los reportes **Detalle de Almacenamiento** y **Detalle de Transacciones**. Recordando que la producción se puede completar estando posicionado en la pestaña **Producción** de la ventana **Ordenes de Producción Planeadas**.
 
-<img width="1893" height="513" alt="image" src="https://github.com/user-attachments/assets/4332d66b-1214-4990-bf9e-e4b8901b55da" />
+<img width="1893" height="513" alt="image" src="/docs-assets/ext-36f449b3.png" />
 
 **NOTA**
 

@@ -116,7 +116,7 @@ article: false
 
 - Seleccione la opción **Comenzar Búsqueda** para filtrar la información en base a los filtros utilizados.
 
-    ![image](https://github.com/user-attachments/assets/5715193e-b8ca-4e56-957e-a5078b56ed00)
+    ![image](/docs-assets/image-not-found.png)
 
     Imagen 19. Opción Comenzar Búsqueda
 

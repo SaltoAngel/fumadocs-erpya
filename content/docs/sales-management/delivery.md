@@ -691,7 +691,7 @@ Imagen 14. Botón Comenzar Búsqueda
 
 Podrá visualizar los resultados, donde debe seleccionar las líneas de cuales requiere generar la entrega.
 
-![image](https://github.com/erpcya/docs/assets/52334433/381978f2-7485-411b-9ab0-c1cfd446d0d2)
+![image](/docs-assets/ext-93a48e07.png)
 
 Imagen 15. Resultado de Búsqueda
 

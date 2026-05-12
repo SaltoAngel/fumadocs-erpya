@@ -14,7 +14,7 @@ article: false
 
 - Podrá visualizar la siguiente ventana para generar la orden de salida desde una orden de venta o una orden de distribución.
 
-    ![image](https://github.com/erpcya/docs/assets/52334433/21610e58-a20e-44bb-91f6-048a54309dc5)
+    ![image](/docs-assets/image-not-found.png)
 
     Imagen 2. Ventana Generar Orden de Salida (Orden de Venta/Distribución)
 
