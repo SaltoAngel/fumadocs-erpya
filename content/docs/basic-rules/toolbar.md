@@ -1,5 +1,6 @@
 ---
 title: Barra de Herramientas
+role: public
 category: Documentation
 star: 9
 sticky: 9

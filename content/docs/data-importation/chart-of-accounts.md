@@ -1,5 +1,6 @@
 ---
 title: Datos de Plan de Cuentas
+role: public
 icon: computer
 category: Importación
 star: 9

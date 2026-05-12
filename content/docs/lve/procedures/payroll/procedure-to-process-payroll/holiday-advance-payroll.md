@@ -1,5 +1,6 @@
 ---
 title: Nómina Anticipo de Vacaciones
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

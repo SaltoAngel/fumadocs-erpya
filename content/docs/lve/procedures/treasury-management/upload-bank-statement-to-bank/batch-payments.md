@@ -1,5 +1,6 @@
 ---
 title: Extracto Bancario con Pagos en Lotes
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

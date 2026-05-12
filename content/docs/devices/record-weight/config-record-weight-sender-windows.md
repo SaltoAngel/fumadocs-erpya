@@ -1,5 +1,6 @@
 ---
 title: Configuración Cliente de Lectura de Peso en Windows
+role: public
 category: Otros Servicios
 star: 9
 sticky: 9

@@ -1,5 +1,6 @@
 ---
 title: Registros de Montos no Reembolsables para Viáticos y Reembolsos
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

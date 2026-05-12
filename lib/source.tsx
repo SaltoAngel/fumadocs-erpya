@@ -112,7 +112,15 @@ function hasAccessToUrl(url: string, userRoles: string[], explicitRole?: string)
   
   const requiredRoles = getRolesForUrl(url);
   if (requiredRoles.length === 0) return true; // Sin ruta, no se puede evaluar
-  return requiredRoles.some((r: string) => userRoles.includes(r));
+  
+  const hasAccess = requiredRoles.some((r: string) => userRoles.includes(r));
+  
+  // Log para depuración (solo si no es público)
+  if (!hasAccess && explicitRole !== 'public') {
+    console.log(`[Access Denied] URL: ${url}, UserRoles: ${userRoles}, ExplicitRole: ${explicitRole}`);
+  }
+  
+  return hasAccess;
 }
 
 export function filterPageTree(tree: any[], roles: string[]): any[] {
@@ -127,7 +135,15 @@ export function filterPageTree(tree: any[], roles: string[]): any[] {
         const url = node.url || "";
         if (!url) return node; // Sin URL, no filtramos
         
-        const explicitRole = node.data?.role || node.data?.frontmatter?.role;
+        // Intentar obtener el rol desde node.data o buscando la página real
+        let explicitRole = node.data?.role || node.data?.frontmatter?.role;
+        
+        if (!explicitRole && url.startsWith('/docs')) {
+          const segments = url.split('/').filter(Boolean).slice(1);
+          const page = source.getPage(segments);
+          explicitRole = (page?.data as any)?.role;
+        }
+
         return hasAccessToUrl(url, roles, explicitRole) ? { ...node } : null;
       }
 
@@ -138,8 +154,14 @@ export function filterPageTree(tree: any[], roles: string[]): any[] {
         
         // Si la carpeta tiene una URL derivable, verificar permisos de carpeta
         if (folderUrl) {
-          const folderRoles = getRolesForUrl(folderUrl);
-          const explicitRole = node.index?.data?.role || node.index?.data?.frontmatter?.role;
+          let explicitRole = node.index?.data?.role || node.index?.data?.frontmatter?.role;
+          
+          if (!explicitRole) {
+            const segments = folderUrl.split('/').filter(Boolean).slice(1);
+            const page = source.getPage(segments);
+            explicitRole = (page?.data as any)?.role;
+          }
+
           const hasFolderAccess = hasAccessToUrl(folderUrl, roles, explicitRole);
           
           // Si el usuario no tiene acceso a la carpeta, ocultarla entera
@@ -156,7 +178,14 @@ export function filterPageTree(tree: any[], roles: string[]): any[] {
         let filteredIndex = node.index;
         if (node.index) {
           const indexUrl = node.index.url || "";
-          const indexExplicitRole = node.index.data?.role || node.index.data?.frontmatter?.role;
+          let indexExplicitRole = node.index.data?.role || node.index.data?.frontmatter?.role;
+          
+          if (!indexExplicitRole && indexUrl.startsWith('/docs')) {
+            const segments = indexUrl.split('/').filter(Boolean).slice(1);
+            const page = source.getPage(segments);
+            indexExplicitRole = (page?.data as any)?.role;
+          }
+
           if (indexUrl && !hasAccessToUrl(indexUrl, roles, indexExplicitRole)) {
             filteredIndex = undefined;
           }

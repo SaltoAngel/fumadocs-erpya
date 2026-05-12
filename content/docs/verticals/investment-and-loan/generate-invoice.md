@@ -1,5 +1,6 @@
 ---
 title: Generar Factura desde Préstamo
+role: public
 category: Documentation
 star: 9
 sticky: 9

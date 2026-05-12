@@ -1,5 +1,6 @@
 ---
 title: Detalle de la Orden
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

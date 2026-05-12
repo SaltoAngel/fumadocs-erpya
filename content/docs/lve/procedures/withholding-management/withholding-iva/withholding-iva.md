@@ -1,5 +1,6 @@
 ---
 title: Configuración Esencial de la Retención de IVA
+role: public
 category: Localización Venezuela
 star: 9
 sticky: 9

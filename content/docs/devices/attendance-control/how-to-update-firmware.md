@@ -1,5 +1,6 @@
 ---
 title: ¿Como se actualiza el Firmware al dispositivo?
+role: public
 icon: clipboard-user
 category: Dispositivos
 star: 9

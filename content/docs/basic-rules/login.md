@@ -1,5 +1,6 @@
 ---
 title: Inicio de Sesión
+role: public
 category: Documentation
 star: 9
 sticky: 9

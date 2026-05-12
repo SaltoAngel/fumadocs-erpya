@@ -1,5 +1,6 @@
 ---
 title: Reabastecimiento
+role: public
 category: Documentación
 star: 9
 sticky: 9

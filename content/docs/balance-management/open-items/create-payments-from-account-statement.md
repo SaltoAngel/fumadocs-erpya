@@ -1,5 +1,6 @@
 ---
 title: Crear Pagos desde Estado de Cuenta
+role: public
 category: Documentation
 star: 9
 sticky: 9

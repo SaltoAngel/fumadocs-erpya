@@ -1,5 +1,6 @@
 ---
 title: Formatos de Importación de Nóminas
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

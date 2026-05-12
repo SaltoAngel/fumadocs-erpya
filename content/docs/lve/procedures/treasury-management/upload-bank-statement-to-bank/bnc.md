@@ -1,5 +1,6 @@
 ---
 title: Banco Nacional de Crédito
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

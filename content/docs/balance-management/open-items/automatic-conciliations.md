@@ -1,5 +1,6 @@
 ---
 title: Registro de Conciliación Automática
+role: public
 category: Documentation
 star: 9
 sticky: 9

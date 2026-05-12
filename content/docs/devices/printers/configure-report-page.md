@@ -1,5 +1,6 @@
 ---
 title: Configuración de Página para Reporte
+role: public
 category: Documentation
 star: 9
 sticky: 9

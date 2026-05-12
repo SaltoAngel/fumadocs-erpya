@@ -1,5 +1,6 @@
 ---
 title: Tamaño de hoja de impresora
+role: public
 icon: fa-brands fa-medium
 category: Procedimientos
 star: 9

@@ -1,5 +1,6 @@
 ---
 title: Documentos por Pagar Obligación Laboral
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

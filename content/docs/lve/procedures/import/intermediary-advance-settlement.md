@@ -1,5 +1,6 @@
 ---
 title: Liquidación Anticipo Intermediario
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

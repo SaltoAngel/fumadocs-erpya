@@ -1,5 +1,6 @@
 ---
 title: Ejecución de la Estimación de Retenciones
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

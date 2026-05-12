@@ -1,5 +1,6 @@
 ---
 title: Proceso Intercompañía
+role: public
 icon: fa-brands fa-medium
 category: Procedimientos
 star: 9

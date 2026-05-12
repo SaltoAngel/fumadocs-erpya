@@ -1,5 +1,6 @@
 ---
 title: Retención IGTF de Cuenta por Pagar
+role: public
 category: Localización Venezuela
 star: 9
 sticky: 9

@@ -1,5 +1,6 @@
 ---
 title: Documento por Pagar
+role: public
 category: Documentation
 star: 9
 sticky: 9

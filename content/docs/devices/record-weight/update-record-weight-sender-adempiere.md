@@ -1,5 +1,6 @@
 ---
 title: Actualizar el Cliente de Lectura de Peso
+role: public
 category: Otros Servicios
 star: 9
 sticky: 9

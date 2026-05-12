@@ -1,5 +1,6 @@
 ---
 title: Crear Orden de Flete desde Órdenes de Salida
+role: public
 category: Documentation
 star: 9
 sticky: 9

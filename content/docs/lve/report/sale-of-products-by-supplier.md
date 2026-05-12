@@ -1,5 +1,6 @@
 ---
 title: Venta de Productos por Proveedor
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

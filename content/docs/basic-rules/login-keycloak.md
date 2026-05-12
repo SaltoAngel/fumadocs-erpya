@@ -5,7 +5,7 @@ star: 9
 sticky: 9
 article: false
 author: Jesús Albujas
-role: docs_internal
+role: public
 ---
 
 Keycloak es una plataforma de código abierto que proporciona servicios de gestión de identidades y accesos, facilitando la autenticación y autorización en aplicaciones y servicios. Su propósito es garantizar un acceso seguro y controlado a recursos digitales, ofreciendo una solución integral para la gestión de identidades, single sign-on (SSO) y la federación de identidades.

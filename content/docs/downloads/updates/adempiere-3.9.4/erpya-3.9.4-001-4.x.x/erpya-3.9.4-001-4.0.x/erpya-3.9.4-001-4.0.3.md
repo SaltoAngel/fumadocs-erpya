@@ -1,5 +1,6 @@
 ---
 title: erpya-3.9.4-001-4.0.3
+role: public
 icon: podcast
 category: Actualizaciones
 star: 9

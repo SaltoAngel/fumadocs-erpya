@@ -1,5 +1,6 @@
 ---
 title: Instalación de servicio de peso romana
+role: public
 category: Otros Servicios
 star: 9
 sticky: 9

@@ -1,5 +1,6 @@
 ---
 title: Exportar desde LibreOffice Calc
+role: public
 category: Documentación
 icon: proxy
 star: 9

@@ -1,5 +1,6 @@
 ---
 title: Generar Factura desde Orden de Salida Consolidado en un Documento
+role: public
 category: Documentation
 star: 9
 sticky: 9

@@ -1,5 +1,6 @@
 ---
 title: Datos de Nota Contable
+role: public
 icon: computer
 category: Importación
 star: 9

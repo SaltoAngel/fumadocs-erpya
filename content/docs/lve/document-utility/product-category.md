@@ -1,5 +1,6 @@
 ---
 title: Categorías de Productos
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

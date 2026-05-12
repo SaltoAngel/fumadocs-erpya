@@ -1,5 +1,6 @@
 ---
 title: Órdenes de Compra
+role: public
 category: Documentation
 star: 9
 sticky: 9

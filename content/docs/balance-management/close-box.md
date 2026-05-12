@@ -1,5 +1,6 @@
 ---
 title: Cierre de Caja
+role: public
 category: Documentation
 star: 9
 sticky: 9

@@ -1,5 +1,6 @@
 ---
 title: Configuración del servicio para impresoras no fiscales y cola de impresión
+role: public
 category: Documentación
 star: 9
 sticky: 9

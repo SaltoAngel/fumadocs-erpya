@@ -1,5 +1,6 @@
 ---
 title: Control de Calidad
+role: public
 category: Documentation
 star: 9
 sticky: 9

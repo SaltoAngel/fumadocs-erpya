@@ -1,5 +1,6 @@
 ---
 title: Objetivo Principal y Sustentación
+role: public
 category: Documentation
 star: 9
 sticky: 9

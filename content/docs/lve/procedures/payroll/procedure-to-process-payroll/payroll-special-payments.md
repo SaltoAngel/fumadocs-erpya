@@ -1,5 +1,6 @@
 ---
 title: Nómina Pagos Especiales
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

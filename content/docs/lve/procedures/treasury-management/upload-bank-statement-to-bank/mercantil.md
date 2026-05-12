@@ -1,5 +1,6 @@
 ---
 title: Banco Mercantil
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

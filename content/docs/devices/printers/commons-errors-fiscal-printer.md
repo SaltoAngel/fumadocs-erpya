@@ -1,5 +1,6 @@
 ---
 title: Errores Comunes en Impresora Fiscal
+role: public
 icon: computer
 category: Dispositivos
 star: 9

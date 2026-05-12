@@ -1,5 +1,6 @@
 ---
 title: Banco de Venezuela
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

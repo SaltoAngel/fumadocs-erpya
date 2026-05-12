@@ -1,5 +1,6 @@
 ---
 title: Exportar Archivos
+role: public
 category: Importación
 icon: adress-card
 star: 9

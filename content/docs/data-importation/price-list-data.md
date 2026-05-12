@@ -1,5 +1,6 @@
 ---
 title: Datos de Lista de Precio
+role: public
 icon: newspaper
 category: Importación
 star: 9

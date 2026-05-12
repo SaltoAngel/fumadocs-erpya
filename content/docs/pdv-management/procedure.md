@@ -1,5 +1,6 @@
 ---
 title: Procedimiento de Inicio de Jornada Laboral PDV
+role: public
 category: Documentation
 star: 9
 sticky: 9

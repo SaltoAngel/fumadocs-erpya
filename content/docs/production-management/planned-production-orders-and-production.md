@@ -1,5 +1,6 @@
 ---
 title: Ordenes de Producción Planeadas y Producciones (Automáticas)
+role: public
 category: Documentation
 star: 9
 sticky: 9

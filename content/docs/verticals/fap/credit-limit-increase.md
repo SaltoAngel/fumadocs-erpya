@@ -1,5 +1,6 @@
 ---
 title: Aumento de Límite Crédito al Agricultor 
+role: public
 category: Documentación
 star: 9
 sticky: 9

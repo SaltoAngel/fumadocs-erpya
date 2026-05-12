@@ -1,5 +1,6 @@
 ---
 title: Configuración de Ventas en Consignación
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

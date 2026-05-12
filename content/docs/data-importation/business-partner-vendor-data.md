@@ -1,5 +1,6 @@
 ---
 title: Datos de Socios de Negocio Proveedor
+role: public
 icon: computer
 category: Importación
 star: 9

@@ -1,5 +1,6 @@
 ---
 title: Manual de Instalación de Cliente de Impresión
+role: public
 category: Documentación
 star: 9
 sticky: 9

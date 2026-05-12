@@ -1,5 +1,6 @@
 ---
 title: Exportar desde Google Drive
+role: public
 category: Documentación
 icon: proxy
 star: 9

@@ -1,5 +1,6 @@
 ---
 title: Crear Orden de Flete desde Línea de La Orden
+role: public
 category: Documentation
 star: 9
 sticky: 9

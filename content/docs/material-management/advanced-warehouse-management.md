@@ -1,5 +1,6 @@
 ---
 title: Manejo Avanzado de Almacenes
+role: public
 category: Documentation
 star: 9
 sticky: 9

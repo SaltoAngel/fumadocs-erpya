@@ -1,5 +1,6 @@
 ---
 title: Relación de Facturas o Justificación de Gastos
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

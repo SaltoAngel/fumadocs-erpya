@@ -1,5 +1,6 @@
 ---
 title: Datos de Productos
+role: public
 icon: computer
 category: Importación
 star: 9

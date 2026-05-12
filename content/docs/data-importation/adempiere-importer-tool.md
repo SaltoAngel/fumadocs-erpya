@@ -1,5 +1,6 @@
 ---
 title: Herramienta de Importación Avanzada
+role: public
 icon: tools
 category: Importación
 star: 10

@@ -1,5 +1,6 @@
 ---
 title: Configuracion de impresión de letra de reporte de nómina en impresora fiscal
+role: public
 category: Documentación
 star: 9
 sticky: 9

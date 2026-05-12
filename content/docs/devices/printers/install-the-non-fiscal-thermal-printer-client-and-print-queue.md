@@ -1,5 +1,6 @@
 ---
 title: ¿Cómo instalar el cliente de impresoras térmica no fiscal y cola de impresión?
+role: public
 category: Documentación
 star: 9
 sticky: 9

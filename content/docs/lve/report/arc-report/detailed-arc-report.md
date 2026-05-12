@@ -1,5 +1,6 @@
 ---
 title: Generar Reporte ARC Detallado
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

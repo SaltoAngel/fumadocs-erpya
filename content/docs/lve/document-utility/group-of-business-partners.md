@@ -1,5 +1,6 @@
 ---
 title: Grupos de Socios de Negocios
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

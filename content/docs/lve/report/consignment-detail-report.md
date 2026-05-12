@@ -1,5 +1,6 @@
 ---
 title: Reporte de Detalle de Consignación
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

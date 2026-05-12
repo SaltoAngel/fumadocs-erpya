@@ -1,5 +1,6 @@
 ---
 title: Nómina Mensual Mixta
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

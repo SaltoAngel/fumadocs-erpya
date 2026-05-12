@@ -1,5 +1,6 @@
 ---
 title: Datos de Inventario y Costo
+role: public
 icon: newspaper
 category: Importación
 star: 9

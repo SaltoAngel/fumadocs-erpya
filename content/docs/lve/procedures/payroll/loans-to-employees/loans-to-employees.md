@@ -1,5 +1,6 @@
 ---
 title: Orden de Pago Obligaciones Laborales
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

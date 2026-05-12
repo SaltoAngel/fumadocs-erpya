@@ -1,5 +1,6 @@
 ---
 title: Nómina Utilidades
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

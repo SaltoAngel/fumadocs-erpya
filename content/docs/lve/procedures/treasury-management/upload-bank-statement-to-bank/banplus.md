@@ -1,5 +1,6 @@
 ---
 title: Banco Banplus
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

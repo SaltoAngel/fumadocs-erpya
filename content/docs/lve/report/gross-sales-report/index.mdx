@@ -1,5 +1,6 @@
 ---
 title: Generar Reporte de Ventas Brutas desde el Proceso Resumen de Facturas de ADempiere
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

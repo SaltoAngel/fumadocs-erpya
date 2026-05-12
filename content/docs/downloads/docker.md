@@ -1,5 +1,6 @@
 ---
 title: Docker
+role: public
 category: Descarga
 icon: fa-brands fa-docker
 star: 9

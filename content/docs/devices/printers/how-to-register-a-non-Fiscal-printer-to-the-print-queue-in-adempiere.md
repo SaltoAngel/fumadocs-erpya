@@ -1,5 +1,6 @@
 ---
 title: ¿Cómo Registrar Impresora No Fiscal a la Cola de impresión en ADempiere?
+role: public
 category: Documentación
 star: 9
 sticky: 9

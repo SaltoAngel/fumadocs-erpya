@@ -1,5 +1,6 @@
 ---
 title: Orden de Compra Obligación Laboral
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

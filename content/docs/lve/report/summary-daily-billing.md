@@ -1,5 +1,6 @@
 ---
 title: Facturación Diaria Resumida
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

@@ -1,5 +1,6 @@
 ---
 title: Tasa de Conversión Negociada
+role: public
 category: Documentation
 star: 9
 sticky: 9

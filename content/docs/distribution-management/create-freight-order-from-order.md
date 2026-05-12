@@ -1,5 +1,6 @@
 ---
 title: Crear Orden de Flete desde Orden
+role: public
 category: Documentation
 star: 9
 sticky: 9

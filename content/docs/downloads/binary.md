@@ -1,5 +1,6 @@
 ---
 title: Descarga Binaria
+role: public
 category: Descarga
 icon: fa-brands fa-github
 star: 9

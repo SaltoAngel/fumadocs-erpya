@@ -1,5 +1,6 @@
 ---
 title: Detalles de Facturas y Margen
+role: public
 icon: podcast
 category: Localización Venezuela
 star: 9

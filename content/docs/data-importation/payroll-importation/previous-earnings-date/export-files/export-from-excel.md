@@ -1,5 +1,6 @@
 ---
 title: Exportar desde Microsoft Excel
+role: public
 category: Documentación
 icon: proxy
 star: 9

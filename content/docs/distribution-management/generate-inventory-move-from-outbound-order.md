@@ -1,5 +1,6 @@
 ---
 title: Generar Movimiento de Inventario desde Orden de Salida
+role: public
 category: Documentation
 star: 9
 sticky: 9
