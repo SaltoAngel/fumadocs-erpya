@@ -1,4 +1,4 @@
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { convertToModelMessages, stepCountIs, streamText, tool, type UIMessage } from 'ai';
 import { z } from 'zod';
 import { source } from '@/lib/source';
@@ -60,23 +60,24 @@ async function chunkedAll<O>(promises: Promise<O>[]): Promise<O[]> {
   return out;
 }
 
-const openrouter = createOpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
 });
 
 /** System prompt, you can update it to provide more specific information */
 const systemPrompt = [
-  'You are an AI assistant for a documentation site.',
-  'Use the `search` tool to retrieve relevant docs context before answering when needed.',
-  'The `search` tool returns raw JSON results from documentation. Use those results to ground your answer and cite sources as markdown links using the document `url` field when available.',
-  'If you cannot find the answer in search results, say you do not know and suggest a better search query.',
+  'Eres un asistente de IA para el sitio de documentación de ERP Consultores y Asociados.',
+  'Usa la herramienta `search` para buscar contexto relevante en la documentación antes de responder.',
+  'La herramienta `search` devuelve resultados en formato JSON. Usa estos resultados para fundamentar tu respuesta y cita las fuentes usando el campo `url` del documento cuando esté disponible.',
+  'Responde siempre en español a menos que el usuario te pida lo contrario.',
+  'Si no encuentras la respuesta en los resultados de búsqueda, indícalo amablemente y sugiere una mejor consulta de búsqueda.',
 ].join('\n');
 
-export async function POST(req: Request, ctx: RouteContext<"/api/chat">) {
+export async function POST(req: Request) {
   const reqJson = await req.json();
 
   const result = streamText({
-    model: openrouter.chat(process.env.OPENROUTER_MODEL ?? 'anthropic/claude-3.5-sonnet'),
+    model: google(process.env.NEXT_PUBLIC_GEMINI_MODEL ?? 'gemini-3.1-flash-lite'),
     stopWhen: stepCountIs(5),
     tools: {
       search: searchTool,
@@ -88,7 +89,7 @@ export async function POST(req: Request, ctx: RouteContext<"/api/chat">) {
           if (part.type === 'data-client')
             return {
               type: 'text',
-              text: `[Client Context: ${JSON.stringify(part.data)}]`,
+              text: `[Contexto del Cliente: ${JSON.stringify(part.data)}]`,
             };
         },
       })),
