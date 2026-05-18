@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
+import { source } from '../lib/source';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { 
@@ -69,6 +70,7 @@ import {
 } from 'react-icons/fa6';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useSearchContext } from 'fumadocs-ui/contexts/search';
+import { HomeNavbar } from './HomeNavbar';
 
 interface NavChild {
   text: string;
@@ -263,12 +265,12 @@ const navLinks: NavItem[] = [
 
 
 export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
+  const pathname = usePathname();
   const { data: session } = useSession();
   const userRoles = (session?.user as any)?.roles || [];
   
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const { setOpenSearch } = useSearchContext();
   const [mounted, setMounted] = useState(false);
@@ -276,6 +278,32 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   // Lógica para ocultar/mostrar navbar al hacer scroll
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [hoveredChild, setHoveredChild] = useState<{ text: string; url: string } | null>(null);
+
+  // Obtener artículos específicos de una sección
+  const getSubArticles = (sectionUrl: string) => {
+    try {
+      const normSection = sectionUrl.endsWith('/') ? sectionUrl.slice(0, -1) : sectionUrl;
+      // Evitar que la raíz de la documentación traiga absolutamente todos los artículos de la web
+      if (normSection === '/docs' || normSection === '' || normSection === '/') {
+        return [];
+      }
+      const allPages = source.getPages();
+      
+      return allPages
+        .filter(page => {
+          const normPage = page.url.endsWith('/') ? page.url.slice(0, -1) : page.url;
+          // Debe empezar con la ruta de la sección y ser una sub-ruta más profunda
+          return normPage.startsWith(normSection) && normPage.length > normSection.length;
+        })
+        .map(page => ({
+          text: page.data.title,
+          url: page.url,
+        }));
+    } catch (e) {
+      return [];
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -299,6 +327,10 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
     };
   }, [lastScrollY]);
 
+  if (pathname === '/') {
+    return <HomeNavbar publicPaths={publicPaths} />;
+  }
+
   const handleMouseEnter = (name: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveMenu(name);
@@ -319,8 +351,16 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   const checkAccess = (url: string) => {
     if (userRoles.includes('admin')) return true;
     
+    // Normalizar URLs para evitar problemas con la barra diagonal final (trailing slash)
+    const normalizedUrl = url.endsWith('/') ? url.slice(0, -1) : url;
+    
     // Si la ruta está en la lista de rutas públicas, permitimos el acceso
-    if (publicPaths.includes(url)) return true;
+    const isPublic = publicPaths.some(p => {
+      const normalizedP = p.endsWith('/') ? p.slice(0, -1) : p;
+      return normalizedP === normalizedUrl;
+    });
+
+    if (isPublic) return true;
 
     if (!url.startsWith('/docs')) return true;
 
@@ -363,11 +403,11 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   }).filter(Boolean) as NavItem[];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-500 flex items-center px-4 md:px-8 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-500 flex items-center justify-between px-4 md:px-8 ${
       showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
     }`}>
       {/* Logo Section */}
-      <Link href="/" className="flex items-center gap-3 mr-8 group">
+      <Link href="/" className="flex items-center gap-3 mr-4 group shrink-0">
         <Image
           src="/logo.svg"
           alt="ERPyA Logo"
@@ -379,74 +419,143 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         />
       </Link>
 
-      {/* Navigation Links - CENTRADO ABSOLUTO */}
-      <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 h-full">
+      {/* Navigation Links - CENTRADO ROBUSTO SIN COLISIONES */}
+      <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 h-full mx-auto shrink">
         {filteredNavLinks.map((link) => {
           const active = isLinkActive(link.url);
-          
+          const isMegaMenu = !!link.groups;
           return (
             <div 
               key={link.text}
-              className="relative h-full flex items-center"
+              className={`h-full flex items-center ${isMegaMenu ? '' : 'relative'}`}
               onMouseEnter={() => handleMouseEnter(link.text)}
               onMouseLeave={handleMouseLeave}
             >
               <Link 
                 href={link.url}
-                className={`relative flex items-center gap-1.5 px-3 h-full text-sm font-medium transition-all duration-200 ${
+                className={`relative flex items-center gap-1 px-2 xl:px-3 h-full text-xs xl:text-sm font-semibold transition-all duration-200 ${
                   active 
                     ? 'text-[#3b82f6]' 
                     : 'text-fd-foreground/80 hover:text-[#3b82f6]'
                 }`}
               >
-                <link.Icon className={`text-[14px] ${active ? 'opacity-100' : 'opacity-80'}`} />
+                <link.Icon className={`text-[13px] xl:text-[14px] ${active ? 'opacity-100' : 'opacity-80'}`} />
                 {link.text}
-                {(link.groups || link.children) && <FaChevronDown className={`text-[10px] transition-transform duration-300 ${activeMenu === link.text ? 'rotate-180' : ''}`} />}
+                {(link.groups || link.children) && <FaChevronDown className={`text-[9px] xl:text-[10px] transition-transform duration-300 ${activeMenu === link.text ? 'rotate-180' : ''}`} />}
                 
                 {active && (
-                  <div className="absolute bottom-[6px] left-3 right-3 h-[2px] bg-[#3b82f6] rounded-full animate-in fade-in zoom-in duration-300" />
+                  <div className="absolute bottom-[6px] left-2 right-2 h-[2px] bg-[#3b82f6] rounded-full animate-in fade-in zoom-in duration-300" />
                 )}
               </Link>
 
               {/* Enhanced Dropdown Menu */}
               {(link.groups || link.children) && activeMenu === link.text && (
-                <div className="absolute top-[100%] left-1/2 -translate-x-1/2 min-w-[280px] max-h-[80vh] overflow-y-auto bg-fd-background/95 backdrop-blur-xl border border-fd-foreground/10 rounded-lg shadow-2xl py-2 animate-in fade-in slide-in-from-top-1 duration-200 custom-scrollbar">
+                <div 
+                  className={`absolute top-[100%] left-1/2 -translate-x-1/2 bg-fd-background/95 backdrop-blur-xl border border-fd-foreground/10 rounded-xl shadow-2xl py-4 px-5 animate-in fade-in slide-in-from-top-1 duration-200 ${
+                    link.groups
+                      ? 'w-[980px] grid grid-cols-4 gap-6 max-h-[80vh] overflow-hidden' 
+                      : 'min-w-[240px] flex flex-col gap-1.5'
+                  }`}
+                  onMouseLeave={() => setHoveredChild(null)}
+                >
                   {link.groups ? (
-                    link.groups.map((group, idx) => (
-                      <div key={group.text} className={idx > 0 ? 'mt-4 pt-4 border-t border-fd-foreground/5' : ''}>
-                        <div className="px-4 py-1 text-[10px] font-bold text-fd-foreground/40 tracking-widest uppercase">
-                          {group.text}
-                        </div>
-                        {group.children.map((child) => {
-                          const childActive = pathname === child.url;
-                          return (
-                            <Link
-                              key={child.text}
-                              href={child.url}
-                              className={`flex items-center gap-3 px-4 py-2 text-sm transition-all duration-200 ${
-                                childActive 
-                                  ? 'bg-[#3b82f6]/10 text-[#3b82f6]' 
-                                  : 'text-fd-foreground/80 hover:bg-[#3b82f6]/10 hover:text-[#3b82f6]'
-                              }`}
-                            >
-                              {child.Icon && <child.Icon className="text-[#3b82f6] w-[14px]" />}
-                              {child.text}
-                            </Link>
-                          );
-                        })}
+                    <>
+                      {/* Left 3 Columns for Documentation Groups */}
+                      <div className="col-span-3 grid grid-cols-3 gap-6 max-h-[70vh] overflow-y-auto pr-4 border-r border-fd-foreground/5 custom-scrollbar">
+                        {link.groups.map((group, idx) => (
+                          <div key={group.text} className="flex flex-col gap-2">
+                            <span className="text-[10px] font-bold text-fd-foreground/45 tracking-wider uppercase border-b border-fd-foreground/5 pb-1">
+                              {group.text}
+                            </span>
+                            <div className="flex flex-col gap-1">
+                              {group.children.map((child) => {
+                                const childActive = pathname === child.url;
+                                return (
+                                  <Link
+                                    key={child.text}
+                                    href={child.url}
+                                    className={`flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                                      childActive 
+                                        ? 'bg-[#3b82f6]/10 text-[#3b82f6]' 
+                                        : 'text-fd-foreground/80 hover:text-[#3b82f6] hover:bg-[#3b82f6]/5'
+                                    }`}
+                                    onMouseEnter={() => setHoveredChild({ text: child.text, url: child.url })}
+                                  >
+                                    {child.Icon && <child.Icon className="text-xs text-[#3b82f6] w-[13px] shrink-0" />}
+                                    <span className="truncate">{child.text}</span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))
+
+                      {/* Right 1 Column for Dynamic Article Explorer */}
+                      <div className="col-span-1 flex flex-col gap-3 pl-2 max-h-[70vh] overflow-hidden">
+                        <span className="text-[10px] font-bold text-fd-foreground/45 tracking-wider uppercase border-b border-fd-foreground/5 pb-1">
+                          Artículos Relacionados
+                        </span>
+                        {hoveredChild ? (
+                          <div className="flex flex-col gap-2 animate-in fade-in duration-200">
+                            <div className="text-xs font-bold text-[#3b82f6] mb-1 truncate">
+                              {hoveredChild.text}
+                            </div>
+                            {(() => {
+                              const subArticles = getSubArticles(hoveredChild.url).filter(art => checkAccess(art.url));
+                              return subArticles.length > 0 ? (
+                                <div className="flex flex-col gap-2 max-h-[55vh] overflow-y-auto pr-1 custom-scrollbar">
+                                  {subArticles.map((art) => {
+                                    const artActive = pathname === art.url;
+                                    return (
+                                      <Link
+                                        key={art.url}
+                                        href={art.url}
+                                        className={`text-xs transition-all duration-150 py-1.5 border-b border-fd-foreground/5 last:border-b-0 truncate hover:text-[#3b82f6] ${
+                                          artActive ? 'text-[#3b82f6] font-bold' : 'text-fd-foreground/60'
+                                        }`}
+                                        title={art.text}
+                                      >
+                                        • {art.text}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              ) : (
+                                <div className="text-[11px] text-fd-foreground/40 italic">
+                                  No hay sub-artículos en esta sección.
+                                </div>
+                              );
+                            })()}
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-center justify-center h-full py-8 text-center gap-2 opacity-50">
+                            <FaBook className="text-2xl text-fd-foreground/30 animate-pulse" />
+                            <span className="text-[11px] text-fd-foreground/40 leading-relaxed">
+                              Pasa el cursor sobre una sección para explorar sus artículos
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </>
                   ) : (
-                    link.children?.map((child) => (
-                      <Link
-                        key={child.text}
-                        href={child.url}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-fd-foreground/80 hover:bg-[#3b82f6]/10 hover:text-[#3b82f6] transition-all duration-200"
-                      >
-                        {child.Icon && <child.Icon className="text-[#3b82f6] w-[14px]" />}
-                        {child.text}
-                      </Link>
-                    ))
+                    link.children?.map((child) => {
+                      const childActive = pathname === child.url;
+                      return (
+                        <Link
+                          key={child.text}
+                          href={child.url}
+                          className={`flex items-center gap-3 px-4 py-2.5 text-sm rounded-lg transition-all duration-200 ${
+                            childActive 
+                              ? 'bg-[#3b82f6]/10 text-[#3b82f6]' 
+                              : 'text-fd-foreground/80 hover:bg-[#3b82f6]/5 hover:text-[#3b82f6]'
+                          }`}
+                        >
+                          {child.Icon && <child.Icon className="text-[#3b82f6] w-[14px]" />}
+                          {child.text}
+                        </Link>
+                      );
+                    })
                   )}
                 </div>
               )}
@@ -455,10 +564,8 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         })}
       </div>
 
-      <div className="flex-1" />
-
       {/* Right Side Tools */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 xl:gap-4 shrink-0">
         <button 
           onClick={() => setOpenSearch(true)}
           className="flex items-center gap-2 bg-fd-muted border border-fd-border rounded-full px-4 py-1.5 text-sm text-fd-muted-foreground hover:bg-fd-accent hover:text-fd-foreground transition-all duration-200"
