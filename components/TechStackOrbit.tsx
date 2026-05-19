@@ -35,13 +35,18 @@ export function TechStackOrbit() {
   };
 
   // Helper functions to get dynamic properties for lines, nodes and labels
-  const getLineProps = (index: number, x2: string, y2: string) => {
+  const getLineProps = (index: number, xn: number, yn: number) => {
     const isActive = activeIndex === index;
+    // Detiene la línea en el borde del círculo del nodo (radio 7.5, distancia total 34)
+    const ratio = 26.5 / 34;
+    const x2 = 50 + (xn - 50) * ratio;
+    const y2 = 50 + (yn - 50) * ratio;
+    
     return {
       x1: "50",
       y1: "50",
-      x2,
-      y2,
+      x2: x2.toString(),
+      y2: y2.toString(),
       stroke: isActive ? "#5BC8E5" : "rgba(255,255,255,0.14)",
       strokeWidth: isActive ? "0.75" : "0.32",
       strokeDasharray: isActive ? "none" : "1.7 2.2",
@@ -123,14 +128,14 @@ export function TechStackOrbit() {
         <circle cx="50" cy="50" r="26" fill="none" stroke="#1AAAD435" strokeWidth="0.35"></circle>
 
         {/* Dynamic Connecting Lines */}
-        <line {...getLineProps(0, "49.99999999999999", "16")} />
-        <line {...getLineProps(1, "74.04163056034261", "25.95836943965738")} />
-        <line {...getLineProps(2, "84", "50")} />
-        <line {...getLineProps(3, "74.04163056034261", "74.04163056034261")} />
-        <line {...getLineProps(4, "50", "84")} />
-        <line {...getLineProps(5, "25.958369439657385", "74.04163056034261")} />
-        <line {...getLineProps(6, "16", "50.00000000000001")} />
-        <line {...getLineProps(7, "25.95836943965738", "25.958369439657385")} />
+        <line {...getLineProps(0, 50, 16)} />
+        <line {...getLineProps(1, 74.04163056034261, 25.95836943965738)} />
+        <line {...getLineProps(2, 84, 50)} />
+        <line {...getLineProps(3, 74.04163056034261, 74.04163056034261)} />
+        <line {...getLineProps(4, 50, 84)} />
+        <line {...getLineProps(5, 25.958369439657385, 74.04163056034261)} />
+        <line {...getLineProps(6, 16, 50)} />
+        <line {...getLineProps(7, 25.95836943965738, 25.958369439657385)} />
 
         {/* Active Node Outer Glowing Circles */}
         {activeIndex === 0 && <circle cx="49.99999999999999" cy="16" r="11.8" fill="#1AAAD438" filter="url(#ecblur)"></circle>}
@@ -208,8 +213,15 @@ export function TechStackOrbit() {
         >
           <circle {...getNodeCircleProps(4, "50", "84")} />
           <svg x="45" y="79" width="10" height="10" viewBox="0 0 24 24" style={getIconStyle(4)}>
-            <path d="M13 10h2M9 10h2M5 10h2M13 6h2M9 6h2M7 14c-3 0-5-1-5-3.5C2 8 4 7 5 7h.5C6 5 8 4 10 4.5M19 10.5c1-.5 2-2 1.5-4-1.5-.5-3 .5-3.5 2H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"></path>
-            <path d="M5 14s0 4 7 4 9-4 9-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"></path>
+            {/* Whale outline and tail */}
+            <path d="M2 13.5h16.5c1.2 0 2.5-1 3-2.5.3 1.2-.5 2.5-2 3H3c-1.5 0-1.5-2 0-2H5c.5-2 2-3 4-2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M4 13.5c0 3 2 5 7.5 5s8.5-3 8.5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            {/* Stacked Containers */}
+            <rect x="5.5" y="7.5" width="2" height="2" rx="0.3" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            <rect x="8.5" y="7.5" width="2" height="2" rx="0.3" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            <rect x="11.5" y="7.5" width="2" height="2" rx="0.3" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            <rect x="7" y="4.5" width="2" height="2" rx="0.3" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            <rect x="10" y="4.5" width="2" height="2" rx="0.3" stroke="currentColor" strokeWidth="1.2" fill="none" />
           </svg>
           <text {...getTextProps(4, "50", "95")}>Docker</text>
         </g>

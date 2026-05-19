@@ -288,17 +288,27 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         return [];
       }
       const allPages = source.getPages();
+      const sectionSlashes = normSection.split('/').length;
       
       return allPages
         .filter(page => {
           const normPage = page.url.endsWith('/') ? page.url.slice(0, -1) : page.url;
-          // Debe empezar con la ruta de la sección y ser una sub-ruta más profunda
-          return normPage.startsWith(normSection) && normPage.length > normSection.length;
+          // Debe empezar con la ruta de la sección y ser una sub-ruta directa
+          if (!normPage.startsWith(normSection) || normPage.length <= normSection.length) {
+            return false;
+          }
+          const pageSlashes = normPage.split('/').length;
+          return pageSlashes === sectionSlashes + 1;
         })
-        .map(page => ({
-          text: page.data.title,
-          url: page.url,
-        }));
+        .map(page => {
+          let text = page.data.title;
+          text = text.replace(/^Lista de Versiones /, "Versiones ");
+          text = text.replace(/^Versiones de ADempiere /, "");
+          return {
+            text,
+            url: page.url,
+          };
+        });
     } catch (e) {
       return [];
     }
@@ -382,7 +392,7 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-[175] w-full px-6 transition-all duration-500 flex items-center h-[60px] ${
       isScrolled 
-        ? 'bg-[#030712]/90 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-[#000]/40' 
+        ? 'bg-[#020716]/60 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-[#000]/40' 
         : 'bg-transparent'
     }`}>
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between">

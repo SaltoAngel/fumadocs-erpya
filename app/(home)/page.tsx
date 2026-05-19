@@ -290,21 +290,27 @@ export default async function HomePage() {
 
   return (
     <main 
-      className="flex flex-col min-h-screen bg-[#030712] text-zinc-100 font-sans relative overflow-hidden"
+      className="flex flex-col min-h-screen bg-[#020716] text-zinc-100 font-sans relative overflow-hidden mt-[-60px]"
       style={{
         backgroundImage: `
-          radial-gradient(circle at 50% -20%, rgba(26, 170, 212, 0.16), transparent 50%),
-          radial-gradient(circle at 10% 40%, rgba(13, 33, 103, 0.1), transparent 45%),
-          radial-gradient(circle at 90% 70%, rgba(26, 170, 212, 0.08), transparent 45%)
+          radial-gradient(circle at 50% -20%, rgba(29, 78, 216, 0.38), transparent 60%),
+          radial-gradient(circle at 80% 40%, rgba(30, 64, 175, 0.22), transparent 50%),
+          radial-gradient(circle at 10% 70%, rgba(30, 58, 138, 0.15), transparent 45%)
         `
       }}
     >
-      {/* Background Dotted Mesh Grid */}
+      {/* Background Linear Mesh Grid */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.8) 1.2px, transparent 1.2px)',
-          backgroundSize: '24px 24px'
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+          maskImage: 'radial-gradient(circle at 50% 50%, white 20%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(circle at 50% 50%, white 20%, transparent 80%)',
+          opacity: 0.85
         }}
       />
 
@@ -339,7 +345,7 @@ export default async function HomePage() {
                 href="#novedades" 
                 className="inline-flex items-center gap-2 rounded-lg bg-[#1AAAD4] px-6 py-3 text-sm font-extrabold text-[#0D2167] shadow-[0_0_20px_rgba(26,170,212,0.3)] transition-all duration-300 hover:bg-[#24c0eb] hover:shadow-[0_0_30px_rgba(26,170,212,0.55)] hover:-translate-y-0.5"
               >
-                Ver soluciones
+                Ver Documentación
                 <FaArrowRight className="text-xs" />
               </a>
               <Link 
@@ -425,20 +431,20 @@ export default async function HomePage() {
       <section className="bg-[#030712] border-t border-zinc-800/80 py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 md:gap-0 justify-between items-center text-center">
           <div className="flex-1 w-full py-4 md:border-r border-zinc-800/60">
-            <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">+100</div>
-            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Empresas implementadas</div>
+            <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">+1.200</div>
+            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Artículos de Soporte</div>
           </div>
           <div className="flex-1 w-full py-4 md:border-r border-zinc-800/60">
             <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">+15</div>
-            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Años de experiencia</div>
+            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Módulos ERP Documentados</div>
           </div>
           <div className="flex-1 w-full py-4 md:border-r border-zinc-800/60">
-            <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">8+</div>
-            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Servicios especializados</div>
+            <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">+50</div>
+            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Guías de Configuración</div>
           </div>
           <div className="flex-1 w-full py-4">
-            <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">10+</div>
-            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Países atendidos</div>
+            <div className="text-3xl font-extrabold text-[#1AAAD4] tracking-tight">20+</div>
+            <div className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-semibold">Categorías de Consulta</div>
           </div>
         </div>
       </section>
@@ -694,43 +700,33 @@ export default async function HomePage() {
           </div>
 
           {/* Bottom link columns grid */}
-          <div className="hidden md:grid grid-cols-5 gap-6 border-t border-zinc-850 pt-12 pb-8 text-xs">
+          <div className="hidden md:grid grid-cols-4 gap-6 border-t border-zinc-850 pt-12 pb-8 text-xs">
             <div>
-              <p className="text-white font-bold mb-3">ERPs</p>
+              <p className="text-white font-bold mb-3">Documentación ERP</p>
               <div className="flex flex-col gap-2">
-                <Link href="/docs" className="hover:text-white transition-colors">ADempiere</Link>
-                <Link href="/docs/product" className="hover:text-white transition-colors">Odoo</Link>
+                <Link href="/docs/basic-rules" className="hover:text-white transition-colors">ADempiere Estándar</Link>
+                <Link href="/docs/sales-management" className="hover:text-white transition-colors">Ventas y Compras</Link>
               </div>
             </div>
             <div>
-              <p className="text-white font-bold mb-3">Infraestructura</p>
+              <p className="text-white font-bold mb-3">Localización Venezuela</p>
               <div className="flex flex-col gap-2">
-                <Link href="/docs/downloads/docker" className="hover:text-white transition-colors">Docker</Link>
-                <Link href="/docs" className="hover:text-white transition-colors">Kubernetes</Link>
-                <Link href="/docs/product/technology" className="hover:text-white transition-colors">Nube / Cloud</Link>
+                <Link href="/docs/lve" className="hover:text-white transition-colors">Impuestos y Retenciones</Link>
+                <Link href="/docs/lve" className="hover:text-white transition-colors">Reglas de Facturación</Link>
               </div>
             </div>
             <div>
-              <p className="text-white font-bold mb-3">BI</p>
+              <p className="text-white font-bold mb-3">Control y Finanzas</p>
               <div className="flex flex-col gap-2">
-                <Link href="/docs" className="hover:text-white transition-colors">Power BI</Link>
-                <Link href="/docs" className="hover:text-white transition-colors">Apache Superset</Link>
+                <Link href="/docs/balance-management" className="hover:text-white transition-colors">Caja y Bancos</Link>
+                <Link href="/docs/accounting-management" className="hover:text-white transition-colors">Contabilidad General</Link>
               </div>
             </div>
             <div>
-              <p className="text-white font-bold mb-3">Integraciones</p>
+              <p className="text-white font-bold mb-3">Operaciones y Descargas</p>
               <div className="flex flex-col gap-2">
-                <Link href="/docs" className="hover:text-white transition-colors">N8N</Link>
-                <Link href="/docs" className="hover:text-white transition-colors">Pentaho</Link>
-              </div>
-            </div>
-            <div>
-              <p className="text-white font-bold mb-3">Novedades</p>
-              <div className="flex flex-col gap-2 text-zinc-500">
-                <a href="#novedades" className="hover:text-white transition-colors">IA · Carga de Documentos</a>
-                <a href="#novedades" className="hover:text-white transition-colors">IA · Análisis de Cotizaciones</a>
-                <a href="#novedades" className="hover:text-white transition-colors">Captura SENIAT</a>
-                <a href="#novedades" className="hover:text-white transition-colors">Tasas BCV</a>
+                <Link href="/docs/downloads/docker" className="hover:text-white transition-colors">Instalación Docker</Link>
+                <Link href="/docs/data-importation" className="hover:text-white transition-colors">Importación de Datos</Link>
               </div>
             </div>
           </div>

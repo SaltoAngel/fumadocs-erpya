@@ -289,17 +289,27 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         return [];
       }
       const allPages = source.getPages();
+      const sectionSlashes = normSection.split('/').length;
       
       return allPages
         .filter(page => {
           const normPage = page.url.endsWith('/') ? page.url.slice(0, -1) : page.url;
-          // Debe empezar con la ruta de la sección y ser una sub-ruta más profunda
-          return normPage.startsWith(normSection) && normPage.length > normSection.length;
+          // Debe empezar con la ruta de la sección y ser una sub-ruta directa
+          if (!normPage.startsWith(normSection) || normPage.length <= normSection.length) {
+            return false;
+          }
+          const pageSlashes = normPage.split('/').length;
+          return pageSlashes === sectionSlashes + 1;
         })
-        .map(page => ({
-          text: page.data.title,
-          url: page.url,
-        }));
+        .map(page => {
+          let text = page.data.title;
+          text = text.replace(/^Lista de Versiones /, "Versiones ");
+          text = text.replace(/^Versiones de ADempiere /, "");
+          return {
+            text,
+            url: page.url,
+          };
+        });
     } catch (e) {
       return [];
     }
