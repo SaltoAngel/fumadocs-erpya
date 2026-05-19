@@ -342,7 +342,7 @@ export default async function HomePage() {
             {/* CTAs */}
             <div className="mb-10 flex flex-wrap gap-4">
               <a 
-                href="#novedades" 
+                href="/docs" 
                 className="inline-flex items-center gap-2 rounded-lg bg-[#1AAAD4] px-6 py-3 text-sm font-extrabold text-[#0D2167] shadow-[0_0_20px_rgba(26,170,212,0.3)] transition-all duration-300 hover:bg-[#24c0eb] hover:shadow-[0_0_30px_rgba(26,170,212,0.55)] hover:-translate-y-0.5"
               >
                 Ver Documentación
