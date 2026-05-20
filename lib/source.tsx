@@ -42,34 +42,43 @@ const iconMap: Record<string, React.ElementType> = {
   wrench: LuIcons.LuWrench,
 };
 
-export const source = loader({
-  baseUrl: docsRoute,
-  source: docs.toFumadocsSource(),
-  icon(icon) {
-    if (!icon) return;
-    
-    const normalized = icon.toLowerCase();
-    
-    // 1. Buscar en nuestro mapa manual
-    if (normalized in iconMap) {
-      const Icon = iconMap[normalized];
-      if (Icon) return <Icon />;
-    }
-    
-    // 2. Si empieza por fa-, buscar en Font Awesome
-    if (normalized.startsWith('fa-')) {
-      const faName = normalized.split(' ')[0].replace('fa-', '');
+export function resolveIcon(icon: string | undefined): React.ReactNode {
+  if (!icon) return null;
+  
+  const normalized = icon.toLowerCase();
+  
+  // 1. Buscar en nuestro mapa manual
+  if (normalized in iconMap) {
+    const Icon = iconMap[normalized];
+    if (Icon) return <Icon />;
+  }
+  
+  // 2. Buscar en Font Awesome (soportando clases compuestas como fa-brands fa-docker)
+  if (normalized.includes('fa-')) {
+    const parts = normalized.split(/\s+/);
+    const iconPart = parts.find(p => p.startsWith('fa-') && !['fa-brands', 'fa-solid', 'fa-regular', 'fa-light', 'fa-thin', 'fa-duotone', 'fa-kit'].includes(p)) 
+                     || parts.find(p => p.startsWith('fa-'));
+    if (iconPart) {
+      const faName = iconPart.replace('fa-', '');
       const pascalName = faName.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('');
       const FaIcon = (FaIcons as any)[`Fa${pascalName}`];
       if (FaIcon) return <FaIcon />;
     }
+  }
 
-    // 3. Fallback dinámico a Lucide
-    const luName = icon.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('');
-    const LuIcon = (LuIcons as any)[`Lu${luName}`] || (LuIcons as any)[luName];
-    if (LuIcon) return <LuIcon />;
+  // 3. Fallback dinámico a Lucide
+  const luName = icon.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('');
+  const LuIcon = (LuIcons as any)[`Lu${luName}`] || (LuIcons as any)[luName];
+  if (LuIcon) return <LuIcon />;
 
-    return null; // Devolver null es seguro para React
+  return null; // Devolver null es seguro para React
+}
+
+export const source = loader({
+  baseUrl: docsRoute,
+  source: docs.toFumadocsSource(),
+  icon(icon) {
+    return resolveIcon(icon);
   },
 });
 

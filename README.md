@@ -249,6 +249,88 @@ pnpm start
 *   `/components`: Componentes React personalizados para el sitio.
 *   `/app`: Rutas y lógica de Next.js (App Router).
 
+## 🧩 Componentes UI: Tabs
+
+El proyecto incluye el componente **Tabs** de Fumadocs UI, construido sobre Radix UI, con soporte para valor compartido, persistencia y anclaje por hash.
+
+### Modo simple (recomendado)
+
+```mdx
+<Tabs items={['JavaScript', 'Rust']}>
+  <Tab value="JavaScript">JavaScript es raro</Tab>
+  <Tab value="Rust">Rust es rápido</Tab>
+</Tabs>
+```
+
+### Sin `value` (detección por índice)
+
+```mdx
+<Tabs items={['JavaScript', 'Rust']}>
+  <Tab>JavaScript es raro</Tab>
+  <Tab>Rust es rápido</Tab>
+</Tabs>
+```
+
+### Valor compartido (`groupId`)
+
+Tabs con el mismo `groupId` sincronizan su selección automáticamente:
+
+```mdx
+<Tabs groupId="language" items={['JavaScript', 'Rust']}>
+  <Tab value="JavaScript">...</Tab>
+  <Tab value="Rust">...</Tab>
+</Tabs>
+```
+
+### Persistencia (`persist`)
+
+Guarda el valor en `localStorage` en lugar de `sessionStorage`:
+
+```mdx
+<Tabs groupId="language" items={['JavaScript', 'Rust']} persist>
+  <Tab value="JavaScript">...</Tab>
+  <Tab value="Rust">...</Tab>
+</Tabs>
+```
+
+### Valor por defecto (`defaultIndex`)
+
+```mdx
+<Tabs items={['JavaScript', 'Rust']} defaultIndex={1}>
+  <Tab value="JavaScript">...</Tab>
+  <Tab value="Rust">...</Tab>
+</Tabs>
+```
+
+### Anclaje por hash (`id` / `updateAnchor`)
+
+El `id` del `Tab` permite enlazar vía `#tab-id` en la URL. Con `updateAnchor` se actualiza automáticamente al cambiar de pestaña:
+
+```mdx
+<Tabs items={['JavaScript', 'Rust', 'C++']} updateAnchor>
+  <Tab id="tab-js" value="JavaScript">...</Tab>
+  <Tab id="tab-rs" value="Rust">...</Tab>
+  <Tab id="tab-cpp" value="C++">...</Tab>
+</Tabs>
+```
+
+### Modo avanzado (primitivas)
+
+Usa `TabsList`, `TabsTrigger` y `TabsContent` para control total:
+
+```mdx
+<Tabs defaultValue="npm">
+  <TabsList>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+  <TabsContent value="npm">npm install</TabsContent>
+  <TabsContent value="yarn">yarn add</TabsContent>
+</Tabs>
+```
+
+> Las importaciones del modo avanzado son: `import { Tabs, TabsList, TabsTrigger, TabsContent } from 'fumadocs-ui/components/ui/tabs'`.
+
 ## 🛠️ Solución de Problemas
 
 ### Puerto ocupado (EADDRINUSE)

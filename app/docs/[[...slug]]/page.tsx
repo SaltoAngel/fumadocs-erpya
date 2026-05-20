@@ -1,4 +1,4 @@
-import { getPageImage, getPageMarkdownUrl, source } from '@/lib/source';
+import { getPageImage, getPageMarkdownUrl, source, resolveIcon } from '@/lib/source';
 import {
   DocsBody,
   DocsDescription,
@@ -15,6 +15,8 @@ import { gitConfig } from '@/lib/shared';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { RestrictedAccess } from '@/components/docs/RestrictedAccess';
+import { getGitMetadata } from '@/lib/git';
+import { FaHistory, FaUsers } from 'react-icons/fa';
 
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params;
@@ -60,10 +62,15 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 
   const MDX = page.data.body;
   const markdownUrl = getPageMarkdownUrl(page).url;
+  const gitMeta = getGitMetadata(page.path);
+  const pageIcon = page.data.icon ? resolveIcon(page.data.icon) : null;
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsTitle className="flex items-center gap-3">
+        {pageIcon && <span className="text-fd-primary">{pageIcon}</span>}
+        <span>{page.data.title}</span>
+      </DocsTitle>
       <DocsDescription className="mb-0">{page.data.description}</DocsDescription>
       <div className="flex flex-row gap-2 items-center border-b pb-6">
         <MarkdownCopyButton markdownUrl={markdownUrl} />
@@ -80,6 +87,30 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
           })}
         />
       </DocsBody>
+      {gitMeta.lastUpdated && (
+        <div className="mt-12 pt-6 border-t border-fd-border/60 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 text-[11px] text-fd-muted-foreground">
+          <div className="flex items-center gap-2">
+            <FaHistory className="w-3.5 h-3.5 text-fd-primary/75" />
+            <span>
+              Última actualización: <strong>{gitMeta.lastUpdated}</strong> por <strong>{gitMeta.lastAuthor}</strong>
+            </span>
+          </div>
+          {gitMeta.contributors.length > 0 && (
+            <div className="flex items-center gap-2">
+              <FaUsers className="w-4 h-4 text-fd-primary/75" />
+              <span>
+                Colaboradores:{' '}
+                {gitMeta.contributors.map((c, i) => (
+                  <span key={c}>
+                    <strong>{c}</strong>
+                    {i < gitMeta.contributors.length - 1 ? ', ' : ''}
+                  </span>
+                ))}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
     </DocsPage>
   );
 }

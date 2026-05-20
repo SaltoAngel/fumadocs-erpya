@@ -1,26 +1,22 @@
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import type { MDXComponents } from 'mdx/types';
-import { Releases } from './Releases';
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { LeaderCards } from "./LeaderCards";
+import { Releases } from "./Releases";
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
     Releases,
-    // Forzamos el uso de la etiqueta img nativa pero manejamos objetos de Next.js
-    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-      // Si src es un objeto, extraemos la URL real
-      const src = typeof props.src === 'object' && props.src !== null ? (props.src as any).src : props.src;
-      return (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img 
-          {...props} 
-          src={src}
-          loading="lazy" 
-          style={{ maxWidth: '100%', height: 'auto' }} 
-          alt={props.alt || ''} 
-        />
-      );
-    },
+    LeaderCards,
+    // Forzamos el uso de ImageZoom para permitir zoom en imágenes
+    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+      <ImageZoom
+        // biome-ignore lint/suspicious/noExplicitAny: props shape from MDX/React varies
+        {...(props as any)}
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+    ),
     ...components,
   } satisfies MDXComponents;
 }
