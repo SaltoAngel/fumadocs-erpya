@@ -43,3 +43,31 @@ export function getGitMetadata(pagePath: string): GitMetadata {
     return { contributors: [] };
   }
 }
+
+export function getAllGitCreationDates(): Map<string, string> {
+  const dates = new Map<string, string>();
+  try {
+    const output = execSync(
+      `git log --reverse --diff-filter=A --pretty=format:"%aI" --name-only content/docs/`,
+      { encoding: 'utf8', cwd: process.cwd() }
+    );
+
+    const lines = output.trim().split('\n');
+    let currentDate: string | null = null;
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+
+      // Detect date lines (ISO 8601 format)
+      if (/^\d{4}-\d{2}-\d{2}T/.test(trimmed)) {
+        currentDate = trimmed.split('T')[0]; // Extract YYYY-MM-DD
+      } else if (currentDate && trimmed.startsWith('content/docs/') && !dates.has(trimmed)) {
+        dates.set(trimmed, currentDate);
+      }
+    }
+  } catch (error) {
+    console.error('Error al obtener fechas de creación de git:', error);
+  }
+  return dates;
+}

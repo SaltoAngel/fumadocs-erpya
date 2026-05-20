@@ -7,6 +7,7 @@ import { FaCalendarAlt, FaArrowRight, FaRocket, FaCode, FaDiscord } from 'react-
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
+import { getAllGitCreationDates } from '@/lib/git';
 
 const projects = [
   {
@@ -46,13 +47,16 @@ export default async function HomePage() {
   const userRoles = (session?.user as any)?.roles || [];
 
   const allPages = source.getPages();
+  const gitCreationDates = getAllGitCreationDates();
   const dynamicArticles = allPages
     .filter(page => !page.url.endsWith('index'))
     // Ordenar por fecha (descendente: más reciente primero)
     .sort((a, b) => {
-      const dateA = new Date((a.data as any).date || 0).getTime();
-      const dateB = new Date((b.data as any).date || 0).getTime();
-      return dateB - dateA;
+      const aPath = `content/docs/${(a as any).path}`;
+      const bPath = `content/docs/${(b as any).path}`;
+      const aDate = gitCreationDates.get(aPath) || (a.data as any).date;
+      const bDate = gitCreationDates.get(bPath) || (b.data as any).date;
+      return new Date(bDate || 0).getTime() - new Date(aDate || 0).getTime();
     })
     .slice(0, 6);
 
@@ -223,10 +227,38 @@ export default async function HomePage() {
   const validPages = allPages.filter(page => !page.url.endsWith('index'));
 
   const sortedPages = [...validPages].sort((a, b) => {
-    const dateA = new Date((a.data as any).date || 0).getTime();
-    const dateB = new Date((b.data as any).date || 0).getTime();
-    return dateB - dateA;
+    const aPath = `content/docs/${(a as any).path}`;
+    const bPath = `content/docs/${(b as any).path}`;
+    const aDate = gitCreationDates.get(aPath) || (a.data as any).date;
+    const bDate = gitCreationDates.get(bPath) || (b.data as any).date;
+    const diff = new Date(bDate || 0).getTime() - new Date(aDate || 0).getTime();
+    if (diff !== 0) return diff;
+    return a.url.localeCompare(b.url);
   });
+
+  const pageCategory = (url: string) => url.split('/').filter(Boolean)[1] || '';
+
+  function pickDiverse(pages: typeof sortedPages, max: number) {
+    const seen = new Set<string>();
+    const result: typeof sortedPages = [];
+    for (const p of pages) {
+      const cat = pageCategory(p.url);
+      if (seen.has(cat)) continue;
+      seen.add(cat);
+      result.push(p);
+      if (result.length >= max) break;
+    }
+    // fill remaining slots if not enough categories
+    if (result.length < max) {
+      for (const p of pages) {
+        if (!result.includes(p)) {
+          result.push(p);
+          if (result.length >= max) break;
+        }
+      }
+    }
+    return result;
+  }
 
   const privateAccessiblePages = sortedPages.filter(page => {
     const explicitRole = (page.data as any).role;
@@ -239,10 +271,10 @@ export default async function HomePage() {
     return !explicitRole || explicitRole === 'public';
   });
 
-  // Tomar los 4 documentos prioritarios finales
+  const privateCount = Math.min(4, privateAccessiblePages.length);
   const finalDocs = [
-    ...privateAccessiblePages.slice(0, 4),
-    ...publicPages.slice(0, 4 - Math.min(4, privateAccessiblePages.length))
+    ...pickDiverse(privateAccessiblePages, privateCount),
+    ...pickDiverse(publicPages, 4 - privateCount)
   ].slice(0, 4);
 
   // Cargar las descripciones de los documentos de forma asíncrona y paralela

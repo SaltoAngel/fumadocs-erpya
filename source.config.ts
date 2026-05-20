@@ -11,6 +11,7 @@ export const docs = defineDocs({
       category: z.string().optional(),
       star: z.number().optional(),
       sticky: z.number().optional(),
+      date: z.string().optional(),
       // Usamos coerce para convertir fechas o números en las etiquetas a string automáticamente
       tag: z.array(z.coerce.string()).optional(),
       article: z.boolean().optional(),
