@@ -160,8 +160,25 @@ No existe una solución única para el reabastecimiento, sino más bien una vari
 
 - Para ver el resultado vaya a la ventana **Requisiciones**.
 
+### Modo simple (recomendado)
 
+<Tabs items={['JavaScript', 'Rust']}>
+  <Tab value="JavaScript">JavaScript es raro</Tab>
+  <Tab value="Rust">Rust es rápido</Tab>
+</Tabs>
 
+### Sin `value` (detección por índice)
 
+<Tabs items={['JavaScript', 'Rust']}>
+  <Tab>JavaScript es raro</Tab>
+  <Tab>Rust es rápido</Tab>
+</Tabs>
 
+### Valor compartido (`groupId`)
 
+Tabs con el mismo `groupId` sincronizan su selección automáticamente:
+
+<Tabs groupId="language" items={['JavaScript', 'Rust']}>
+  <Tab value="JavaScript">...</Tab>
+  <Tab value="Rust">...</Tab>
+</Tabs>

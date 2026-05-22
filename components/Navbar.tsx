@@ -413,7 +413,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   }).filter(Boolean) as NavItem[];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[175] h-[60px] bg-[#0d1117]/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-500 flex items-center justify-between px-4 md:px-8 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[175] h-[60px] bg-fd-background/90 backdrop-blur-[12px] backdrop-saturate-[150%] border-b border-fd-foreground/10 shadow-2xl transition-all duration-500 flex items-center justify-between px-4 md:px-8 ${
       showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
     }`}>
       {/* Logo Section */}
