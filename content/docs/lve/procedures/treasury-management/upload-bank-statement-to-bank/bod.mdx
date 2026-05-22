@@ -53,7 +53,7 @@ Adicional a ello, se puede visualizar dicho documento de la siguiente manera, lu
 |11|MONTO|15|N|2|Sí|Monto del pago. Incluye los decimales. Monto expresado en ejemplo: Bs. 14.000,75|1400075|
 |12|MONEDA|3|N|N/A|Sí|Moneda actual disponible Bs.|VEB|
 |13|IMPUESTO RETENIDO|15|N|2|No|Monto del impuesto retenido en el documento asociado al pago Bs. 1.680,09|168009|
-|14|EMAIL|40|A|N/A|No|Dirección email del beneficiario|<joseh.cortez@gmail.com>|
+|14|EMAIL|40|A|N/A|No|Dirección email del beneficiario|joseh.cortez@gmail.com|
 |15|CELULAR|11|N|N/A|No|Teléfono celular para envío de SMS|04141234567|
 | |FILLER|20| | |Sí|Uso futuro||
 **Documentos asociados al pago TIPO=03 (Opcional)**
@@ -100,7 +100,7 @@ Adicional a ello, se puede visualizar dicho documento de la siguiente manera, lu
 |11|MONTO|15|N|2|Sí|Monto del pago. Incluye los decimales. Monto expresado en ejemplo: Bs. 14.000,75|1400075|
 |12|MONEDA|3|N|N/A|Sí|Moneda actual disponible Bs.|VEB|
 |13|IMPUESTO RETENIDO|15|N|2|No|Monto del impuesto retenido en el documento asociado al pago|168009|
-|14|EMAIL|40|A|N/A|No|Dirección email del beneficiario|<joseh.cortez@gmail.com>|
+|14|EMAIL|40|A|N/A|No|Dirección email del beneficiario|joseh.cortez@gmail.com|
 |15|CELULAR|11|N|N/A|No|Teléfono celular para envío de SMS|04141234567|
 |16|NRO. VOLANTE|8|N|N/A|Sí|Identificación del pago en taquilla mediante cheque||
 |17|COD RESPUESTA|2|N|N/A|Sí|Será aportado por el Banco||
@@ -129,8 +129,6 @@ Adicional a ello, se puede visualizar dicho documento de la siguiente manera, lu
   - Cada registro debe terminar con CR(Carrige Return), LF(Line Feed).
 
 </Callout>
-
-**Archivo para Pagos**
 **********************
 
 Al ejecutar el proceso de selección de pago de las siguientes facturas en ADempiere:
@@ -179,7 +177,7 @@ La descripción del archivo anteriormente generado por el pago, se encuentra exp
 |9|STATUS BENEFICIARIO|2|A|N/A|Sí|Indica el estado del beneficiario "AC" Activo "IN" inactivo|AC|
 |10|MONTO MÁXIMO|15|N|2|Sí|Monto máximo en una operación de pago|1400000|
 |11|MONEDA|3|N|N/A|Sí|Moneda actual disponible Bs.|VEB|
-|12|EMAIL|40|A|N/A|No|Dirección email del beneficiario|<joseh.cortez@gmail.com>|
+|12|EMAIL|40|A|N/A|No|Dirección email del beneficiario|joseh.cortez@gmail.com|
 |13|CELULAR|11|N|N/A|No|Teléfono celular para envío de SMS|04141234567|
 | |FILLER|63| | |Sí|Uso futuro||
 **Autorizados a retirar los pagos (opcional) TIPO=02. Longitud 250**
@@ -209,7 +207,7 @@ La descripción del archivo anteriormente generado por el pago, se encuentra exp
 |9|STATUS BENEFICIARIO|2|A|N/A|Sí|Indica el estado del beneficiario "AC" Activo "IN" inactivo|AC|
 |10|MONTO MÁXIMO|15|N|2|Sí|Monto máximo en una operación de pago|1400000|
 |11|MONEDA|3|N|N/A|Sí|Moneda actual disponible Bs.|VEB|
-|12|EMAIL|40|A|N/A|No|Dirección email del beneficiario|<joseh.cortez@gmail.com>|
+|12|EMAIL|40|A|N/A|No|Dirección email del beneficiario|joseh.cortez@gmail.com|
 |13|CELULAR|11|N|N/A|No|Teléfono celular para envío de SMS|04141234567|
 |14|COD RESPUESTA|2|N|N/A| |Será aportado por el Banco||
 |15|DESCRIPCION|30|A|N/A| |Será aportado por el Banco||
@@ -236,8 +234,6 @@ La descripción del archivo anteriormente generado por el pago, se encuentra exp
     - Cada registro debe terminar con CR(Carrige Return), LF(Line Feed).
 
 </Callout>
-
-**Archivo para Pagos**
 
 Al ejecutar el proceso de selección de pago de la nómina quincenal "**NQ-13**" procesada en ADempiere, con los siguientes empleados:
 

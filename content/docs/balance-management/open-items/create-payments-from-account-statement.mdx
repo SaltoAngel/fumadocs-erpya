@@ -45,8 +45,6 @@ Hasta este punto solo se puede visualizar los movimientos bancarios sin concilia
 
 </Callout>
 
-### Pagos o Cobros de Comisiones
-
 Para aquellos movimientos que pertenezcan a comisiones bancarias estos deben ser asociados al tipo de transacción **Cargos Bancarios**, ya estando dentro de la opción **Crear Pago desde Estado de Cuenta** se debe realizar los siguientes pasos.
 
 En la ventana de búsqueda inteligente de **Crear Pago desde Estado de Cuenta** seleccione el o los pagos/cobros correspondientes a las comisiones.
@@ -79,8 +77,6 @@ Si ADempiere refleja el error **No encontrado Factura / Socio del Negocio**, es 
 
 </Callout>
 
-Podrá visualizar el **Pago/Cobro** de cargos bancarios en la pestaña **Línea Estado de Cuentas**, como la pestaña cuenta con varios registros, esté puede ser ubicado por el monto del movimiento bancario. Al ubicar el registro esté debe contar con las siguientes características:
-
 En el campo **Pago** debe tener asociado el número del documento del **Pago/Cobro** que se seleccionó al momento de aplicar el proceso **Cargo Bancario**.
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image177.png)
@@ -93,8 +89,6 @@ El número de documento a mostrar en el campo **Pago** debe coincidir con el nú
 
 </Callout>
 
-En el grupo de campos **Referencia** podrá visualizar lo siguiente:
-
 En el campo **Socio de Negocio** debe aparecer el banco con el que se está trabajando la conciliación.
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image178.png)
@@ -106,8 +100,6 @@ Imagen 10. Campo Socio Negocio Comisiones
 Para este caso el socio del negocio a mostrar es el banco **Banesco** por que es el banco con el que se está trabajando la conciliación, pero ese socio de negocio va a variar según el banco con el que esté trabajando la conciliación, sí está trabajando con el banco **Mercantil** tomará ese banco, si está trabajando la conciliación con el banco **Banesco** tomará **Banesco** y así sucesivamente.
 
 </Callout>
-
-En el campo **Cuenta Beneficiario TEF** debe aparecer **COMISIÓN TRF OTROS BCOS**.
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image179.png)
 
@@ -124,8 +116,6 @@ Imagen 12. Campo Cantidad TEF
 El monto que aparece en el campo **Cantidad TEF** debe ser el mismo monto que aparece en el campo **Total de la Transacción**.
 
 </Callout>
-
-Si desea verificar el registro del pago/cobro generado en ADempiere puede realizarlo tildando el campo **Pago** y lo llevará a la ventana **Pago/Cobro** de ADempiere.
 
 Puede presionar click derecho y seleccionar la opción **Acercar** y lo llevará a la ventana **Pago/Cobro** de ADempiere.
 
@@ -171,8 +161,6 @@ Para este caso el socio de negocio es la persona que realizó la transferencia b
 
 </Callout>
 
-Seleccione en el campo **Cargo** el cargo correspondiente al pago/cobro,siguiendo el ejemplo anteriormente comentado el cargo a utilizar es **Préstamo Bancario**.
-
 ![Campo](/assets/img/docs/balance-management/bam-balance-image186.png)
 
 Imagen 18. Cargo Otro Tipo de Pago
@@ -182,8 +170,6 @@ Imagen 18. Cargo Otro Tipo de Pago
 El cargo a utilizar dependerá del tipo de transacción que se esté registrando.
 
 </Callout>
-
-Seleccione la opción **OK** para generar automáticamente el documento de pago/cobro en ADempiere.
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image187.png)
 
@@ -202,8 +188,6 @@ Imagen 20. Campo Pago Otro tipo de Pago
 El número de documento a mostrar en el campo **Pago** debe coincidir con el número que se muestra el campo **N° de Referencia** el cual es el número de la referencia bancaria de ese movimiento.
 
 </Callout>
-
-En el grupo de campos **Referencia** podrá visualizar lo siguiente:
 
 En el campo **Socio de Negocio** debe aparecer el socio de negocio asociado al momento de aplicar el tipo de transacción **Otro Tipo de Pago**.
 
@@ -229,8 +213,6 @@ El monto que aparece en el campo **Cantidad TEF** debe ser el mismo monto que ap
 
 </Callout>
 
-Si desea verificar el registro del pago/cobro generado en ADempiere puede realizarlo tildando el campo **Pago** y lo llevará a la ventana **Pago/Cobro** de ADempiere.
-
 Puede presionar click derecho y seleccionar la opción **Acercar** y lo llevará a la ventana **Pago/Cobro** de ADempiere.
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image192.png)
@@ -254,8 +236,6 @@ Para los movimientos bancarios que se desconocen de dónde proviene, en ADempier
 Los **Pago/Cobro** que se pasen a ser no identificados, luego podrán ser identificados una vez se verifique su procedencia.
 
 </Callout>
-
-Para poder llevar estas transacciones bancarias a **Pagos o Cobros sin Identificar** ya estando dentro de la opción **Crear Pago desde Estado de Cuenta** se debe realizar los siguientes pasos.
 
 Podrá observar la ventana de búsqueda inteligente donde se muestran todos los movimientos bancarios que no se les encontró una coincidencia al momento de hacer la conciliación automática.
 
@@ -287,8 +267,6 @@ Al seleccionar la opción **OK** ADempiere creará un **Pago/Cobro** con las mis
 
 </Callout>
 
-Podrá visualizar el **Pago/Cobro creado de **Pago sin Identificar** en la pestaña Línea Estado de Cuentas, como la pestaña cuenta con varios registros, esté puede ser ubicado por el monto del movimiento bancario. Al ubicar el registro esté debe contar con las siguientes características:
-
 La descripción de la **Línea Estado de Cuenta** debe tener como descripción **Pago no identificado**
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image198.png)
@@ -307,8 +285,6 @@ El n° de documento a mostrar debe coincidir con el n° que se muestra el campo 
 
 </Callout>
 
-En el grupo de campos **Referencia** debe aparecer como **Socio de Negocio** **Pagos/Cobros Sin Identificar**, este es un socio de negocio que tomará temporalmente el **Pago/Cobro** sin identificar.
-
 ![Campo](/assets/img/docs/balance-management/bam-balance-image200.png)
 
 Imagen 32. Referencia Pago Cobro sin Identificar
@@ -318,8 +294,6 @@ Imagen 32. Referencia Pago Cobro sin Identificar
 El socio de negocio **Pagos/Cobros Sin Identificar** es un socio de negocio que toma temporalmente el **Pago/Cobro** sin identificar, el cual más adelante será modificado una vez se desee identificar ese **Pago/Cobro**.
 
 </Callout>
-
-Si desea verificar el registro del pago/cobro generado en ADempiere puede realizarlo tildado el campo **Pago** y lo llevará a la ventana **Pago/Cobro** de ADempiere.
 
 Puede presionar click derecho y seleccionar la opción **Acercar** y lo llevará a la ventana **Pago/Cobro** de ADempiere.
 
@@ -354,8 +328,6 @@ Grupo de Estado
 El nombre del botón cambiará dependiendo del estado en el que se encuentre el documento si el documento se encuentra en estado **Borrador** la acción a mostrar en el botón es **Completar** caso que se está aplicando para este documento, si el estado del documento está en estado **Completo** el botón cambiará su nombre a la posible siguiente acción que se pueda aplicar en el documento.
 
 </Callout>
-
-Dar click a botón **Completar** y tildar **Ok** para la acción de documento seleccionada.
 
 ![Campo](/assets/img/docs/balance-management/bam-balance-image205.png)
 

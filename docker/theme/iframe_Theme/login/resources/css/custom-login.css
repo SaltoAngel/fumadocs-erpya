@@ -1,0 +1,37 @@
+/* 1. Forzar que el fondo de Keycloak sea transparente o del color exacto de tu app */
+body {
+    background: transparent !important;
+    background-color: #0a0a0a; /* O el color exacto de tu fondo */
+    color: #ffffff;
+    font-family: 'Tu Fuente', sans-serif;
+}
+
+/* 2. Ocultar el logo y el encabezado por defecto de Keycloak */
+#kc-header, 
+.login-pf-header, 
+#kc-logo {
+    display: none !important;
+}
+
+/* 3. Eliminar la tarjeta gris contenedora (Card) para que no tenga bordes ni sombras */
+.card-pf, 
+#kc-content-wrapper {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* 4. Estilizar los inputs para que tengan la línea blanca minimalista de tu diseño */
+.form-control {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #444 !important; /* La línea sutil inferior */
+    color: #fff !important;
+    border-radius: 0 !important;
+}
+
+.form-control:focus {
+    border-bottom: 1px solid #fff !important; /* Se ilumina al hacer clic */
+    box-shadow: none !important;
+}
