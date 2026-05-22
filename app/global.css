@@ -33,7 +33,6 @@
 /* --- NUCLEAR OVERRIDE PARA NAVBAR VUEPRESS --- */
 
 header, nav, [data-radix-popper-content-wrapper] {
-  background-color: var(--fd-background) !important;
   color: var(--fd-foreground) !important;
 }
 
@@ -50,7 +49,6 @@ header, nav, [data-radix-popper-content-wrapper] {
   gap: 4px !important;
   border: 1px solid var(--fd-border) !important;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
-  background-color: var(--fd-background) !important;
 }
 
 /* --- FIX DE LAYOUT --- */

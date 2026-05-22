@@ -503,7 +503,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
 
                       {/* Right 1 Column for Dynamic Article Explorer */}
                       <div className="col-span-1 flex flex-col gap-3 pl-2 max-h-[70vh] overflow-hidden">
-                        <span className="text-[10px] font-bold text-fd-foreground/45 tracking-wider uppercase border-b border-fd-foreground/5 pb-1">
+                        <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase border-b border-fd-foreground/5 pb-1">
                           Artículos Relacionados
                         </span>
                         {hoveredChild ? (
@@ -522,7 +522,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
                                         key={art.url}
                                         href={art.url}
                                         className={`text-xs transition-all duration-150 py-1.5 border-b border-fd-foreground/5 last:border-b-0 truncate hover:text-[#3b82f6] ${
-                                          artActive ? 'text-[#3b82f6] font-bold' : 'text-fd-foreground/60'
+                                          artActive ? 'text-[#3b82f6] font-bold' : 'text-zinc-600 dark:text-zinc-400'
                                         }`}
                                         title={art.text}
                                       >
@@ -532,7 +532,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
                                   })}
                                 </div>
                               ) : (
-                                <div className="text-[11px] text-fd-foreground/40 italic">
+                                <div className="text-[11px] text-zinc-500 italic">
                                   No hay sub-artículos en esta sección.
                                 </div>
                               );
@@ -540,8 +540,8 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
                           </div>
                         ) : (
                           <div className="flex flex-col items-center justify-center h-full py-8 text-center gap-2 opacity-50">
-                            <FaBook className="text-2xl text-fd-foreground/30 animate-pulse" />
-                            <span className="text-[11px] text-fd-foreground/40 leading-relaxed">
+                            <FaBook className="text-2xl text-zinc-500 animate-pulse" />
+                            <span className="text-[11px] text-zinc-500 leading-relaxed">
                               Pasa el cursor sobre una sección para explorar sus artículos
                             </span>
                           </div>

@@ -504,7 +504,7 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
                                           key={art.url}
                                           href={art.url}
                                           className={`text-xs transition-all duration-150 py-1.5 border-b border-white/[0.03] last:border-b-0 truncate hover:text-[#1AAAD4] ${
-                                            artActive ? 'text-[#1AAAD4] font-bold' : 'text-zinc-450'
+                                            artActive ? 'text-[#1AAAD4] font-bold' : 'text-zinc-400'
                                           }`}
                                           title={art.text}
                                         >
