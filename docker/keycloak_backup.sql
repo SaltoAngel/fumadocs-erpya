@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 3yqR8ntpkJO6GZHTylWce8kC5SxPYefODAoDhacp4AdhcAldfcN5yhFpCDdQ78T
+\restrict KyAebAkZoUlCqG8iQi7leRH42UZiJSaheflVlppAPKgK8AkZ7Ub1t66nFCtwrIx
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -2743,7 +2743,7 @@ ifu1z	26.6.1	1778090226
 --
 
 COPY public.offline_client_session (user_session_id, client_id, offline_flag, "timestamp", data, client_storage_provider, external_client_id, version, realm_id) FROM stdin;
-0Ha1KnkClw_bONBTMgfjCymP	78d20a38-d3ed-4288-aadd-603f9573972d	0	1778178740	{"authMethod":"openid-connect","redirectUri":"http://localhost:8080/admin/master/console/","notes":{"clientId":"78d20a38-d3ed-4288-aadd-603f9573972d","iss":"http://localhost:8080/realms/master","startedAt":"1778178739","response_type":"code","level-of-authentication":"-1","code_challenge_method":"S256","nonce":"0aaa563f-b386-48ef-b4ef-fa6ef0b41ce1","response_mode":"query","scope":"openid","userSessionStartedAt":"1778178739","redirect_uri":"http://localhost:8080/admin/master/console/","state":"0d97fe15-9d48-4878-b66d-4697d1a61cf9","code_challenge":"k3_umSAl4ML3-Vesbm_j_f5lGCJ5kJBX-CF15MrF9qc"}}	local	local	1	64844e83-205d-4ee5-b5f1-c772a9c661f8
+K1gefehWQJ4DOjlDLBeeEuvS	78d20a38-d3ed-4288-aadd-603f9573972d	0	1779735086	{"authMethod":"openid-connect","redirectUri":"http://localhost:8080/admin/master/console/#/master/realm-settings/themes","notes":{"clientId":"78d20a38-d3ed-4288-aadd-603f9573972d","iss":"http://localhost:8080/realms/master","startedAt":"1779735063","response_type":"code","level-of-authentication":"-1","code_challenge_method":"S256","nonce":"04067d85-4076-4a0f-8bc6-d8d1a052b8b8","response_mode":"query","scope":"openid","userSessionStartedAt":"1779735063","redirect_uri":"http://localhost:8080/admin/master/console/#/master/realm-settings/themes","state":"e3f61152-da5b-4458-8d05-df45e3e3b856","code_challenge":"RJBQrezwLX2ofBQOUrDrv5iApHIuFC7JxA21XDjElpo","SSO_AUTH":"true"}}	local	local	3	64844e83-205d-4ee5-b5f1-c772a9c661f8
 \.
 
 
@@ -2752,7 +2752,7 @@ COPY public.offline_client_session (user_session_id, client_id, offline_flag, "t
 --
 
 COPY public.offline_user_session (user_session_id, user_id, realm_id, created_on, offline_flag, data, last_session_refresh, broker_session_id, version, remember_me) FROM stdin;
-0Ha1KnkClw_bONBTMgfjCymP	66940bd6-e40f-4f51-92c7-a07f7651e845	64844e83-205d-4ee5-b5f1-c772a9c661f8	1778178739	0	{"ipAddress":"172.18.0.1","authMethod":"openid-connect","rememberMe":false,"started":0,"notes":{"KC_DEVICE_NOTE":"eyJpcEFkZHJlc3MiOiIxNzIuMTguMC4xIiwib3MiOiJMaW51eCIsIm9zVmVyc2lvbiI6IlVua25vd24iLCJicm93c2VyIjoiQ2hyb21lLzE0Ny4wLjAiLCJkZXZpY2UiOiJPdGhlciIsImxhc3RBY2Nlc3MiOjAsIm1vYmlsZSI6ZmFsc2V9","AUTH_TIME":"1778178739","authenticators-completed":"{\\"1bd23afe-8cac-4860-8207-950d31301f90\\":1778178739}"},"state":"LOGGED_IN"}	1778178740	\N	1	f
+K1gefehWQJ4DOjlDLBeeEuvS	66940bd6-e40f-4f51-92c7-a07f7651e845	64844e83-205d-4ee5-b5f1-c772a9c661f8	1779735063	0	{"ipAddress":"172.18.0.1","authMethod":"openid-connect","rememberMe":false,"started":0,"notes":{"KC_DEVICE_NOTE":"eyJpcEFkZHJlc3MiOiIxNzIuMTguMC4xIiwib3MiOiJMaW51eCIsIm9zVmVyc2lvbiI6IlVua25vd24iLCJicm93c2VyIjoiQ2hyb21lLzE0OC4wLjAiLCJkZXZpY2UiOiJPdGhlciIsImxhc3RBY2Nlc3MiOjAsIm1vYmlsZSI6ZmFsc2V9","AUTH_TIME":"1779735063","authenticators-completed":"{\\"1bd23afe-8cac-4860-8207-950d31301f90\\":1779735063,\\"669c84d6-7fa9-419e-9854-0c2a4f69d919\\":1779735085}"},"state":"LOGGED_IN"}	1779735086	\N	3	f
 \.
 
 
@@ -3307,8 +3307,8 @@ e9395691-846c-44f5-b1f5-c465e18eedc4	String	jsonType.label
 --
 
 COPY public.realm (id, access_code_lifespan, user_action_lifespan, access_token_lifespan, account_theme, admin_theme, email_theme, enabled, events_enabled, events_expiration, login_theme, name, not_before, password_policy, registration_allowed, remember_me, reset_password_allowed, social, ssl_required, sso_idle_timeout, sso_max_lifespan, update_profile_on_soc_login, verify_email, master_admin_client, login_lifespan, internationalization_enabled, default_locale, reg_email_as_username, admin_events_enabled, admin_events_details_enabled, edit_username_allowed, otp_policy_counter, otp_policy_window, otp_policy_period, otp_policy_digits, otp_policy_alg, otp_policy_type, browser_flow, registration_flow, direct_grant_flow, reset_credentials_flow, client_auth_flow, offline_session_idle_timeout, revoke_refresh_token, access_token_life_implicit, login_with_email_allowed, duplicate_emails_allowed, docker_auth_flow, refresh_token_max_reuse, allow_user_managed_access, sso_max_lifespan_remember_me, sso_idle_timeout_remember_me, default_role) FROM stdin;
-79297412-b299-4def-8f42-bd61d963bfcc	60	300	300	\N	\N	\N	t	f	0	\N	ERP-Docs	0	\N	f	f	f	f	EXTERNAL	1800	36000	f	f	ca7d86ad-b054-407e-8555-e983242f27a4	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	eb7b4bfd-2066-42ff-a40d-010a2312d7aa	e243ec36-cd15-459a-964c-b78150cd29e0	fc8f640d-11d5-4d3b-86b3-eff8b08f5633	506f1e42-51da-4a63-8920-f42ed9ede67d	34abf6f3-63f3-4bfe-bfb4-e935984e2a71	2592000	f	900	t	f	108eb994-100d-4ecb-8c34-938aead25692	0	f	0	0	f084e403-d707-4a59-84b4-6ca6b024e4e2
-64844e83-205d-4ee5-b5f1-c772a9c661f8	60	300	60	\N	\N	\N	t	f	0	\N	master	0	\N	f	f	f	f	EXTERNAL	1800	36000	f	f	3f22b2c3-f40d-43a4-8371-3ed918cea9c3	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	1ecb1b3d-6183-4f96-88f3-980b59df363f	a9c05ddc-77a3-4550-bf6f-b714f572fb84	18ea931c-009b-426b-86bf-06e3455dfb3f	a224e319-ba24-4846-aafb-f8046c2641a7	37308016-27d7-4420-af7f-07ac858c623a	2592000	f	900	t	f	588388d0-48fa-4dbf-bdfb-da51eedbbceb	0	f	0	0	357d75aa-76ac-477f-a87d-be40056d7d5a
+79297412-b299-4def-8f42-bd61d963bfcc	60	300	300				t	f	0	iframe_Theme	ERP-Docs	0	\N	f	f	f	f	EXTERNAL	1800	36000	f	f	ca7d86ad-b054-407e-8555-e983242f27a4	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	eb7b4bfd-2066-42ff-a40d-010a2312d7aa	e243ec36-cd15-459a-964c-b78150cd29e0	fc8f640d-11d5-4d3b-86b3-eff8b08f5633	506f1e42-51da-4a63-8920-f42ed9ede67d	34abf6f3-63f3-4bfe-bfb4-e935984e2a71	2592000	f	900	t	f	108eb994-100d-4ecb-8c34-938aead25692	0	f	0	0	f084e403-d707-4a59-84b4-6ca6b024e4e2
+64844e83-205d-4ee5-b5f1-c772a9c661f8	60	300	60				t	f	0		master	0	\N	t	f	f	f	EXTERNAL	1800	36000	f	f	3f22b2c3-f40d-43a4-8371-3ed918cea9c3	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	1ecb1b3d-6183-4f96-88f3-980b59df363f	a9c05ddc-77a3-4550-bf6f-b714f572fb84	18ea931c-009b-426b-86bf-06e3455dfb3f	a224e319-ba24-4846-aafb-f8046c2641a7	37308016-27d7-4420-af7f-07ac858c623a	2592000	f	900	t	f	588388d0-48fa-4dbf-bdfb-da51eedbbceb	0	f	0	0	357d75aa-76ac-477f-a87d-be40056d7d5a
 \.
 
 
@@ -3321,8 +3321,6 @@ _browser_header.contentSecurityPolicyReportOnly	64844e83-205d-4ee5-b5f1-c772a9c6
 _browser_header.xContentTypeOptions	64844e83-205d-4ee5-b5f1-c772a9c661f8	nosniff
 _browser_header.referrerPolicy	64844e83-205d-4ee5-b5f1-c772a9c661f8	no-referrer
 _browser_header.xRobotsTag	64844e83-205d-4ee5-b5f1-c772a9c661f8	none
-_browser_header.xFrameOptions	64844e83-205d-4ee5-b5f1-c772a9c661f8	SAMEORIGIN
-_browser_header.contentSecurityPolicy	64844e83-205d-4ee5-b5f1-c772a9c661f8	frame-src 'self'; frame-ancestors 'self'; object-src 'none';
 _browser_header.strictTransportSecurity	64844e83-205d-4ee5-b5f1-c772a9c661f8	max-age=31536000; includeSubDomains
 bruteForceProtected	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
 permanentLockout	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
@@ -3346,8 +3344,6 @@ _browser_header.contentSecurityPolicyReportOnly	79297412-b299-4def-8f42-bd61d963
 _browser_header.xContentTypeOptions	79297412-b299-4def-8f42-bd61d963bfcc	nosniff
 _browser_header.referrerPolicy	79297412-b299-4def-8f42-bd61d963bfcc	no-referrer
 _browser_header.xRobotsTag	79297412-b299-4def-8f42-bd61d963bfcc	none
-_browser_header.xFrameOptions	79297412-b299-4def-8f42-bd61d963bfcc	SAMEORIGIN
-_browser_header.contentSecurityPolicy	79297412-b299-4def-8f42-bd61d963bfcc	frame-src 'self'; frame-ancestors 'self'; object-src 'none';
 _browser_header.strictTransportSecurity	79297412-b299-4def-8f42-bd61d963bfcc	max-age=31536000; includeSubDomains
 bruteForceProtected	79297412-b299-4def-8f42-bd61d963bfcc	false
 permanentLockout	79297412-b299-4def-8f42-bd61d963bfcc	false
@@ -3392,6 +3388,59 @@ cibaInterval	79297412-b299-4def-8f42-bd61d963bfcc	5
 cibaAuthRequestedUserHint	79297412-b299-4def-8f42-bd61d963bfcc	login_hint
 parRequestUriLifespan	79297412-b299-4def-8f42-bd61d963bfcc	60
 firstBrokerLoginFlowId	79297412-b299-4def-8f42-bd61d963bfcc	d9fcb579-c355-4658-87e4-fc20edf9a9bc
+_browser_header.xFrameOptions	79297412-b299-4def-8f42-bd61d963bfcc	
+_browser_header.contentSecurityPolicy	79297412-b299-4def-8f42-bd61d963bfcc	frame-src 'self'; frame-ancestors 'self' http://localhost:3001; object-src 'none';
+cibaBackchannelTokenDeliveryMode	64844e83-205d-4ee5-b5f1-c772a9c661f8	poll
+cibaExpiresIn	64844e83-205d-4ee5-b5f1-c772a9c661f8	120
+cibaAuthRequestedUserHint	64844e83-205d-4ee5-b5f1-c772a9c661f8	login_hint
+parRequestUriLifespan	64844e83-205d-4ee5-b5f1-c772a9c661f8	60
+cibaInterval	64844e83-205d-4ee5-b5f1-c772a9c661f8	5
+organizationsEnabled	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
+scimApiEnabled	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
+adminPermissionsEnabled	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
+verifiableCredentialsEnabled	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
+actionTokenGeneratedByAdminLifespan	64844e83-205d-4ee5-b5f1-c772a9c661f8	43200
+actionTokenGeneratedByUserLifespan	64844e83-205d-4ee5-b5f1-c772a9c661f8	300
+oauth2DeviceCodeLifespan	64844e83-205d-4ee5-b5f1-c772a9c661f8	600
+oauth2DevicePollingInterval	64844e83-205d-4ee5-b5f1-c772a9c661f8	5
+clientSessionIdleTimeout	64844e83-205d-4ee5-b5f1-c772a9c661f8	0
+clientSessionMaxLifespan	64844e83-205d-4ee5-b5f1-c772a9c661f8	0
+clientOfflineSessionIdleTimeout	64844e83-205d-4ee5-b5f1-c772a9c661f8	0
+clientOfflineSessionMaxLifespan	64844e83-205d-4ee5-b5f1-c772a9c661f8	0
+webAuthnPolicyRpEntityName	64844e83-205d-4ee5-b5f1-c772a9c661f8	keycloak
+webAuthnPolicySignatureAlgorithms	64844e83-205d-4ee5-b5f1-c772a9c661f8	ES256,RS256
+webAuthnPolicyRpId	64844e83-205d-4ee5-b5f1-c772a9c661f8	
+webAuthnPolicyAttestationConveyancePreference	64844e83-205d-4ee5-b5f1-c772a9c661f8	not specified
+webAuthnPolicyAuthenticatorAttachment	64844e83-205d-4ee5-b5f1-c772a9c661f8	not specified
+webAuthnPolicyRequireResidentKey	64844e83-205d-4ee5-b5f1-c772a9c661f8	not specified
+webAuthnPolicyUserVerificationRequirement	64844e83-205d-4ee5-b5f1-c772a9c661f8	not specified
+webAuthnPolicyCreateTimeout	64844e83-205d-4ee5-b5f1-c772a9c661f8	0
+webAuthnPolicyAvoidSameAuthenticatorRegister	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
+webAuthnPolicyRpEntityNamePasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	keycloak
+webAuthnPolicySignatureAlgorithmsPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	ES256,RS256
+webAuthnPolicyRpIdPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	
+webAuthnPolicyAttestationConveyancePreferencePasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	not specified
+webAuthnPolicyAuthenticatorAttachmentPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	not specified
+webAuthnPolicyRequireResidentKeyPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	Yes
+webAuthnPolicyUserVerificationRequirementPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	required
+webAuthnPolicyCreateTimeoutPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	0
+webAuthnPolicyAvoidSameAuthenticatorRegisterPasswordless	64844e83-205d-4ee5-b5f1-c772a9c661f8	false
+client-policies.profiles	64844e83-205d-4ee5-b5f1-c772a9c661f8	{"profiles":[]}
+client-policies.policies	64844e83-205d-4ee5-b5f1-c772a9c661f8	{"policies":[]}
+_browser_header.contentSecurityPolicy	64844e83-205d-4ee5-b5f1-c772a9c661f8	frame-src 'self'; frame-ancestors 'self' http://localhost:3001/; object-src 'none';
+_browser_header.xFrameOptions	64844e83-205d-4ee5-b5f1-c772a9c661f8	
+darkMode	79297412-b299-4def-8f42-bd61d963bfcc	true
+organizationsEnabled	79297412-b299-4def-8f42-bd61d963bfcc	false
+scimApiEnabled	79297412-b299-4def-8f42-bd61d963bfcc	false
+adminPermissionsEnabled	79297412-b299-4def-8f42-bd61d963bfcc	false
+verifiableCredentialsEnabled	79297412-b299-4def-8f42-bd61d963bfcc	false
+clientSessionIdleTimeout	79297412-b299-4def-8f42-bd61d963bfcc	0
+clientSessionMaxLifespan	79297412-b299-4def-8f42-bd61d963bfcc	0
+clientOfflineSessionIdleTimeout	79297412-b299-4def-8f42-bd61d963bfcc	0
+clientOfflineSessionMaxLifespan	79297412-b299-4def-8f42-bd61d963bfcc	0
+client-policies.profiles	79297412-b299-4def-8f42-bd61d963bfcc	{"profiles":[]}
+client-policies.policies	79297412-b299-4def-8f42-bd61d963bfcc	{"policies":[]}
+darkMode	64844e83-205d-4ee5-b5f1-c772a9c661f8	true
 \.
 
 
@@ -3416,8 +3465,8 @@ COPY public.realm_enabled_event_types (realm_id, value) FROM stdin;
 --
 
 COPY public.realm_events_listeners (realm_id, value) FROM stdin;
-64844e83-205d-4ee5-b5f1-c772a9c661f8	jboss-logging
 79297412-b299-4def-8f42-bd61d963bfcc	jboss-logging
+64844e83-205d-4ee5-b5f1-c772a9c661f8	jboss-logging
 \.
 
 
@@ -5983,5 +6032,5 @@ ALTER TABLE ONLY public.identity_provider_config
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 3yqR8ntpkJO6GZHTylWce8kC5SxPYefODAoDhacp4AdhcAldfcN5yhFpCDdQ78T
+\unrestrict KyAebAkZoUlCqG8iQi7leRH42UZiJSaheflVlppAPKgK8AkZ7Ub1t66nFCtwrIx
 

@@ -409,7 +409,7 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
             height={36}
             priority
             style={{ width: 'auto', height: '28px' }}
-            className="group-hover:scale-110 transition-transform duration-300 h-[28px] w-auto block"
+            className="group-hover:scale-110 transition-transform duration-300 h-[28px] w-auto block brightness-0 invert"
           />
         </Link>
 

@@ -428,7 +428,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
           height={36}
           priority
           style={{ width: 'auto', height: '28px' }}
-          className="group-hover:scale-110 transition-transform duration-300 h-[28px] w-auto block"
+          className={`group-hover:scale-110 transition-transform duration-300 h-[28px] w-auto block ${pathname === '/' ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'}`}
         />
       </Link>
 
@@ -657,7 +657,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
         onClose={() => setIsLoginModalOpen(false)} 
         onSuccess={() => {
           setIsLoginModalOpen(false);
-          router.refresh();
+          window.location.reload();
         }} 
       />
     </nav>
