@@ -28,6 +28,8 @@ services:
       # Admin Inicial
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: 123
+      KC_THEME_CACHE_CLASS_LOADER: false
+      KC_THEME_CACHE_THEMES: false
     ports:
       - "8080:8080"
     depends_on:
@@ -35,6 +37,7 @@ services:
     volumes:
       - keycloak_data:/opt/keycloak/data
       - ./realm-export.json:/opt/keycloak/data/import/realm.json
+      - ./theme:/opt/keycloak/themes
     restart: always
 
   docs:

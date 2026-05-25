@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciando Sesión...</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #1AAAD4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .loader {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid #1AAAD4;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+    <script>
+        // Le enviamos un mensaje a la ventana padre (tu app principal React)
+        if (window.parent) {
+            window.parent.postMessage({
+                type: 'KEYCLOAK_LOGIN_SUCCESS'
+            }, window.location.origin);
+        }
+    </script>
+</body>
+</html>

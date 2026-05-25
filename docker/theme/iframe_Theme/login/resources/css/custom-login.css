@@ -1,37 +1,202 @@
-/* 1. Forzar que el fondo de Keycloak sea transparente o del color exacto de tu app */
-body {
-    background: transparent !important;
-    background-color: #0a0a0a; /* O el color exacto de tu fondo */
-    color: #ffffff;
-    font-family: 'Tu Fuente', sans-serif;
+/* 1. Reset general y fondo oscuro */
+html, html.login-pf, body, body.login-pf, .login-pf-page, .login-pf-bg, #kc-container, #kc-content-wrapper {
+    background-color: #0a0a0a !important;
+    background-image: none !important;
+    background: #0a0a0a !important;
+    color: #e5e5e5 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-/* 2. Ocultar el logo y el encabezado por defecto de Keycloak */
+/* Ocultar elementos innecesarios por defecto */
 #kc-header, 
 .login-pf-header, 
-#kc-logo {
+#kc-logo,
+.alert {
     display: none !important;
 }
 
-/* 3. Eliminar la tarjeta gris contenedora (Card) para que no tenga bordes ni sombras */
-.card-pf, 
-#kc-content-wrapper {
-    background: transparent !important;
+/* 2. Tarjeta base (contenedor exterior de Keycloak) */
+.card-pf {
+    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    padding: 0 !important; /* El padding se maneja adentro */
+    width: 100% !important;
+    max-width: 450px !important; /* Ajustado para una sola columna */
+    margin: auto !important;
 }
 
-/* 4. Estilizar los inputs para que tengan la línea blanca minimalista de tu diseño */
+/* 3. Layout en una columna */
+.custom-login-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.login-left-col,
+.register-col {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Borde del medio sutil */
+.vertical-divider {
+    width: 1px;
+    background-color: #2a2a2a;
+    margin: 30px 0;
+}
+
+/* Títulos de las columnas */
+.col-title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* 4. Inputs de la izquierda */
+.form-group {
+    margin-bottom: 30px;
+}
+
 .form-control {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid #444 !important; /* La línea sutil inferior */
-    color: #fff !important;
+    border-bottom: 1px solid #444444 !important;
+    color: #ffffff !important;
     border-radius: 0 !important;
+    padding: 10px 0 !important;
+    font-size: 16px !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    transition: border-color 0.3s ease !important;
 }
 
 .form-control:focus {
-    border-bottom: 1px solid #fff !important; /* Se ilumina al hacer clic */
-    box-shadow: none !important;
+    border-bottom: 1px solid #ffffff !important;
+    outline: none !important;
+}
+
+.form-control::placeholder {
+    color: #666;
+}
+
+/* 5. Fila inferior de la izquierda (Botón y Forgot Password) */
+.form-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+/* 6. Botones (Pill buttons) */
+.btn-custom, .btn-outline {
+    background-color: transparent !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 50px !important;
+    color: #ffffff !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}
+
+.btn-custom:hover, .btn-outline:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.arrow {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+/* 7. Enlaces */
+.reset-password a {
+    color: #888888 !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.reset-password a:hover {
+    color: #ffffff !important;
+}
+
+/* 8. Contenido de la columna derecha (Beneficios) */
+.benefits-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 50px 0;
+}
+
+.benefits-list li {
+    font-size: 15px;
+    color: #d1d1d1;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.bullet {
+    font-size: 20px;
+    line-height: 1;
+    margin-right: 12px;
+    color: #d1d1d1;
+    display: inline-block;
+    transform: translateY(2px);
+}
+
+/* Responsividad para móviles: pasar a una columna */
+@media (max-width: 768px) {
+    .custom-login-wrapper {
+        flex-direction: column;
+    }
+    
+    .vertical-divider {
+        width: auto;
+        height: 1px;
+        margin: 0 40px;
+    }
+}
+/* 9. Estilos del Formulario de Registro */
+.register-wrapper {
+    max-width: 500px !important;
+}
+
+.register-col {
+    padding: 50px 40px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.form-row .form-group {
+    margin-bottom: 0 !important;
+}
+
+.half-width {
+    flex: 1;
+}
+
+.register-bottom-row {
+    margin-top: 50px;
 }

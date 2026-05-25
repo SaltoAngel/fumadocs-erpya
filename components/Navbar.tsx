@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { source } from '../lib/source';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { 
   FaHouse, 
@@ -70,6 +70,7 @@ import {
 } from 'react-icons/fa6';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useSearchContext } from 'fumadocs-ui/contexts/search';
+import { LoginModal } from './LoginModal';
 import { HomeNavbar } from './HomeNavbar';
 
 interface NavChild {
@@ -274,6 +275,8 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   const { theme, setTheme } = useTheme();
   const { setOpenSearch } = useSearchContext();
   const [mounted, setMounted] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const router = useRouter();
   
   // Lógica para ocultar/mostrar navbar al hacer scroll
   const [showNavbar, setShowNavbar] = useState(true);
@@ -624,7 +627,7 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
             </div>
           ) : (
             <button 
-              onClick={() => signIn('keycloak')}
+              onClick={() => setIsLoginModalOpen(true)}
               className="flex items-center gap-2 bg-[#3b82f6]/10 text-[#3b82f6] hover:bg-[#3b82f6]/20 border border-[#3b82f6]/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300"
             >
               <FaRightToBracket className="text-[12px]" />
@@ -649,6 +652,14 @@ export function Navbar({ publicPaths = [] }: { publicPaths?: string[] }) {
           background: #2563eb;
         }
       `}</style>
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        onSuccess={() => {
+          setIsLoginModalOpen(false);
+          router.refresh();
+        }} 
+      />
     </nav>
   );
 }

@@ -3,11 +3,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import { useSearchContext } from 'fumadocs-ui/contexts/search';
 import { source } from '../lib/source';
+import { LoginModal } from './LoginModal';
 import { 
   FaHouse, 
   FaCircleInfo, 
@@ -267,6 +268,7 @@ const navLinks: NavItem[] = [
 export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   const { data: session } = useSession();
   const pathname = usePathname();
+  const router = useRouter();
   const { theme, setTheme } = useTheme();
   const { setOpenSearch } = useSearchContext();
   const [mounted, setMounted] = useState(false);
@@ -274,6 +276,7 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const userRoles = (session?.user as any)?.roles || [];
@@ -607,7 +610,7 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
               </div>
             ) : (
               <button 
-                onClick={() => signIn('keycloak')}
+                onClick={() => setIsLoginModalOpen(true)}
                 className="flex items-center gap-1.5 bg-[#1AAAD4]/10 text-[#1AAAD4] hover:bg-[#1AAAD4]/20 border border-[#1AAAD4]/20 px-3.5 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-all duration-300"
               >
                 <FaRightToBracket className="text-xs" />
@@ -713,6 +716,15 @@ export function HomeNavbar({ publicPaths = [] }: { publicPaths?: string[] }) {
           background: #1AAAD4;
         }
       `}</style>
+
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        onSuccess={() => {
+          setIsLoginModalOpen(false);
+          router.refresh(); // Refresca para actualizar useSession
+        }} 
+      />
     </header>
   );
 }
