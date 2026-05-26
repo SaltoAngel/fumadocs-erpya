@@ -36,10 +36,15 @@
                         </#if>
                         
                         <div class="form-bottom-row">
-                            <div id="kc-form-buttons">
+                            <div id="kc-form-buttons" style="display: flex; gap: 10px; align-items: center;">
                                 <button tabindex="4" class="btn-custom" name="login" id="kc-login" type="submit">
                                     Ingresar <span class="arrow">&rarr;</span>
                                 </button>
+                                <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
+                                    <a tabindex="5" href="${url.registrationUrl}" class="btn-custom">
+                                        Crear cuenta
+                                    </a>
+                                </#if>
                             </div>
                             
                             <div id="kc-form-options">
