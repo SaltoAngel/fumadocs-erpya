@@ -18,6 +18,22 @@
                         <div class="form-group">
                             <input tabindex="2" id="password" class="form-control" name="password" type="password" autocomplete="off" placeholder="Contraseña" />
                         </div>
+
+                        <#if messagesPerField.existsError('username','password')>
+                            <div class="form-group" style="color: #ffb4ab; font-size: 0.875rem; margin-top: -0.5rem; margin-bottom: 1rem;">
+                                <span id="input-error" class="error-text" aria-live="polite">
+                                    ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
+                                </span>
+                            </div>
+                        </#if>
+                        
+                        <#if message?has_content && message.type == 'error' && !messagesPerField.existsError('username','password')>
+                            <div class="form-group" style="color: #ffb4ab; font-size: 0.875rem; margin-top: -0.5rem; margin-bottom: 1rem;">
+                                <span class="error-text" aria-live="polite">
+                                    ${kcSanitize(message.summary)?no_esc}
+                                </span>
+                            </div>
+                        </#if>
                         
                         <div class="form-bottom-row">
                             <div id="kc-form-buttons">
