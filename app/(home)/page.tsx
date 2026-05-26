@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BloggerInfo } from '@/components/BloggerInfo';
-import { TechStackOrbit } from '@/components/TechStackOrbit';
+import { CommandCenterDiagram } from '@/components/CommandCenterDiagram';
 import { source } from '@/lib/source';
 import { FaCalendarAlt, FaArrowRight, FaRocket, FaCode, FaDiscord } from 'react-icons/fa';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
@@ -325,95 +325,50 @@ export default async function HomePage() {
   );
 
   return (
-    <main 
-      className="flex flex-col min-h-screen bg-[#020716] text-zinc-100 font-sans relative overflow-hidden mt-[-60px]"
-      style={{
-        backgroundImage: `
-          radial-gradient(circle at 50% -20%, rgba(29, 78, 216, 0.38), transparent 60%),
-          radial-gradient(circle at 80% 40%, rgba(30, 64, 175, 0.22), transparent 50%),
-          radial-gradient(circle at 10% 70%, rgba(30, 58, 138, 0.15), transparent 45%)
-        `
-      }}
-    >
-      {/* Background Linear Mesh Grid */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px',
-          maskImage: 'radial-gradient(circle at 50% 50%, white 20%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(circle at 50% 50%, white 20%, transparent 80%)',
-          opacity: 0.85
-        }}
-      />
+    <main className="flex flex-col min-h-screen bg-surface text-on-surface font-body-base relative overflow-hidden mt-[-60px]">
+      <div className="scanline"></div>
+      <div className="absolute inset-0 pointer-events-none grid-bg opacity-85" />
+      
+      {/* Ambient Light Accents */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary-container/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-container/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
 
       {/* Hero Section */}
-      <section className="relative w-full px-6 pt-28 pb-16 sm:px-8 lg:pt-36 lg:pb-24 max-w-7xl mx-auto z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_460px] gap-12 lg:gap-16 items-center">
+      <section className="relative w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 min-h-screen pt-[80px] pb-12 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        {/* Left Content: Hero Text */}
+        <div className="lg:col-span-5 space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 glass-panel border border-primary/30 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-primary-container node-pulse"></span>
+            <span className="font-micro-label text-[10px] font-bold tracking-[0.08em] text-primary-container uppercase">Venezuela · Latinoamérica</span>
+          </div>
           
-          {/* Left Hero Column */}
-          <div className="max-w-2xl">
-            {/* Country/Region Badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-white/[0.15] bg-white/[0.06] px-3.5 py-1.5 text-xs font-semibold text-white/[0.88] shadow-[0_14px_38px_rgba(0,0,0,0.14)] backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1AAAD4] animate-pulse" />
-              Venezuela · Latinoamérica
-            </div>
-
-            {/* Glowing Big Headline */}
-            <h1 className="mb-6 text-[clamp(32px,5.5vw,60px)] font-extrabold leading-[1.04] tracking-tight text-white">
-              Tecnología empresarial. <br />
-              <span className="bg-gradient-to-r from-[#1AAAD4] to-[#5BC8E5] bg-clip-text text-transparent">
-                Implementada por expertos.
-              </span>
+          <div className="space-y-4">
+            <h1 className="font-display-lg text-[clamp(32px,5.5vw,48px)] font-bold leading-[1.1] tracking-[-0.04em] text-on-background">
+              Conocimiento <br/>
+              <span className="text-primary-container">centralizado.</span><br/>
+              Documentación oficial.
             </h1>
-
-            {/* Subtext description */}
-            <p className="mb-8 text-base sm:text-lg leading-relaxed text-zinc-300 max-w-xl">
-              ERP, CRM, BI e Infraestructura — implementados por expertos con más de 15 años de experiencia en Venezuela y Latinoamérica.
+            <p className="font-body-base text-[15px] leading-[1.5] text-on-surface-variant max-w-lg">
+              Guías técnicas, referencias y mejores prácticas para ADempiere, . Toda la información necesaria para dominar y escalar tus soluciones empresariales.
             </p>
-
-            {/* CTAs */}
-            <div className="mb-10 flex flex-wrap gap-4">
-              <a 
-                href="/docs" 
-                className="inline-flex items-center gap-2 rounded-lg bg-[#1AAAD4] px-6 py-3 text-sm font-extrabold text-[#0D2167] shadow-[0_0_20px_rgba(26,170,212,0.3)] transition-all duration-300 hover:bg-[#24c0eb] hover:shadow-[0_0_30px_rgba(26,170,212,0.55)] hover:-translate-y-0.5"
-              >
-                Ver Documentación
-                <FaArrowRight className="text-xs" />
-              </a>
-              <Link 
-                href="/docs/about" 
-                className="inline-flex items-center gap-2 rounded-lg border border-white/[0.2] px-5 py-3 text-sm font-semibold text-white/[0.88] transition-all duration-300 hover:bg-white/[0.08] hover:-translate-y-0.5"
-              >
-                Conócenos
-              </Link>
-            </div>
-
-            {/* Features checkmarks list */}
-            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-zinc-400">
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-[#1AAAD4]/15 text-[#1AAAD4] flex items-center justify-center text-[10px] font-bold">✓</span>
-                Implementación ERP
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-[#1AAAD4]/15 text-[#1AAAD4] flex items-center justify-center text-[10px] font-bold">✓</span>
-                BI y analítica
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-[#1AAAD4]/15 text-[#1AAAD4] flex items-center justify-center text-[10px] font-bold">✓</span>
-                Infraestructura cloud
-              </span>
-            </div>
           </div>
-
-          {/* Right Hero Column: Technical Orbit stack */}
-          <div className="w-full flex items-center justify-center">
-            <TechStackOrbit />
+          
+          <div className="flex flex-wrap gap-4 pt-4">
+            <a href="/docs" className="px-8 py-4 bg-primary-container text-[#0D2167] font-bold rounded-lg flex items-center gap-2 hover:shadow-[0_0_20px_rgba(26,170,212,0.4)] transition-all">
+              Ver Documentación
+              <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </a>
+            <Link href="/docs/about" className="px-8 py-4 glass-panel text-on-surface border border-white/20 font-bold rounded-lg hover:bg-white/5 transition-all">
+              Conócenos
+            </Link>
           </div>
+          
+        </div>
 
+        {/* Right Content: The Visual Diagram (Command Center HUD) */}
+        <div className="lg:col-span-7">
+          <CommandCenterDiagram />
         </div>
       </section>
 
