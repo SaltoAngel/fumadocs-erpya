@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict KyAebAkZoUlCqG8iQi7leRH42UZiJSaheflVlppAPKgK8AkZ7Ub1t66nFCtwrIx
+\restrict VKHQWHSqIWi1vYaZIztFTt5Jf3Cx0CtRhn1Liw9unSL680NrEZ9fqpmNOYKv3ej
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -2225,8 +2225,9 @@ f084e403-d707-4a59-84b4-6ca6b024e4e2	0c369ff5-569d-4fc1-a22f-98c4ccb939ee
 
 COPY public.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority, version) FROM stdin;
 4b1c5897-7f47-4124-81c8-acf947098e17	\N	password	66940bd6-e40f-4f51-92c7-a07f7651e845	1778090235642	\N	{"value":"j/POuu7/HaB0cLIB5Jl4dh2L19kZLtqZMk/yuAFc6hE=","salt":"8gd6FmHOeP/i68CKguXr8Q==","additionalParameters":{}}	{"hashIterations":5,"algorithm":"argon2","additionalParameters":{"hashLength":["32"],"memory":["7168"],"type":["id"],"version":["1.3"],"parallelism":["1"]}}	10	0
-6b69e302-0743-4c9c-a488-c2b29d5d48c3	\N	password	ece1ab8c-ef1d-480a-bf3e-d215596c3a32	1778095911762	My password	{"value":"dOnc2HlcufsUcnQZzfcEM56oyzdNJZYIk+Du18wbHbI=","salt":"2GcHZMTY+WgN41DM6VtIkA==","additionalParameters":{}}	{"hashIterations":5,"algorithm":"argon2","additionalParameters":{"hashLength":["32"],"memory":["7168"],"type":["id"],"version":["1.3"],"parallelism":["1"]}}	10	4
 d06cfeeb-ad3d-4846-894c-a418cb6150e2	\N	password	843c15c5-60cf-4a86-9851-fb331bb9e6c9	1778099519201	My password	{"value":"J32dAyy/68RM7nQ/DqZ4Tb8aOktpFzTrdLc4kL5Fy5c=","salt":"BaSWW7BMQ59r4yR2hTy6Rg==","additionalParameters":{}}	{"hashIterations":5,"algorithm":"argon2","additionalParameters":{"hashLength":["32"],"memory":["7168"],"type":["id"],"version":["1.3"],"parallelism":["1"]}}	10	1
+6b69e302-0743-4c9c-a488-c2b29d5d48c3	\N	password	ece1ab8c-ef1d-480a-bf3e-d215596c3a32	1779818276439	My password	{"value":"0rLxpBWDvMM3pfEUF2r7sjVoq6e9C3zRS5JECOkZHco=","salt":"KEsUd7uOx9Wdaaq9RQESpg==","additionalParameters":{}}	{"hashIterations":5,"algorithm":"argon2","additionalParameters":{"hashLength":["32"],"memory":["7168"],"type":["id"],"version":["1.3"],"parallelism":["1"]}}	10	8
+d0601653-f3ec-4c1a-a811-09a9e43d3eb9	\N	password	11480219-cfed-4bbd-b701-907db473bddb	1779904018960	\N	{"value":"4xP94Fa4HYoXGBj1jknFrdFRbeq5skmhV8O3EHfAg7M=","salt":"L6hwTb8bDgV3p5AI6Lb2IQ==","additionalParameters":{}}	{"hashIterations":5,"algorithm":"argon2","additionalParameters":{"hashLength":["32"],"memory":["7168"],"type":["id"],"version":["1.3"],"parallelism":["1"]}}	10	0
 \.
 
 
@@ -2743,7 +2744,9 @@ ifu1z	26.6.1	1778090226
 --
 
 COPY public.offline_client_session (user_session_id, client_id, offline_flag, "timestamp", data, client_storage_provider, external_client_id, version, realm_id) FROM stdin;
-K1gefehWQJ4DOjlDLBeeEuvS	78d20a38-d3ed-4288-aadd-603f9573972d	0	1779735086	{"authMethod":"openid-connect","redirectUri":"http://localhost:8080/admin/master/console/#/master/realm-settings/themes","notes":{"clientId":"78d20a38-d3ed-4288-aadd-603f9573972d","iss":"http://localhost:8080/realms/master","startedAt":"1779735063","response_type":"code","level-of-authentication":"-1","code_challenge_method":"S256","nonce":"04067d85-4076-4a0f-8bc6-d8d1a052b8b8","response_mode":"query","scope":"openid","userSessionStartedAt":"1779735063","redirect_uri":"http://localhost:8080/admin/master/console/#/master/realm-settings/themes","state":"e3f61152-da5b-4458-8d05-df45e3e3b856","code_challenge":"RJBQrezwLX2ofBQOUrDrv5iApHIuFC7JxA21XDjElpo","SSO_AUTH":"true"}}	local	local	3	64844e83-205d-4ee5-b5f1-c772a9c661f8
+Qff2fK0iFTRl75MwMXtjQWlR	78d20a38-d3ed-4288-aadd-603f9573972d	0	1779904846	{"authMethod":"openid-connect","redirectUri":"http://localhost:8080/admin/master/console/","notes":{"clientId":"78d20a38-d3ed-4288-aadd-603f9573972d","iss":"http://localhost:8080/realms/master","startedAt":"1779904844","response_type":"code","level-of-authentication":"-1","code_challenge_method":"S256","nonce":"b5aa1bef-0e4d-4ca6-a028-759d12081967","response_mode":"query","scope":"openid","userSessionStartedAt":"1779904844","redirect_uri":"http://localhost:8080/admin/master/console/","state":"b01f521a-886d-4528-a125-161c4b2f9129","code_challenge":"A0iTsDGg5SAENDAB2jtyNiwdvMm9263NnuM8uIkK9OY"}}	local	local	1	64844e83-205d-4ee5-b5f1-c772a9c661f8
+vQ-6Ai1ePp73IAxisJGanRH7	78d20a38-d3ed-4288-aadd-603f9573972d	0	1779904680	{"authMethod":"openid-connect","redirectUri":"http://localhost:8080/admin/master/console/","notes":{"clientId":"78d20a38-d3ed-4288-aadd-603f9573972d","iss":"http://localhost:8080/realms/master","startedAt":"1779903074","response_type":"code","level-of-authentication":"-1","code_challenge_method":"S256","nonce":"bc423d24-168a-4981-8da3-d545e71d015c","response_mode":"query","scope":"openid","userSessionStartedAt":"1779903074","redirect_uri":"http://localhost:8080/admin/master/console/","state":"ffbb7201-001a-4ed7-b49b-a7d2c8fb0948","code_challenge":"k-0GPweoQgK3mqBDLQ7-9lcD_adgkhEwE03KY0MrIco","SSO_AUTH":"true"}}	local	local	3	64844e83-205d-4ee5-b5f1-c772a9c661f8
+P5MybDYqQj53ucQaoDv9m6bn	c83a6f34-e1d2-4c4e-a93a-7d8517d3cc97	0	1779904753	{"authMethod":"openid-connect","redirectUri":"http://localhost:3001/api/auth/callback/keycloak","notes":{"clientId":"c83a6f34-e1d2-4c4e-a93a-7d8517d3cc97","iss":"http://localhost:8080/realms/ERP-Docs","startedAt":"1779904020","response_type":"code","level-of-authentication":"-1","code_challenge_method":"S256","login_hint":"danibank367@gmail.com","scope":"openid email profile","userSessionStartedAt":"1779904020","redirect_uri":"http://localhost:3001/api/auth/callback/keycloak","state":"OTmHSbIQLwt4NhgbFdjfCK7-uvaINo5B1Rc_KxT4dT8","code_challenge":"t_Pzs6FGeseJwxUgbaYpdV7ijYzH4QMN7dpzX6IBCxk","SSO_AUTH":"true"}}	local	local	4	79297412-b299-4def-8f42-bd61d963bfcc
 \.
 
 
@@ -2752,7 +2755,9 @@ K1gefehWQJ4DOjlDLBeeEuvS	78d20a38-d3ed-4288-aadd-603f9573972d	0	1779735086	{"aut
 --
 
 COPY public.offline_user_session (user_session_id, user_id, realm_id, created_on, offline_flag, data, last_session_refresh, broker_session_id, version, remember_me) FROM stdin;
-K1gefehWQJ4DOjlDLBeeEuvS	66940bd6-e40f-4f51-92c7-a07f7651e845	64844e83-205d-4ee5-b5f1-c772a9c661f8	1779735063	0	{"ipAddress":"172.18.0.1","authMethod":"openid-connect","rememberMe":false,"started":0,"notes":{"KC_DEVICE_NOTE":"eyJpcEFkZHJlc3MiOiIxNzIuMTguMC4xIiwib3MiOiJMaW51eCIsIm9zVmVyc2lvbiI6IlVua25vd24iLCJicm93c2VyIjoiQ2hyb21lLzE0OC4wLjAiLCJkZXZpY2UiOiJPdGhlciIsImxhc3RBY2Nlc3MiOjAsIm1vYmlsZSI6ZmFsc2V9","AUTH_TIME":"1779735063","authenticators-completed":"{\\"1bd23afe-8cac-4860-8207-950d31301f90\\":1779735063,\\"669c84d6-7fa9-419e-9854-0c2a4f69d919\\":1779735085}"},"state":"LOGGED_IN"}	1779735086	\N	3	f
+vQ-6Ai1ePp73IAxisJGanRH7	66940bd6-e40f-4f51-92c7-a07f7651e845	64844e83-205d-4ee5-b5f1-c772a9c661f8	1779903074	0	{"ipAddress":"172.18.0.1","authMethod":"openid-connect","rememberMe":false,"started":0,"notes":{"KC_DEVICE_NOTE":"eyJpcEFkZHJlc3MiOiIxNzIuMTguMC4xIiwib3MiOiJMaW51eCIsIm9zVmVyc2lvbiI6IlVua25vd24iLCJicm93c2VyIjoiQ2hyb21lLzE0OC4wLjAiLCJkZXZpY2UiOiJPdGhlciIsImxhc3RBY2Nlc3MiOjAsIm1vYmlsZSI6ZmFsc2V9","AUTH_TIME":"1779903074","authenticators-completed":"{\\"1bd23afe-8cac-4860-8207-950d31301f90\\":1779903074,\\"669c84d6-7fa9-419e-9854-0c2a4f69d919\\":1779904679}"},"state":"LOGGED_IN"}	1779904680	\N	3	f
+P5MybDYqQj53ucQaoDv9m6bn	11480219-cfed-4bbd-b701-907db473bddb	79297412-b299-4def-8f42-bd61d963bfcc	1779904020	0	{"ipAddress":"172.18.0.1","authMethod":"openid-connect","rememberMe":false,"started":0,"notes":{"KC_DEVICE_NOTE":"eyJpcEFkZHJlc3MiOiIxNzIuMTguMC4xIiwib3MiOiJMaW51eCIsIm9zVmVyc2lvbiI6IlVua25vd24iLCJicm93c2VyIjoiQ2hyb21lLzE0OC4wLjAiLCJkZXZpY2UiOiJPdGhlciIsImxhc3RBY2Nlc3MiOjAsIm1vYmlsZSI6ZmFsc2V9","AUTH_TIME":"1779904020","authenticators-completed":"{\\"76367802-532b-41fe-b053-d1f177c4ed97\\":1779904753}"},"state":"LOGGED_IN"}	1779904753	\N	4	f
+Qff2fK0iFTRl75MwMXtjQWlR	66940bd6-e40f-4f51-92c7-a07f7651e845	64844e83-205d-4ee5-b5f1-c772a9c661f8	1779904844	0	{"ipAddress":"172.18.0.1","authMethod":"openid-connect","rememberMe":false,"started":0,"notes":{"KC_DEVICE_NOTE":"eyJpcEFkZHJlc3MiOiIxNzIuMTguMC4xIiwib3MiOiJMaW51eCIsIm9zVmVyc2lvbiI6IlVua25vd24iLCJicm93c2VyIjoiQ2hyb21lLzE0OC4wLjAiLCJkZXZpY2UiOiJPdGhlciIsImxhc3RBY2Nlc3MiOjAsIm1vYmlsZSI6ZmFsc2V9","AUTH_TIME":"1779904844","authenticators-completed":"{\\"1bd23afe-8cac-4860-8207-950d31301f90\\":1779904844}"},"state":"LOGGED_IN"}	1779904846	\N	1	f
 \.
 
 
@@ -3307,7 +3312,7 @@ e9395691-846c-44f5-b1f5-c465e18eedc4	String	jsonType.label
 --
 
 COPY public.realm (id, access_code_lifespan, user_action_lifespan, access_token_lifespan, account_theme, admin_theme, email_theme, enabled, events_enabled, events_expiration, login_theme, name, not_before, password_policy, registration_allowed, remember_me, reset_password_allowed, social, ssl_required, sso_idle_timeout, sso_max_lifespan, update_profile_on_soc_login, verify_email, master_admin_client, login_lifespan, internationalization_enabled, default_locale, reg_email_as_username, admin_events_enabled, admin_events_details_enabled, edit_username_allowed, otp_policy_counter, otp_policy_window, otp_policy_period, otp_policy_digits, otp_policy_alg, otp_policy_type, browser_flow, registration_flow, direct_grant_flow, reset_credentials_flow, client_auth_flow, offline_session_idle_timeout, revoke_refresh_token, access_token_life_implicit, login_with_email_allowed, duplicate_emails_allowed, docker_auth_flow, refresh_token_max_reuse, allow_user_managed_access, sso_max_lifespan_remember_me, sso_idle_timeout_remember_me, default_role) FROM stdin;
-79297412-b299-4def-8f42-bd61d963bfcc	60	300	300				t	f	0	iframe_Theme	ERP-Docs	0	\N	f	f	f	f	EXTERNAL	1800	36000	f	f	ca7d86ad-b054-407e-8555-e983242f27a4	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	eb7b4bfd-2066-42ff-a40d-010a2312d7aa	e243ec36-cd15-459a-964c-b78150cd29e0	fc8f640d-11d5-4d3b-86b3-eff8b08f5633	506f1e42-51da-4a63-8920-f42ed9ede67d	34abf6f3-63f3-4bfe-bfb4-e935984e2a71	2592000	f	900	t	f	108eb994-100d-4ecb-8c34-938aead25692	0	f	0	0	f084e403-d707-4a59-84b4-6ca6b024e4e2
+79297412-b299-4def-8f42-bd61d963bfcc	60	300	300				t	f	0	iframe_Theme	ERP-Docs	0	\N	t	f	f	f	EXTERNAL	1800	36000	f	f	ca7d86ad-b054-407e-8555-e983242f27a4	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	eb7b4bfd-2066-42ff-a40d-010a2312d7aa	e243ec36-cd15-459a-964c-b78150cd29e0	fc8f640d-11d5-4d3b-86b3-eff8b08f5633	506f1e42-51da-4a63-8920-f42ed9ede67d	34abf6f3-63f3-4bfe-bfb4-e935984e2a71	2592000	f	900	t	f	108eb994-100d-4ecb-8c34-938aead25692	0	f	0	0	f084e403-d707-4a59-84b4-6ca6b024e4e2
 64844e83-205d-4ee5-b5f1-c772a9c661f8	60	300	60				t	f	0		master	0	\N	t	f	f	f	EXTERNAL	1800	36000	f	f	3f22b2c3-f40d-43a4-8371-3ed918cea9c3	1800	f	\N	f	f	f	f	0	1	30	6	HmacSHA1	totp	1ecb1b3d-6183-4f96-88f3-980b59df363f	a9c05ddc-77a3-4550-bf6f-b714f572fb84	18ea931c-009b-426b-86bf-06e3455dfb3f	a224e319-ba24-4846-aafb-f8046c2641a7	37308016-27d7-4420-af7f-07ac858c623a	2592000	f	900	t	f	588388d0-48fa-4dbf-bdfb-da51eedbbceb	0	f	0	0	357d75aa-76ac-477f-a87d-be40056d7d5a
 \.
 
@@ -3465,8 +3470,8 @@ COPY public.realm_enabled_event_types (realm_id, value) FROM stdin;
 --
 
 COPY public.realm_events_listeners (realm_id, value) FROM stdin;
-79297412-b299-4def-8f42-bd61d963bfcc	jboss-logging
 64844e83-205d-4ee5-b5f1-c772a9c661f8	jboss-logging
+79297412-b299-4def-8f42-bd61d963bfcc	jboss-logging
 \.
 
 
@@ -3712,6 +3717,7 @@ COPY public.user_entity (id, email, email_constraint, email_verified, enabled, f
 66940bd6-e40f-4f51-92c7-a07f7651e845	\N	22fa6a86-a5b1-43a5-9f58-931a6add5de4	f	t	\N	\N	\N	64844e83-205d-4ee5-b5f1-c772a9c661f8	admin	1778090235000	\N	0	1778090235000
 ece1ab8c-ef1d-480a-bf3e-d215596c3a32	danielelpro19@gmail.com	danielelpro19@gmail.com	f	t	\N	daniel	perez	79297412-b299-4def-8f42-bd61d963bfcc	dperez	1778092751960	\N	0	1778092751960
 843c15c5-60cf-4a86-9851-fb331bb9e6c9	correoparaplatad@gmail.com	correoparaplatad@gmail.com	f	t	\N	Daniel	Alexander	79297412-b299-4def-8f42-bd61d963bfcc	danitsu	1778099327038	\N	0	1778099327038
+11480219-cfed-4bbd-b701-907db473bddb	danibank367@gmail.com	danibank367@gmail.com	f	t	\N	jose	mendoza	79297412-b299-4def-8f42-bd61d963bfcc	danibank367@gmail.com	1779904015124	\N	0	1779904015124
 \.
 
 
@@ -3824,6 +3830,7 @@ ba42e993-b497-46be-9d02-7bfb22bbe65a	ece1ab8c-ef1d-480a-bf3e-d215596c3a32
 9d494452-b03d-4a3d-b907-3e8da9641710	ece1ab8c-ef1d-480a-bf3e-d215596c3a32
 195b1b2a-fb84-4b4b-a143-0cdf2d3f280d	ece1ab8c-ef1d-480a-bf3e-d215596c3a32
 0c369ff5-569d-4fc1-a22f-98c4ccb939ee	ece1ab8c-ef1d-480a-bf3e-d215596c3a32
+f084e403-d707-4a59-84b4-6ca6b024e4e2	11480219-cfed-4bbd-b701-907db473bddb
 \.
 
 
@@ -6032,5 +6039,5 @@ ALTER TABLE ONLY public.identity_provider_config
 -- PostgreSQL database dump complete
 --
 
-\unrestrict KyAebAkZoUlCqG8iQi7leRH42UZiJSaheflVlppAPKgK8AkZ7Ub1t66nFCtwrIx
+\unrestrict VKHQWHSqIWi1vYaZIztFTt5Jf3Cx0CtRhn1Liw9unSL680NrEZ9fqpmNOYKv3ej
 
