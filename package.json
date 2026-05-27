@@ -52,10 +52,5 @@
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
     "vite": "^6.2.0"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "fumadocs-core@16.8.5": "patches/fumadocs-core.patch"
-    }
   }
 }

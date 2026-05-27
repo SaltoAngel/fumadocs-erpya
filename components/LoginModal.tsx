@@ -46,7 +46,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSucce
       
       {/* Contenedor Popover */}
       <div 
-        className="absolute top-[calc(100%+15px)] right-0 z-[1000] bg-[#0a0a0a] border border-[#e5e5e5] rounded-xl flex flex-col md:flex-row w-[750px] h-[400px] shadow-[0_30px_60px_rgba(0,0,0,0.8)] animate-in fade-in slide-in-from-top-4 duration-300" 
+        className="absolute top-[calc(100%+15px)] right-0 z-[1000] bg-[#0a0a0a] border border-[#e5e5e5] rounded-xl flex flex-col md:flex-row w-[750px] h-[550px] shadow-[0_30px_60px_rgba(0,0,0,0.8)] animate-in fade-in slide-in-from-top-4 duration-300" 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Triángulo superior (flecha) */}

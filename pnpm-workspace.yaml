@@ -1,2 +1,5 @@
+allowBuilds:
+  - esbuild
+  - sharp
 patchedDependencies:
   fumadocs-core: patches/fumadocs-core.patch

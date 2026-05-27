@@ -1,4 +1,4 @@
-FROM node:20-alpine AS base
+FROM node:22-alpine AS base
 
 # 1. Instalar dependencias solo cuando sea necesario
 FROM base AS deps
@@ -6,18 +6,18 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Instalar pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@10.33.0 --activate
 
 # Copiar archivos de dependencias, parches y configuración
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json pnpm-lock.yaml* .npmrc* ./
 COPY patches ./patches
 COPY source.config.ts ./
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # 2. Reconstruir el código fuente solo cuando sea necesario
 FROM base AS builder
 WORKDIR /app
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@10.33.0 --activate
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
