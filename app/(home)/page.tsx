@@ -604,9 +604,9 @@ export default async function HomePage() {
             {/* Social media links */}
             <div className="flex gap-2">
               {[
-                { icon: "instagram", href: "https://instagram.com" },
-                { icon: "x", href: "https://x.com" },
-                { icon: "github", href: "https://github.com/adempiere" }
+                { icon: "instagram", href: "https://www.instagram.com/erpcya" },
+                { icon: "x", href: "https://x.com/erpcya" },
+                { icon: "github", href: "https://github.com/erpcya" }
               ].map((soc, idx) => (
                 <a
                   key={idx}
