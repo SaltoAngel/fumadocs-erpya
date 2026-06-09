@@ -226,6 +226,5 @@ export function getPublicPaths(): string[] {
     }
   }
 
-  console.log("Rutas públicas detectadas:", publicPaths);
   return publicPaths;
 }
